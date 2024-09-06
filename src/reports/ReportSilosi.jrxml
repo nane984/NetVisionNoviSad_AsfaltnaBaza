@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ReportSilosi" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="9f69bbcb-4b04-49b9-b4e8-ec896cac5354">
+	<property name="ireport.zoom" value="1.4641000000000006"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="datum" class="java.lang.String"/>
+	<parameter name="filteri" class="java.lang.String"/>
+	<field name="Opis" class="java.lang.String"/>
+	<field name="Stanje" class="java.lang.Object"/>
+	<field name="Unos" class="java.lang.Object"/>
+	<field name="Jed." class="java.lang.String"/>
+	<field name="Datum" class="java.lang.String"/>
+	<field name="Vreme" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="24" splitType="Stretch">
+			<staticText>
+				<reportElement x="-210" y="-10" width="69" height="20" uuid="282f2d43-cc8e-4c30-bb5c-67002826383c"/>
+				<text><![CDATA[Radni nalog:]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="67" splitType="Stretch">
+			<staticText>
+				<reportElement x="13" y="20" width="36" height="20" uuid="62b84ed8-dc23-42fd-bf38-aca9979af4f7"/>
+				<text><![CDATA[Datum:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="-210" y="-10" width="69" height="20" uuid="f63c088a-6dff-4019-916b-d7a13f772304"/>
+				<text><![CDATA[Radni nalog:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="-210" y="-10" width="69" height="20" uuid="718f7476-0bf5-4306-8b69-8882aad97663"/>
+				<text><![CDATA[Radni nalog:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="59" y="20" width="212" height="20" uuid="86687b95-56c8-4e5e-9ec9-85f3cf9e98c5"/>
+				<textFieldExpression><![CDATA[$P{datum}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="13" y="40" width="499" height="20" uuid="8cc7f643-e565-466f-afc6-89b3e6bccce9"/>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{filteri}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="0" width="555" height="20" uuid="0bba5d0f-38d5-4c8a-84c8-a710027b0d2f"/>
+				<textElement textAlignment="Center">
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[Izvestaj o potrošnji po silosima]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="30" splitType="Stretch">
+			<line>
+				<reportElement x="0" y="20" width="555" height="1" uuid="5e162ebd-fc7c-4c3f-b7b4-a88e3dc03638"/>
+			</line>
+			<staticText>
+				<reportElement x="0" y="0" width="100" height="20" uuid="39963d44-1e7c-4270-ba18-83e3ed3e5e07"/>
+				<text><![CDATA[Opis]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="100" y="0" width="86" height="20" uuid="3b4a8ed0-5e30-4cf8-aa2f-4fd1e1a95766"/>
+				<text><![CDATA[Stanje]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="186" y="1" width="82" height="20" uuid="ec8bef3d-38f1-4c9b-bfa6-9a13c3c981ce"/>
+				<text><![CDATA[Unos]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="268" y="1" width="65" height="20" uuid="b9adbbb5-8434-4c6f-bea1-c1cf240c5596"/>
+				<text><![CDATA[Jed.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="333" y="1" width="79" height="20" uuid="0d9a757f-9583-45e6-9a1e-34466e441376"/>
+				<text><![CDATA[Datum]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="412" y="1" width="100" height="20" uuid="016e4700-64d4-4c49-b5ba-ed2a38b3bec1"/>
+				<text><![CDATA[Vreme]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="29" splitType="Stretch">
+			<line>
+				<reportElement x="0" y="19" width="555" height="1" forecolor="#CCCCCC" uuid="9663b738-7d2e-41b7-9450-6886c7715921"/>
+			</line>
+			<textField>
+				<reportElement x="0" y="0" width="100" height="20" uuid="f702d1fc-1263-42b5-9405-1eb860562ab8"/>
+				<textFieldExpression><![CDATA[$F{Opis}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="100" y="0" width="86" height="20" uuid="095c6f60-842b-4605-a179-01b8d577849f"/>
+				<textFieldExpression><![CDATA[""+$F{Stanje}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="186" y="0" width="82" height="20" uuid="6b1626c1-f9a8-43cd-801f-7b2280450eb4"/>
+				<textFieldExpression><![CDATA[""+$F{Unos}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="268" y="0" width="65" height="20" uuid="4e0416d0-ed20-4583-a5e4-a74e5e689fbe"/>
+				<textFieldExpression><![CDATA[$F{Jed.}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="333" y="0" width="79" height="20" uuid="4d2b396b-481d-4410-86d9-b45b22c58e92"/>
+				<textFieldExpression><![CDATA[$F{Datum}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="412" y="0" width="100" height="20" uuid="3fcef850-86b4-4a06-be3d-9e965aef2966"/>
+				<textFieldExpression><![CDATA[$F{Vreme}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch">
+			<textField>
+				<reportElement x="427" y="11" width="80" height="20" uuid="08ed0187-b8e9-4897-a3e1-c456d12aa883"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[" "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="507" y="11" width="40" height="20" uuid="e760d0c0-b138-435f-8149-d3a8154eabf9"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

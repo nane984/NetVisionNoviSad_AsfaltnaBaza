@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="9f69bbcb-4b04-49b9-b4e8-ec896cac5354">
+	<property name="ireport.zoom" value="1.4641000000000006"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="datum" class="java.lang.String"/>
+	<parameter name="filteri" class="java.lang.String"/>
+	<field name="kolicina" class="java.lang.Object"/>
+	<field name="vozac" class="java.lang.Object"/>
+	<field name="br" class="java.lang.Object"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="38" splitType="Stretch">
+			<staticText>
+				<reportElement x="-210" y="-10" width="69" height="20" uuid="282f2d43-cc8e-4c30-bb5c-67002826383c"/>
+				<text><![CDATA[Radni nalog:]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="74" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="31" width="36" height="20" uuid="62b84ed8-dc23-42fd-bf38-aca9979af4f7"/>
+				<text><![CDATA[Datum:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="-210" y="-10" width="69" height="20" uuid="f63c088a-6dff-4019-916b-d7a13f772304"/>
+				<text><![CDATA[Radni nalog:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="-210" y="-10" width="69" height="20" uuid="718f7476-0bf5-4306-8b69-8882aad97663"/>
+				<text><![CDATA[Radni nalog:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="0" width="555" height="20" uuid="0bba5d0f-38d5-4c8a-84c8-a710027b0d2f"/>
+				<textElement textAlignment="Center">
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[Izvestaj o transportu po vozacima]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="0" y="51" width="555" height="20" uuid="afe259c0-9e61-43ca-93b8-66b6475b14b4"/>
+				<textFieldExpression><![CDATA[$P{filteri}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="36" y="31" width="129" height="20" uuid="63ae0264-da38-44dd-9a28-bac0004d5c06"/>
+				<textFieldExpression><![CDATA[$P{datum}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="30" splitType="Stretch">
+			<line>
+				<reportElement x="0" y="20" width="555" height="1" uuid="5e162ebd-fc7c-4c3f-b7b4-a88e3dc03638"/>
+			</line>
+			<staticText>
+				<reportElement x="104" y="1" width="224" height="20" uuid="bb036d09-8881-46a8-8de7-5b431e417e99"/>
+				<text><![CDATA[vozac]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="328" y="1" width="100" height="20" uuid="d8c15780-c45d-470d-92fc-1c6d204c716e"/>
+				<text><![CDATA[kolicina]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="4" y="1" width="100" height="20" uuid="63ee2406-1c76-4fec-93be-986db6e71201"/>
+				<text><![CDATA[br]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="29" splitType="Stretch">
+			<line>
+				<reportElement x="0" y="21" width="555" height="1" forecolor="#CCCCCC" uuid="9663b738-7d2e-41b7-9450-6886c7715921"/>
+			</line>
+			<textField>
+				<reportElement x="104" y="0" width="224" height="20" uuid="f253c417-bab5-4b63-ad94-918908f5bc7c"/>
+				<textFieldExpression><![CDATA[""+$F{vozac}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="328" y="0" width="100" height="20" uuid="e95f2a07-b62e-49b2-a01c-8903f6dae794"/>
+				<textFieldExpression><![CDATA[""+$F{kolicina}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="0" width="100" height="20" uuid="63375c5b-d3e7-470a-85af-01832ba6dc87"/>
+				<textFieldExpression><![CDATA[""+$F{br}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch">
+			<textField>
+				<reportElement x="428" y="10" width="80" height="20" uuid="10fe67fa-fe81-476a-84e1-1fc4ac6a99e9"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[" "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="508" y="10" width="40" height="20" uuid="8942bbf4-65b5-4460-b3ee-48105cf51ebf"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

@@ -1,0 +1,7 @@
+Display 1 = Slika 1 i Slika 2
+
+
+Display 2 = Slika 3 i Slika 4
+
+Tehnoloski raspored
+ sl 3 -> sl 4 -> sl 1 -> sl2

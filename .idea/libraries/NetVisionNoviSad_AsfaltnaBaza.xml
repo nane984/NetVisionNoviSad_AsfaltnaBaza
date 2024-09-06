@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="NetVisionNoviSad_AsfaltnaBaza">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/dist/NetVisionNoviSad_AsfaltnaBaza.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

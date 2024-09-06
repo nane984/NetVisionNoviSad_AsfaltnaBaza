@@ -1,0 +1,157 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package pogon.part;
+
+import constatnt.Image;
+import pogon.osnova.Digitalac;
+import pogon.osnova2.AnalognaZadataIzdata;
+import pogon.osnova2.TezineDvaRegistra;
+import pogon.osnova2.Taster;
+import pogon.osnova2.TasterSaPokazivacemPolozaja;
+import pogon.osnova2.TasterSaRadomIGreskom;
+import pogon.osnova2.VagaNivo;
+import utils.MutantToDec;
+
+/**
+ *
+ * @author Branko
+ */
+public class Filer {
+    private final TasterSaRadomIGreskom PuzKupovniFiler;
+    private final TasterSaRadomIGreskom PuzSopstveniFiler;
+    private final TasterSaPokazivacemPolozaja KlapnaKupovniFiler;
+    private final TasterSaPokazivacemPolozaja KlapnaSopstveniFiler;
+    private final TasterSaPokazivacemPolozaja KlapnaIspodVageFilera;
+    private final Taster PuzIspodVageFilera;
+    private final VagaNivo VagaFilera;
+    private final Digitalac VagaFileraTariraj;
+    private final VagaNivo TempNaUlazuFilter;
+    private final VagaNivo TempUilteru;
+    private final VagaNivo NivoUKupovnomFileru;
+    private final VagaNivo NivoUSopstvenomFileru;
+    private final AnalognaZadataIzdata kupovni;
+    private final AnalognaZadataIzdata sopstveni;
+    private final TezineDvaRegistra silosKupovniFiler;
+    
+    private final Image image;
+
+    public Filer() {
+        this.image = new Image();
+        
+        this.PuzKupovniFiler = new TasterSaRadomIGreskom( 
+               MutantToDec.getValue("42"), 
+               MutantToDec.getValue("37"), 
+               MutantToDec.getValue("36"),
+               "Kupovni filer",
+               image.getPuznePumpe());
+        this.PuzSopstveniFiler = new TasterSaRadomIGreskom( 
+               MutantToDec.getValue("43"), 
+               MutantToDec.getValue("39"), 
+               MutantToDec.getValue("38"),
+               "Sopstveni filer",
+               image.getPuznePumpe());
+        this.KlapnaKupovniFiler = new TasterSaPokazivacemPolozaja(
+                MutantToDec.getValue("315"), 
+                MutantToDec.getValue("10E"),
+                MutantToDec.getValue("10E"),
+                "Klapna kupovni filer",
+                image.getKlapne());
+        this.KlapnaSopstveniFiler = new TasterSaPokazivacemPolozaja(
+                MutantToDec.getValue("316"), 
+                MutantToDec.getValue("10F"),
+                MutantToDec.getValue("10F"),
+                "Klapna sopstveni filer",
+                image.getKlapne());
+        this.KlapnaIspodVageFilera = new TasterSaPokazivacemPolozaja(
+                MutantToDec.getValue("314"), 
+                MutantToDec.getValue("10C"),
+                MutantToDec.getValue("10C"),
+                "Klapna ispod vage filer",
+                image.getKlapne());
+        this.PuzIspodVageFilera = new Taster(
+               MutantToDec.getValue("41"),
+               "Ispod vage filera",
+               image.getPuznePumpe()
+        );
+        this.VagaFilera = new VagaNivo(225, 0, 0, 32768, "Vaga filera");
+        this.TempNaUlazuFilter = new VagaNivo(92, 0, 0, 32768, "Temperatura na ulazu u filter");
+        this.TempUilteru = new VagaNivo(96, 0, 0, 32768, "Temperatura u filteru");
+        this.NivoUKupovnomFileru = new VagaNivo(127, 0, 0, 100, "Nivo u kupovnom fileru");
+        this.NivoUSopstvenomFileru = new VagaNivo(128, 0, 0, 100, "Nivo u sopstvenom fileru");
+        
+        this.kupovni = new AnalognaZadataIzdata(207, 219, 0 , "Kupovni filer");
+        this.sopstveni = new AnalognaZadataIzdata(208, 220, 0 , "Sopstveni filer");
+        this.silosKupovniFiler = new TezineDvaRegistra(332, 333, 2147483647, 0, "Silos kupovni filer");
+        
+        this.VagaFileraTariraj = new Digitalac(MutantToDec.getValue("1006"));
+    }
+
+    public TasterSaRadomIGreskom getPuzKupovniFiler() {
+        return PuzKupovniFiler;
+    }
+
+    public TasterSaRadomIGreskom getPuzSopstveniFiler() {
+        return PuzSopstveniFiler;
+    }
+
+    public TasterSaPokazivacemPolozaja getKlapnaKupovniFiler() {
+        return KlapnaKupovniFiler;
+    }
+
+    public TasterSaPokazivacemPolozaja getKlapnaSopstveniFiler() {
+        return KlapnaSopstveniFiler;
+    }
+
+    public TasterSaPokazivacemPolozaja getKlapnaIspodVageFilera() {
+        return KlapnaIspodVageFilera;
+    }
+
+    public Taster getPuzIspodVageFilera() {
+        return PuzIspodVageFilera;
+    }
+
+    public Image getImage() {
+        return image;
+    }
+
+    public VagaNivo getVagaFilera() {
+        return VagaFilera;
+    }
+
+    public VagaNivo getTempNaUlazuFilter() {
+        return TempNaUlazuFilter;
+    }
+
+    public VagaNivo getTempUilteru() {
+        return TempUilteru;
+    }
+
+    public VagaNivo getNivoUKupovnomFileru() {
+        return NivoUKupovnomFileru;
+    }
+
+    public VagaNivo getNivoUSopstvenomFileru() {
+        return NivoUSopstvenomFileru;
+    }
+
+    public AnalognaZadataIzdata getKupovni() {
+        return kupovni;
+    }
+
+    public AnalognaZadataIzdata getSopstveni() {
+        return sopstveni;
+    }
+
+    public TezineDvaRegistra getSilosKupovniFiler() {
+        return silosKupovniFiler;
+    }
+
+    public Digitalac getVagaFileraTariraj() {
+        return VagaFileraTariraj;
+    }
+    
+    
+}
