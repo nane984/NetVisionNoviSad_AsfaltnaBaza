@@ -11,7 +11,7 @@ import pogon.osnova.Digitalac;
 import pogon.osnova2.AnalognaZadataIzdata;
 import pogon.osnova2.Prekidac;
 import pogon.osnova2.Taster;
-import pogon.osnova2.VagaNivo;
+import pogon.osnova2.AnalognaMinMaxOpis;
 import utils.MutantToDec;
 
 /**
@@ -27,15 +27,15 @@ public class Agregat {
      private final Prekidac dozator6;
      private final Prekidac dozator7;
      private final Taster klapnaVagaFrakcije;
-     private final VagaNivo VagaFrakcije;
+     private final AnalognaMinMaxOpis VagaFrakcije;
      private final Digitalac VagaFrakcijeTariraj;
-     private final VagaNivo NivoSilos1;
-     private final VagaNivo NivoSilos2;
-     private final VagaNivo NivoSilos3;
-     private final VagaNivo NivoSilos4;
-     private final VagaNivo NivoSilos5;
-     private final VagaNivo NivoSilos6;
-     private final VagaNivo NivoSilos7;
+     private final AnalognaMinMaxOpis NivoSilos1;
+     private final AnalognaMinMaxOpis NivoSilos2;
+     private final AnalognaMinMaxOpis NivoSilos3;
+     private final AnalognaMinMaxOpis NivoSilos4;
+     private final AnalognaMinMaxOpis NivoSilos5;
+     private final AnalognaMinMaxOpis NivoSilos6;
+     private final AnalognaMinMaxOpis NivoSilos7;
      
      private final Analogna temperaturaFrakcija1;
      private final Analogna temperaturaFrakcija2;
@@ -62,15 +62,15 @@ public class Agregat {
         this.dozator6 = new Prekidac(MutantToDec.getValue("304"), MutantToDec.getValue("303"), "Agregat 6", image.getKlapne());
         this.dozator7 = new Prekidac(MutantToDec.getValue("29B"), MutantToDec.getValue("29A"), "Agregat 7", image.getKlapne());
         this.klapnaVagaFrakcije = new Taster(MutantToDec.getValue("300"), "Klapna vage filera", image.getKlapne());
-        this.VagaFrakcije = new VagaNivo(224, 0, 0, 1500, "Vaga frakcije");
+        this.VagaFrakcije = new AnalognaMinMaxOpis(224, 0, 0, 1500, "Vaga frakcije");
         this.VagaFrakcijeTariraj = new Digitalac(MutantToDec.getValue("1005"));
-        this.NivoSilos1 = new VagaNivo(101, 0, 0, 100, "Nivo Silos 1");
-        this.NivoSilos2 = new VagaNivo(102, 0, 0, 100, "Nivo Silos 2");
-        this.NivoSilos3 = new VagaNivo(103, 0, 0, 100, "Nivo Silos 3");
-        this.NivoSilos4 = new VagaNivo(104, 0, 0, 100, "Nivo Silos 4");
-        this.NivoSilos5 = new VagaNivo(105, 0, 0, 100, "Nivo Silos 5");
-        this.NivoSilos6 = new VagaNivo(106, 0, 0, 100, "Nivo Silos 6");
-        this.NivoSilos7 = new VagaNivo(106, 0, 0, 100, "Nivo Silos 7");
+        this.NivoSilos1 = new AnalognaMinMaxOpis(101, 0, 0, 100, "Nivo Silos 1");
+        this.NivoSilos2 = new AnalognaMinMaxOpis(102, 0, 0, 100, "Nivo Silos 2");
+        this.NivoSilos3 = new AnalognaMinMaxOpis(103, 0, 0, 100, "Nivo Silos 3");
+        this.NivoSilos4 = new AnalognaMinMaxOpis(104, 0, 0, 100, "Nivo Silos 4");
+        this.NivoSilos5 = new AnalognaMinMaxOpis(105, 0, 0, 100, "Nivo Silos 5");
+        this.NivoSilos6 = new AnalognaMinMaxOpis(106, 0, 0, 100, "Nivo Silos 6");
+        this.NivoSilos7 = new AnalognaMinMaxOpis(106, 0, 0, 100, "Nivo Silos 7");
         
         this.doz1 = new AnalognaZadataIzdata(200, 212, 0 , "0-32");
         this.doz2 = new AnalognaZadataIzdata(201, 213, 0 , "0-4");
@@ -120,31 +120,31 @@ public class Agregat {
         return klapnaVagaFrakcije;
     }
 
-    public VagaNivo getVagaFrakcije() {
+    public AnalognaMinMaxOpis getVagaFrakcije() {
         return VagaFrakcije;
     }
 
-    public VagaNivo getNivoSilos2() {
+    public AnalognaMinMaxOpis getNivoSilos2() {
         return NivoSilos2;
     }
 
-    public VagaNivo getNivoSilos3() {
+    public AnalognaMinMaxOpis getNivoSilos3() {
         return NivoSilos3;
     }
 
-    public VagaNivo getNivoSilos4() {
+    public AnalognaMinMaxOpis getNivoSilos4() {
         return NivoSilos4;
     }
 
-    public VagaNivo getNivoSilos5() {
+    public AnalognaMinMaxOpis getNivoSilos5() {
         return NivoSilos5;
     }
 
-    public VagaNivo getNivoSilos6() {
+    public AnalognaMinMaxOpis getNivoSilos6() {
         return NivoSilos6;
     }
 
-    public VagaNivo getNivoSilos7() {
+    public AnalognaMinMaxOpis getNivoSilos7() {
         return NivoSilos7;
     }
 
@@ -176,7 +176,7 @@ public class Agregat {
         return doz7;
     }
 
-    public VagaNivo getNivoSilos1() {
+    public AnalognaMinMaxOpis getNivoSilos1() {
         return NivoSilos1;
     }
 

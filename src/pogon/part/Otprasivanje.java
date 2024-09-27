@@ -6,6 +6,7 @@
 package pogon.part;
 
 import constatnt.Image;
+import pogon.osnova.Digitalac;
 import pogon.osnova2.Preddozator;
 import pogon.osnova2.FrekfrentniUprosceno;
 import pogon.osnova2.PrekidacSaIndikaciomGreske;
@@ -32,11 +33,16 @@ public class Otprasivanje {
     private final Taster VibroSito;
     private final Taster VruciElevator;
     private final Taster PuzGrubePrasine1;
+    private final Digitalac PuzGrubePrasine1Bimetal;
     private final Taster PuzGrubePrasine2;
+    private final Digitalac PuzGrubePrasine2Bimetal;
     private final Taster PuzGrubePrasine3;
+    private final Digitalac PuzGrubePrasine3Bimetal;
     private final TasterSaRadomIGreskom PuzIspodFilera;
     private final Taster PuzSopstvenogFilera1;
+    private final Digitalac PuzSopstvenogFilera1Bimetal;
     private final Taster PuzSopstvenogFilera2;
+    private final Digitalac PuzSopstvenogFilera2Bimetal;
     private final TasterSaRadomIGreskom ElevatorSopstvenogFilera;
     private boolean OtsisniVentilator;
     private final FrekfrentniUprosceno OtsisniVentilatorF;
@@ -136,15 +142,24 @@ public class Otprasivanje {
                "Gruba prasina 1",
                image.getPuznePumpe()
         );
+        this.PuzGrubePrasine1Bimetal = new Digitalac(
+               MutantToDec.getValue("199")
+        );
         this.PuzGrubePrasine2 = new Taster(
                MutantToDec.getValue("221"),
                "Gruba prasina 2",
                image.getPuznePumpe()
         );
+        this.PuzGrubePrasine2Bimetal = new Digitalac(
+               MutantToDec.getValue("19B")
+        );
         this.PuzGrubePrasine3 = new Taster(
                MutantToDec.getValue("222"),
                "Gruba prasina 3",
                image.getPuznePumpe()
+        );
+        this.PuzGrubePrasine3Bimetal = new Digitalac(
+               MutantToDec.getValue("19D")
         );
         this.PuzIspodFilera = new TasterSaRadomIGreskom( 
                MutantToDec.getValue("124"), 
@@ -158,10 +173,16 @@ public class Otprasivanje {
                "Sopstveni filer 1",
                image.getPuznePumpe()
         );
+        this.PuzSopstvenogFilera1Bimetal = new Digitalac(
+               MutantToDec.getValue("195")
+        );        
         this.PuzSopstvenogFilera2 = new Taster(
                MutantToDec.getValue("21F"),
                "Sopstveni filer 2",
                image.getPuznePumpe()
+        );
+        this.PuzSopstvenogFilera2Bimetal = new Digitalac(
+               MutantToDec.getValue("197")
         );
         this.ElevatorSopstvenogFilera = new TasterSaRadomIGreskom( 
                MutantToDec.getValue("31D"), 
@@ -312,6 +333,26 @@ public class Otprasivanje {
 
     public Taster getKlapna3() {
         return klapna3;
+    }
+
+    public Digitalac getPuzSopstvenogFilera1Bimetal() {
+        return PuzSopstvenogFilera1Bimetal;
+    }
+
+    public Digitalac getPuzSopstvenogFilera2Bimetal() {
+        return PuzSopstvenogFilera2Bimetal;
+    }
+
+    public Digitalac getPuzGrubePrasine1Bimetal() {
+        return PuzGrubePrasine1Bimetal;
+    }
+
+    public Digitalac getPuzGrubePrasine2Bimetal() {
+        return PuzGrubePrasine2Bimetal;
+    }
+
+    public Digitalac getPuzGrubePrasine3Bimetal() {
+        return PuzGrubePrasine3Bimetal;
     }
     
     

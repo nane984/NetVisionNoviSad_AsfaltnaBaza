@@ -11,13 +11,13 @@ import pogon.osnova.Analogna;
  *
  * @author Branko
  */
-public class VagaNivo {
+public class AnalognaMinMaxOpis {
     private final Analogna vrednost;
     private final int Min;
     private final int Max;
     private final String Opis;
     
-    public VagaNivo(int adresa, int brDec, int min, int max, String opis){
+    public AnalognaMinMaxOpis(int adresa, int brDec, int min, int max, String opis){
         this.vrednost = new Analogna(adresa, brDec);
         this.Min = min;
         this.Max = max;

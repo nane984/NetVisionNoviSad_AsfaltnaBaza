@@ -12,7 +12,7 @@ import pogon.osnova2.TezineDvaRegistra;
 import pogon.osnova2.Taster;
 import pogon.osnova2.TasterSaPokazivacemPolozaja;
 import pogon.osnova2.TasterSaRadomIGreskom;
-import pogon.osnova2.VagaNivo;
+import pogon.osnova2.AnalognaMinMaxOpis;
 import utils.MutantToDec;
 
 /**
@@ -26,12 +26,12 @@ public class Filer {
     private final TasterSaPokazivacemPolozaja KlapnaSopstveniFiler;
     private final TasterSaPokazivacemPolozaja KlapnaIspodVageFilera;
     private final Taster PuzIspodVageFilera;
-    private final VagaNivo VagaFilera;
+    private final AnalognaMinMaxOpis VagaFilera;
     private final Digitalac VagaFileraTariraj;
-    private final VagaNivo TempNaUlazuFilter;
-    private final VagaNivo TempUilteru;
-    private final VagaNivo NivoUKupovnomFileru;
-    private final VagaNivo NivoUSopstvenomFileru;
+    private final AnalognaMinMaxOpis TempNaUlazuFilter;
+    private final AnalognaMinMaxOpis TempUilteru;
+    private final AnalognaMinMaxOpis NivoUKupovnomFileru;
+    private final AnalognaMinMaxOpis NivoUSopstvenomFileru;
     private final AnalognaZadataIzdata kupovni;
     private final AnalognaZadataIzdata sopstveni;
     private final TezineDvaRegistra silosKupovniFiler;
@@ -76,11 +76,11 @@ public class Filer {
                "Ispod vage filera",
                image.getPuznePumpe()
         );
-        this.VagaFilera = new VagaNivo(225, 0, 0, 32768, "Vaga filera");
-        this.TempNaUlazuFilter = new VagaNivo(92, 0, 0, 32768, "Temperatura na ulazu u filter");
-        this.TempUilteru = new VagaNivo(96, 0, 0, 32768, "Temperatura u filteru");
-        this.NivoUKupovnomFileru = new VagaNivo(127, 0, 0, 100, "Nivo u kupovnom fileru");
-        this.NivoUSopstvenomFileru = new VagaNivo(128, 0, 0, 100, "Nivo u sopstvenom fileru");
+        this.VagaFilera = new AnalognaMinMaxOpis(225, 0, 0, 32768, "Vaga filera");
+        this.TempNaUlazuFilter = new AnalognaMinMaxOpis(92, 0, 0, 32768, "Temperatura na ulazu u filter");
+        this.TempUilteru = new AnalognaMinMaxOpis(96, 0, 0, 32768, "Temperatura u filteru");
+        this.NivoUKupovnomFileru = new AnalognaMinMaxOpis(127, 0, 0, 100, "Nivo u kupovnom fileru");
+        this.NivoUSopstvenomFileru = new AnalognaMinMaxOpis(128, 0, 0, 100, "Nivo u sopstvenom fileru");
         
         this.kupovni = new AnalognaZadataIzdata(207, 219, 0 , "Kupovni filer");
         this.sopstveni = new AnalognaZadataIzdata(208, 220, 0 , "Sopstveni filer");
@@ -117,23 +117,23 @@ public class Filer {
         return image;
     }
 
-    public VagaNivo getVagaFilera() {
+    public AnalognaMinMaxOpis getVagaFilera() {
         return VagaFilera;
     }
 
-    public VagaNivo getTempNaUlazuFilter() {
+    public AnalognaMinMaxOpis getTempNaUlazuFilter() {
         return TempNaUlazuFilter;
     }
 
-    public VagaNivo getTempUilteru() {
+    public AnalognaMinMaxOpis getTempUilteru() {
         return TempUilteru;
     }
 
-    public VagaNivo getNivoUKupovnomFileru() {
+    public AnalognaMinMaxOpis getNivoUKupovnomFileru() {
         return NivoUKupovnomFileru;
     }
 
-    public VagaNivo getNivoUSopstvenomFileru() {
+    public AnalognaMinMaxOpis getNivoUSopstvenomFileru() {
         return NivoUSopstvenomFileru;
     }
 

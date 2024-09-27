@@ -10,7 +10,7 @@ import pogon.osnova.Analogna;
 import pogon.osnova.Digitalac;
 import pogon.osnova2.Taster;
 import pogon.osnova2.TasterSaRadomIGreskom;
-import pogon.osnova2.VagaNivo;
+import pogon.osnova2.AnalognaMinMaxOpis;
 import utils.MutantToDec;
 
 /**
@@ -25,8 +25,8 @@ public class Susara {
     private final Taster GorionikSusareSnagaMinus;
     private final Taster ResetGreska;
     private final Digitalac GreskaGorionik;
-    private final VagaNivo PritisakUSusari;
-    private final VagaNivo TempIzaSusare;
+    private final AnalognaMinMaxOpis PritisakUSusari;
+    private final AnalognaMinMaxOpis TempIzaSusare;
     private final Analogna TempIzaSusare2;
     private final Analogna snagaGorionika;
     
@@ -71,8 +71,8 @@ public class Susara {
                image.getGorionik()
         );
         this.GreskaGorionik = new Digitalac(MutantToDec.getValue("205"));
-        this.PritisakUSusari = new VagaNivo(144, 1, 0, 32768, "Potpritisak u susari");
-        this.TempIzaSusare = new VagaNivo(135, 0, 0, 32768, "Temperatura iza susare");
+        this.PritisakUSusari = new AnalognaMinMaxOpis(144, 1, 0, 32768, "Potpritisak u susari");
+        this.TempIzaSusare = new AnalognaMinMaxOpis(135, 0, 0, 32768, "Temperatura iza susare");
         
         this.snagaGorionika = new Analogna(329,0);
         this.TempIzaSusare2 = new Analogna(341, 0);
@@ -102,11 +102,11 @@ public class Susara {
         return image;
     }
 
-    public VagaNivo getPritisakUSusari() {
+    public AnalognaMinMaxOpis getPritisakUSusari() {
         return PritisakUSusari;
     }
 
-    public VagaNivo getTempIzaSusare() {
+    public AnalognaMinMaxOpis getTempIzaSusare() {
         return TempIzaSusare;
     }
 

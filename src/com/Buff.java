@@ -446,6 +446,9 @@ public class Buff implements Runnable{
         pogon.getOtprasivanje().getPuzGrubePrasine1().getKomanda().setVrednost(resultDigitalMemory[352]);
         pogon.getOtprasivanje().getPuzGrubePrasine2().getKomanda().setVrednost(resultDigitalMemory[353]);
         pogon.getOtprasivanje().getPuzGrubePrasine3().getKomanda().setVrednost(resultDigitalMemory[354]);
+        pogon.getOtprasivanje().getPuzGrubePrasine1Bimetal().setVrednost(resultDigitalMemory[313]);
+        pogon.getOtprasivanje().getPuzGrubePrasine2Bimetal().setVrednost(resultDigitalMemory[315]);
+        pogon.getOtprasivanje().getPuzGrubePrasine3Bimetal().setVrednost(resultDigitalMemory[317]);
         
         pogon.getOtprasivanje().getPuzIspodFilera().getKomanda().setVrednost(resultDigitalMemory[196]);
         pogon.getOtprasivanje().getPuzIspodFilera().getPotvrdaRada().setVrednost(resultDigitalMemory[176]);
@@ -453,6 +456,8 @@ public class Buff implements Runnable{
         
         pogon.getOtprasivanje().getPuzSopstvenogFilera1().getKomanda().setVrednost(resultDigitalMemory[350]);
         pogon.getOtprasivanje().getPuzSopstvenogFilera2().getKomanda().setVrednost(resultDigitalMemory[351]);
+        pogon.getOtprasivanje().getPuzSopstvenogFilera1Bimetal().setVrednost(resultDigitalMemory[309]);
+        pogon.getOtprasivanje().getPuzSopstvenogFilera2Bimetal().setVrednost(resultDigitalMemory[311]);
         
         pogon.getOtprasivanje().getElevatorSopstvenogFilera().getKomanda().setVrednost(resultDigitalMemory[509]);
         

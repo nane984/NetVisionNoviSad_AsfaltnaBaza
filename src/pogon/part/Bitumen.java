@@ -13,7 +13,7 @@ import pogon.osnova2.TezineDvaRegistra;
 import pogon.osnova2.Prekidac;
 import pogon.osnova2.Taster;
 import pogon.osnova2.TasterSaPokazivacemPolozaja;
-import pogon.osnova2.VagaNivo;
+import pogon.osnova2.AnalognaMinMaxOpis;
 import utils.MutantToDec;
 
 /**
@@ -29,7 +29,7 @@ public class Bitumen {
     private final TasterSaPokazivacemPolozaja VentilPraznjenjeCB3;
     private final Taster KlapnaBitumena;
     private final TasterSaPokazivacemPolozaja KlapnaIspodVageBitumena;
-    private final VagaNivo VagaBitumen;
+    private final AnalognaMinMaxOpis VagaBitumen;
     private final Digitalac VagaBitumenTariraj;
     private final Prekidac PumpaBitumena;
     private final AnalognaZadataIzdata kolicine;
@@ -41,9 +41,9 @@ public class Bitumen {
     private final TezineDvaRegistra silosBitumen1;
     private final TezineDvaRegistra silosBitumen2;
     private final TezineDvaRegistra silosBitumen3;
-    private final VagaNivo nivoSilosBitumen1;
-    private final VagaNivo nivoSilosBitumen2;
-    private final VagaNivo nivoSilosBitumen3;
+    private final AnalognaMinMaxOpis nivoSilosBitumen1;
+    private final AnalognaMinMaxOpis nivoSilosBitumen2;
+    private final AnalognaMinMaxOpis nivoSilosBitumen3;
     
     private final Image image;
     
@@ -111,7 +111,7 @@ public class Bitumen {
                 "Klapna ispod vage bitumena",
                 image.getKlapne()
         );
-        this.VagaBitumen = new VagaNivo(226, 0, 0, 32768, "Vaga bitumen");
+        this.VagaBitumen = new AnalognaMinMaxOpis(226, 0, 0, 32768, "Vaga bitumen");
         this.PumpaBitumena = new Prekidac(MutantToDec.getValue("322"), MutantToDec.getValue("323"), "Pumpa bitumen", image.getPumpeLD());
         this.kolicine = new AnalognaZadataIzdata(209, 221, 0 , "Bitumen");
         this.tempB1 = new Analogna(93, 0);
@@ -125,9 +125,9 @@ public class Bitumen {
         this.silosBitumen2 = new TezineDvaRegistra(336, 337, 2147483647, 0, "Silos bitumen br. 2");
         this.silosBitumen3 = new TezineDvaRegistra(338, 339, 2147483647, 0, "Silos bitumen br. 3");
         
-        this.nivoSilosBitumen1 = new VagaNivo(146, 0, 0, 100, "Nivo u silosu 1");
-        this.nivoSilosBitumen2 = new VagaNivo(147, 0, 0, 100, "Nivo u silosu 1");
-        this.nivoSilosBitumen3 = new VagaNivo(148, 0, 0, 100, "Nivo u silosu 1");
+        this.nivoSilosBitumen1 = new AnalognaMinMaxOpis(146, 0, 0, 100, "Nivo u silosu 1");
+        this.nivoSilosBitumen2 = new AnalognaMinMaxOpis(147, 0, 0, 100, "Nivo u silosu 1");
+        this.nivoSilosBitumen3 = new AnalognaMinMaxOpis(148, 0, 0, 100, "Nivo u silosu 1");
         
         this.VagaBitumenTariraj = new Digitalac(MutantToDec.getValue("1007"));
     }
@@ -168,7 +168,7 @@ public class Bitumen {
         return KlapnaIspodVageBitumena;
     }
 
-    public VagaNivo getVagaBitumen() {
+    public AnalognaMinMaxOpis getVagaBitumen() {
         return VagaBitumen;
     }
 
@@ -212,15 +212,15 @@ public class Bitumen {
         return tempBitumen;
     }
 
-    public VagaNivo getNivoSilosBitumen1() {
+    public AnalognaMinMaxOpis getNivoSilosBitumen1() {
         return nivoSilosBitumen1;
     }
 
-    public VagaNivo getNivoSilosBitumen2() {
+    public AnalognaMinMaxOpis getNivoSilosBitumen2() {
         return nivoSilosBitumen2;
     }
 
-    public VagaNivo getNivoSilosBitumen3() {
+    public AnalognaMinMaxOpis getNivoSilosBitumen3() {
         return nivoSilosBitumen3;
     }
 

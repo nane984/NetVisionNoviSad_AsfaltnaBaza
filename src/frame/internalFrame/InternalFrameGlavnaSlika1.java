@@ -344,6 +344,8 @@ public class InternalFrameGlavnaSlika1 extends javax.swing.JInternalFrame {
         TotalStopDoz9 = new javax.swing.JLabel();
         TotalStopDoz10 = new javax.swing.JLabel();
         TotalStopDoz11 = new javax.swing.JLabel();
+        DOPuzSopstvenogFilera1Bimetal = new javax.swing.JLabel();
+        DOPuzSopstvenogFilera2Bimetal = new javax.swing.JLabel();
         vibroSitoPreddozator5 = new javax.swing.JLabel();
         vibroSitoPreddozator7 = new javax.swing.JLabel();
         prazanPreddozator1 = new javax.swing.JLabel();
@@ -357,6 +359,9 @@ public class InternalFrameGlavnaSlika1 extends javax.swing.JInternalFrame {
         prazanPreddozator9 = new javax.swing.JLabel();
         prazanPreddozator10 = new javax.swing.JLabel();
         prazanPreddozator11 = new javax.swing.JLabel();
+        DOPuzGrubePrasine1Bimetal = new javax.swing.JLabel();
+        DOPuzGrubePrasine3Bimetal = new javax.swing.JLabel();
+        DOPuzGrubePrasine2Bimetal = new javax.swing.JLabel();
         background = new javax.swing.JLabel();
 
         jPanel1.setLayout(null);
@@ -2740,6 +2745,28 @@ public class InternalFrameGlavnaSlika1 extends javax.swing.JInternalFrame {
         jPanel1.add(TotalStopDoz11);
         TotalStopDoz11.setBounds(0, 860, 30, 30);
 
+        DOPuzSopstvenogFilera1Bimetal.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        DOPuzSopstvenogFilera1Bimetal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/small/No.jpg"))); // NOI18N
+        DOPuzSopstvenogFilera1Bimetal.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        DOPuzSopstvenogFilera1Bimetal.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                DOPuzSopstvenogFilera1BimetalMouseClicked(evt);
+            }
+        });
+        jPanel1.add(DOPuzSopstvenogFilera1Bimetal);
+        DOPuzSopstvenogFilera1Bimetal.setBounds(720, 820, 30, 30);
+
+        DOPuzSopstvenogFilera2Bimetal.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        DOPuzSopstvenogFilera2Bimetal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/small/No.jpg"))); // NOI18N
+        DOPuzSopstvenogFilera2Bimetal.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        DOPuzSopstvenogFilera2Bimetal.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                DOPuzSopstvenogFilera2BimetalMouseClicked(evt);
+            }
+        });
+        jPanel1.add(DOPuzSopstvenogFilera2Bimetal);
+        DOPuzSopstvenogFilera2Bimetal.setBounds(720, 700, 30, 30);
+
         vibroSitoPreddozator5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         vibroSitoPreddozator5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/small/vibrationOff.gif"))); // NOI18N
         vibroSitoPreddozator5.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -2836,6 +2863,39 @@ public class InternalFrameGlavnaSlika1 extends javax.swing.JInternalFrame {
         prazanPreddozator11.setOpaque(true);
         jPanel1.add(prazanPreddozator11);
         prazanPreddozator11.setBounds(0, 860, 100, 40);
+
+        DOPuzGrubePrasine1Bimetal.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        DOPuzGrubePrasine1Bimetal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/small/No.jpg"))); // NOI18N
+        DOPuzGrubePrasine1Bimetal.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        DOPuzGrubePrasine1Bimetal.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                DOPuzGrubePrasine1BimetalMouseClicked(evt);
+            }
+        });
+        jPanel1.add(DOPuzGrubePrasine1Bimetal);
+        DOPuzGrubePrasine1Bimetal.setBounds(380, 840, 30, 30);
+
+        DOPuzGrubePrasine3Bimetal.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        DOPuzGrubePrasine3Bimetal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/small/No.jpg"))); // NOI18N
+        DOPuzGrubePrasine3Bimetal.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        DOPuzGrubePrasine3Bimetal.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                DOPuzGrubePrasine3BimetalMouseClicked(evt);
+            }
+        });
+        jPanel1.add(DOPuzGrubePrasine3Bimetal);
+        DOPuzGrubePrasine3Bimetal.setBounds(380, 660, 30, 30);
+
+        DOPuzGrubePrasine2Bimetal.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        DOPuzGrubePrasine2Bimetal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/small/No.jpg"))); // NOI18N
+        DOPuzGrubePrasine2Bimetal.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        DOPuzGrubePrasine2Bimetal.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                DOPuzGrubePrasine2BimetalMouseClicked(evt);
+            }
+        });
+        jPanel1.add(DOPuzGrubePrasine2Bimetal);
+        DOPuzGrubePrasine2Bimetal.setBounds(380, 750, 30, 30);
 
         background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/DisplayNew1.png"))); // NOI18N
         jPanel1.add(background);
@@ -3944,6 +4004,26 @@ public class InternalFrameGlavnaSlika1 extends javax.swing.JInternalFrame {
         taster(!pogon.getPreddozatori().getPreddozator11().getTotalStop().isVrednost(), pogon.getPreddozatori().getPreddozator11().getTotalStop().getAdresaVrednosti());
     }//GEN-LAST:event_TotalStopDoz11MouseClicked
 
+    private void DOPuzSopstvenogFilera1BimetalMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DOPuzSopstvenogFilera1BimetalMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_DOPuzSopstvenogFilera1BimetalMouseClicked
+
+    private void DOPuzSopstvenogFilera2BimetalMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DOPuzSopstvenogFilera2BimetalMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_DOPuzSopstvenogFilera2BimetalMouseClicked
+
+    private void DOPuzGrubePrasine1BimetalMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DOPuzGrubePrasine1BimetalMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_DOPuzGrubePrasine1BimetalMouseClicked
+
+    private void DOPuzGrubePrasine3BimetalMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DOPuzGrubePrasine3BimetalMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_DOPuzGrubePrasine3BimetalMouseClicked
+
+    private void DOPuzGrubePrasine2BimetalMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DOPuzGrubePrasine2BimetalMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_DOPuzGrubePrasine2BimetalMouseClicked
+
     private void seLineartFrequency() {
         int f0 = 0;
         int fh = 50;
@@ -4208,11 +4288,16 @@ public class InternalFrameGlavnaSlika1 extends javax.swing.JInternalFrame {
         img.setImg(vibroSitoB, pogon.getOtprasivanje().getVibroSito().getKomanda().isVrednost(), false, pogon.getOtprasivanje().getVibroSito().getTipSlike());
         img.setImg(vrucElevator, pogon.getOtprasivanje().getVruciElevator().getKomanda().isVrednost(), false, pogon.getOtprasivanje().getVruciElevator().getTipSlike());
         img.setImg(DOPuzGrubePrasine1, pogon.getOtprasivanje().getPuzGrubePrasine1().getKomanda().isVrednost(), false, pogon.getOtprasivanje().getPuzGrubePrasine1().getTipSlike());
+        DOPuzGrubePrasine1Bimetal.setVisible(pogon.getOtprasivanje().getPuzGrubePrasine1Bimetal().isVrednost());
         img.setImg(DOPuzGrubePrasine2, pogon.getOtprasivanje().getPuzGrubePrasine2().getKomanda().isVrednost(), false, pogon.getOtprasivanje().getPuzGrubePrasine2().getTipSlike());
+        DOPuzGrubePrasine2Bimetal.setVisible(pogon.getOtprasivanje().getPuzGrubePrasine2Bimetal().isVrednost());
         img.setImg(DOPuzGrubePrasine3, pogon.getOtprasivanje().getPuzGrubePrasine3().getKomanda().isVrednost(), false, pogon.getOtprasivanje().getPuzGrubePrasine3().getTipSlike());
+        DOPuzGrubePrasine3Bimetal.setVisible(pogon.getOtprasivanje().getPuzGrubePrasine3Bimetal().isVrednost());
         img.setImg(DOPuzIspodFilera, pogon.getOtprasivanje().getPuzIspodFilera().getPotvrdaRada().isVrednost(), pogon.getOtprasivanje().getPuzIspodFilera().getGreska().isVrednost(), pogon.getOtprasivanje().getPuzIspodFilera().getTipSlike());
         img.setImg(DOPuzSopstvenogFilera1, pogon.getOtprasivanje().getPuzSopstvenogFilera1().getKomanda().isVrednost(), false, pogon.getOtprasivanje().getPuzSopstvenogFilera1().getTipSlike());
+        DOPuzSopstvenogFilera1Bimetal.setVisible(pogon.getOtprasivanje().getPuzSopstvenogFilera1Bimetal().isVrednost());
         img.setImg(DOPuzSopstvenogFilera2, pogon.getOtprasivanje().getPuzSopstvenogFilera2().getKomanda().isVrednost(), false, pogon.getOtprasivanje().getPuzSopstvenogFilera2().getTipSlike());
+        DOPuzSopstvenogFilera2Bimetal.setVisible(pogon.getOtprasivanje().getPuzSopstvenogFilera2Bimetal().isVrednost());
         img.setImg(elevatorSopstvenogFilera, pogon.getOtprasivanje().getElevatorSopstvenogFilera().getPotvrdaRada().isVrednost(), pogon.getOtprasivanje().getElevatorSopstvenogFilera().getGreska().isVrednost(), pogon.getOtprasivanje().getElevatorSopstvenogFilera().getTipSlike());
         img.setImg(OtsisniVentilator, pogon.getOtprasivanje().isOtsisniVentilator(), false, pogon.getOtprasivanje().getVentilatorOtprasivanja1().getTipSlike());
         FrequencyVentilatorOtprasivanja.setValue(pogon.getOtprasivanje().getOtsisniVentilatorF().getFrekfrencija().getVrednost());
@@ -4568,11 +4653,16 @@ public class InternalFrameGlavnaSlika1 extends javax.swing.JInternalFrame {
     private javax.swing.JLabel DOPuzFilerKupovni;
     private javax.swing.JLabel DOPuzFilerSopstveni;
     private javax.swing.JLabel DOPuzGrubePrasine1;
+    private javax.swing.JLabel DOPuzGrubePrasine1Bimetal;
     private javax.swing.JLabel DOPuzGrubePrasine2;
+    private javax.swing.JLabel DOPuzGrubePrasine2Bimetal;
     private javax.swing.JLabel DOPuzGrubePrasine3;
+    private javax.swing.JLabel DOPuzGrubePrasine3Bimetal;
     private javax.swing.JLabel DOPuzIspodFilera;
     private javax.swing.JLabel DOPuzSopstvenogFilera1;
+    private javax.swing.JLabel DOPuzSopstvenogFilera1Bimetal;
     private javax.swing.JLabel DOPuzSopstvenogFilera2;
+    private javax.swing.JLabel DOPuzSopstvenogFilera2Bimetal;
     private javax.swing.JLabel DORotacionaSusara;
     private javax.swing.JLabel DOTraka1;
     private javax.swing.JLabel DOTraka2;

@@ -9,7 +9,7 @@ import constatnt.Image;
 import pogon.osnova.Analogna;
 import pogon.osnova.Digitalac;
 import pogon.osnova2.Taster;
-import pogon.osnova2.VagaNivo;
+import pogon.osnova2.AnalognaMinMaxOpis;
 import utils.MutantToDec;
 
 /**
@@ -20,7 +20,7 @@ public class Mesalica {
     private final Taster Mesalica;
     private final Taster KlapnaMesalice;
     private final Analogna kapacitetMesalice;
-    private final VagaNivo strujaMesalice;
+    private final AnalognaMinMaxOpis strujaMesalice;
     private final Digitalac grejacMesalice;
     private boolean rucnoAutomatskiGrejac = false;
     
@@ -41,7 +41,7 @@ public class Mesalica {
         );
         this.kapacitetMesalice = new Analogna(1, 1);
         
-        this.strujaMesalice = new VagaNivo(342, 0, 0, 100, "Struja mesalice");
+        this.strujaMesalice = new AnalognaMinMaxOpis(342, 0, 0, 100, "Struja mesalice");
         
         this.grejacMesalice = new Digitalac(MutantToDec.getValue("324"));
     }
@@ -62,7 +62,7 @@ public class Mesalica {
         return kapacitetMesalice;
     }
 
-    public VagaNivo getStrujaMesalice() {
+    public AnalognaMinMaxOpis getStrujaMesalice() {
         return strujaMesalice;
     }
 
