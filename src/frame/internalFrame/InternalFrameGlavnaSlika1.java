@@ -362,6 +362,9 @@ public class InternalFrameGlavnaSlika1 extends javax.swing.JInternalFrame {
         DOPuzGrubePrasine1Bimetal = new javax.swing.JLabel();
         DOPuzGrubePrasine3Bimetal = new javax.swing.JLabel();
         DOPuzGrubePrasine2Bimetal = new javax.swing.JLabel();
+        vibroSilosFilerKupovni = new javax.swing.JLabel();
+        vibroSilosFilerSopstveni = new javax.swing.JLabel();
+        vibroSilosFilerKupovniOtprasivanje = new javax.swing.JLabel();
         background = new javax.swing.JLabel();
 
         jPanel1.setLayout(null);
@@ -2897,6 +2900,36 @@ public class InternalFrameGlavnaSlika1 extends javax.swing.JInternalFrame {
         jPanel1.add(DOPuzGrubePrasine2Bimetal);
         DOPuzGrubePrasine2Bimetal.setBounds(380, 750, 30, 30);
 
+        vibroSilosFilerKupovni.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        vibroSilosFilerKupovni.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/small/vibrationOff.gif"))); // NOI18N
+        vibroSilosFilerKupovni.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                vibroSilosFilerKupovniMousePressed(evt);
+            }
+        });
+        jPanel1.add(vibroSilosFilerKupovni);
+        vibroSilosFilerKupovni.setBounds(460, 310, 30, 30);
+
+        vibroSilosFilerSopstveni.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        vibroSilosFilerSopstveni.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/small/vibrationOff.gif"))); // NOI18N
+        vibroSilosFilerSopstveni.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                vibroSilosFilerSopstveniMousePressed(evt);
+            }
+        });
+        jPanel1.add(vibroSilosFilerSopstveni);
+        vibroSilosFilerSopstveni.setBounds(640, 310, 30, 30);
+
+        vibroSilosFilerKupovniOtprasivanje.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        vibroSilosFilerKupovniOtprasivanje.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/small/vibrationOff.gif"))); // NOI18N
+        vibroSilosFilerKupovniOtprasivanje.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                vibroSilosFilerKupovniOtprasivanjeMousePressed(evt);
+            }
+        });
+        jPanel1.add(vibroSilosFilerKupovniOtprasivanje);
+        vibroSilosFilerKupovniOtprasivanje.setBounds(450, 150, 30, 30);
+
         background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/DisplayNew1.png"))); // NOI18N
         jPanel1.add(background);
         background.setBounds(0, 0, 1920, 980);
@@ -4024,6 +4057,18 @@ public class InternalFrameGlavnaSlika1 extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_DOPuzGrubePrasine2BimetalMouseClicked
 
+    private void vibroSilosFilerKupovniMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_vibroSilosFilerKupovniMousePressed
+        taster(!pogon.getFiler().getVibroSilosKupovniFiler().getKomanda().isVrednost(), pogon.getFiler().getVibroSilosKupovniFiler().getKomanda().getAdresaVrednosti());
+    }//GEN-LAST:event_vibroSilosFilerKupovniMousePressed
+
+    private void vibroSilosFilerSopstveniMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_vibroSilosFilerSopstveniMousePressed
+        taster(!pogon.getFiler().getVibroSilosSopstveniFiler().getKomanda().isVrednost(), pogon.getFiler().getVibroSilosSopstveniFiler().getKomanda().getAdresaVrednosti());
+    }//GEN-LAST:event_vibroSilosFilerSopstveniMousePressed
+
+    private void vibroSilosFilerKupovniOtprasivanjeMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_vibroSilosFilerKupovniOtprasivanjeMousePressed
+        taster(!pogon.getFiler().getVibroSilosKupovniFilerOtprasivanje().getKomanda().isVrednost(), pogon.getFiler().getVibroSilosKupovniFilerOtprasivanje().getKomanda().getAdresaVrednosti());
+    }//GEN-LAST:event_vibroSilosFilerKupovniOtprasivanjeMousePressed
+
     private void seLineartFrequency() {
         int f0 = 0;
         int fh = 50;
@@ -4325,6 +4370,10 @@ public class InternalFrameGlavnaSlika1 extends javax.swing.JInternalFrame {
         MWTemperaturaUlazFiltera.setValue(pogon.getFiler().getTempNaUlazuFilter().getVrednost().getVrednost());
         MWTemperaturaUFilteru.setValue(pogon.getFiler().getTempUilteru().getVrednost().getVrednost());
 
+        img.setImg(vibroSilosFilerKupovni, pogon.getFiler().getVibroSilosKupovniFiler().getKomanda().isVrednost(), false, pogon.getFiler().getVibroSilosKupovniFiler().getTipSlike());
+        img.setImg(vibroSilosFilerSopstveni, pogon.getFiler().getVibroSilosSopstveniFiler().getKomanda().isVrednost(), false, pogon.getFiler().getVibroSilosSopstveniFiler().getTipSlike());
+        img.setImg(vibroSilosFilerKupovniOtprasivanje, pogon.getFiler().getVibroSilosKupovniFilerOtprasivanje().getKomanda().isVrednost(), false, pogon.getFiler().getVibroSilosKupovniFilerOtprasivanje().getTipSlike());
+        
         kupovniFilerSilos.setValue(pogon.getFiler().getNivoUKupovnomFileru().getVrednost().getVrednost());
         sopstveniFilerSilos.setValue(pogon.getFiler().getNivoUSopstvenomFileru().getVrednost().getVrednost());
 
@@ -4900,6 +4949,9 @@ public class InternalFrameGlavnaSlika1 extends javax.swing.JInternalFrame {
     private javax.swing.JLabel ventilatorOtprasivanja2;
     private javax.swing.JLabel ventilatorOtprasivanja3;
     private javax.swing.JLabel ventilatorOtprasivanja4;
+    private javax.swing.JLabel vibroSilosFilerKupovni;
+    private javax.swing.JLabel vibroSilosFilerKupovniOtprasivanje;
+    private javax.swing.JLabel vibroSilosFilerSopstveni;
     private javax.swing.JLabel vibroSitoA;
     private javax.swing.JLabel vibroSitoB;
     private javax.swing.JLabel vibroSitoPreddozator5;

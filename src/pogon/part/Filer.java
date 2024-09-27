@@ -32,6 +32,9 @@ public class Filer {
     private final AnalognaMinMaxOpis TempUilteru;
     private final AnalognaMinMaxOpis NivoUKupovnomFileru;
     private final AnalognaMinMaxOpis NivoUSopstvenomFileru;
+    private final Taster VibroSilosKupovniFiler;
+    private final Taster VibroSilosSopstveniFiler;
+    private final Taster VibroSilosKupovniFilerOtprasivanje;
     private final AnalognaZadataIzdata kupovni;
     private final AnalognaZadataIzdata sopstveni;
     private final TezineDvaRegistra silosKupovniFiler;
@@ -81,6 +84,22 @@ public class Filer {
         this.TempUilteru = new AnalognaMinMaxOpis(96, 0, 0, 32768, "Temperatura u filteru");
         this.NivoUKupovnomFileru = new AnalognaMinMaxOpis(127, 0, 0, 100, "Nivo u kupovnom fileru");
         this.NivoUSopstvenomFileru = new AnalognaMinMaxOpis(128, 0, 0, 100, "Nivo u sopstvenom fileru");
+        
+        this.VibroSilosKupovniFiler = new Taster(
+               MutantToDec.getValue("331"),
+               "Vibro silos kupovnog filera",
+               image.getVibracija()
+        );
+        this.VibroSilosSopstveniFiler = new Taster(
+               MutantToDec.getValue("32F"),
+               "Vibro silos sopstvenog filera",
+               image.getVibracija()
+        );
+         this.VibroSilosKupovniFilerOtprasivanje = new Taster(
+               MutantToDec.getValue("332"),
+               "Vibro silos kupovnog filera otprasivanje",
+               image.getVibracija()
+        );
         
         this.kupovni = new AnalognaZadataIzdata(207, 219, 0 , "Kupovni filer");
         this.sopstveni = new AnalognaZadataIzdata(208, 220, 0 , "Sopstveni filer");
@@ -152,6 +171,16 @@ public class Filer {
     public Digitalac getVagaFileraTariraj() {
         return VagaFileraTariraj;
     }
-    
-    
+
+    public Taster getVibroSilosKupovniFiler() {
+        return VibroSilosKupovniFiler;
+    }
+
+    public Taster getVibroSilosSopstveniFiler() {
+        return VibroSilosSopstveniFiler;
+    }
+
+    public Taster getVibroSilosKupovniFilerOtprasivanje() {
+        return VibroSilosKupovniFilerOtprasivanje;
+    }
 }

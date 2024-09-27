@@ -487,6 +487,10 @@ public class Buff implements Runnable{
                
         pogon.getFiler().getPuzIspodVageFilera().getKomanda().setVrednost(resultDigitalMemory[65]);
         
+        pogon.getFiler().getVibroSilosKupovniFiler().getKomanda().setVrednost(resultDigitalMemory[529]);
+        pogon.getFiler().getVibroSilosSopstveniFiler().getKomanda().setVrednost(resultDigitalMemory[527]);
+        pogon.getFiler().getVibroSilosKupovniFilerOtprasivanje().getKomanda().setVrednost(resultDigitalMemory[530]);
+        
         pogon.getAgregat().getDozator1().getKomanda().setVrednost(resultDigitalMemory[490]);
         
         pogon.getAgregat().getDozator2().getUklucennje().setVrednost(resultDigitalMemory[488]);
