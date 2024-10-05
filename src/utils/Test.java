@@ -25,9 +25,9 @@ public class Test {
     public static void main(String[] args) {
        
         
-        String a = "331";
-        String b = "32F";
-        String c = "19D";
+        String a = "149";
+        String b = "146";
+        String c = "145";
         System.out.println(a + " = " + MutantToDec.getValue(a));
         System.out.println(b + " = " + MutantToDec.getValue(b));
         System.out.println(c + " = " + MutantToDec.getValue(c));

@@ -32,6 +32,10 @@ public class KorpaVagon {
     private final Digitalac iberVagona;
     private final Digitalac grejanjeUstavagona;
     
+    private final Digitalac pozicijaKorpe1;
+    private final Digitalac pozicijaKorpe2;
+    private final Digitalac pozicijaKorpe3;
+    
     private final Digitalac pozicijaVagona1;
     private final Digitalac pozicijaVagona2;
     private final Digitalac pozicijaVagona3;
@@ -57,6 +61,10 @@ public class KorpaVagon {
         this.selectSilos = new Analogna(110, 0);
         this.iberVagona = new Digitalac(MutantToDec.getValue("174"));
         this.grejanjeUstavagona = new Digitalac(MutantToDec.getValue("16D"));
+        
+        this.pozicijaKorpe1 = new Digitalac(MutantToDec.getValue("149"));
+        this.pozicijaKorpe2 = new Digitalac(MutantToDec.getValue("147"));
+        this.pozicijaKorpe3 = new Digitalac(MutantToDec.getValue("145"));
         
         this.pozicijaVagona1 = new Digitalac(MutantToDec.getValue("151"));
         this.pozicijaVagona2 = new Digitalac(MutantToDec.getValue("150"));
@@ -144,6 +152,18 @@ public class KorpaVagon {
 
     public Digitalac getPozicijaVagona6() {
         return pozicijaVagona6;
+    }
+
+    public Digitalac getPozicijaKorpe1() {
+        return pozicijaKorpe1;
+    }
+
+    public Digitalac getPozicijaKorpe2() {
+        return pozicijaKorpe2;
+    }
+
+    public Digitalac getPozicijaKorpe3() {
+        return pozicijaKorpe3;
     }
     
     

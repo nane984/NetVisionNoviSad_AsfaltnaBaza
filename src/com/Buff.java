@@ -338,7 +338,7 @@ public class Buff implements Runnable{
         pogon.getPreddozatori().getPreddozator7().getGreska().setVrednost(resultDigitalMemory[106]);
         pogon.getPreddozatori().getPreddozator7().getPrazanPredozator().setVrednost(resultDigitalMemory[550]);
         pogon.getPreddozatori().getPreddozator7Vibrator().setVrednost(resultDigitalMemory[145]);
-        pogon.getPreddozatori().getPreddozator6().getTotalStop().setVrednost(resultDigitalMemory[566]);
+        pogon.getPreddozatori().getPreddozator7().getTotalStop().setVrednost(resultDigitalMemory[566]);
         
         pogon.getPreddozatori().getPreddozator8().getKomanda().setVrednost(resultDigitalMemory[139]);
         pogon.getPreddozatori().getPreddozator8().getPotvrdaRada().setVrednost(resultDigitalMemory[91]);
@@ -557,6 +557,10 @@ public class Buff implements Runnable{
         pogon.getKorpaVagon().getPozicijaVagona4().setVrednost(resultDigitalMemory[238]);
         pogon.getKorpaVagon().getPozicijaVagona5().setVrednost(resultDigitalMemory[237]);
         pogon.getKorpaVagon().getPozicijaVagona6().setVrednost(resultDigitalMemory[236]);
+        
+        pogon.getKorpaVagon().getPozicijaKorpe1().setVrednost(resultDigitalMemory[233]);
+        pogon.getKorpaVagon().getPozicijaKorpe2().setVrednost(resultDigitalMemory[231]);
+        pogon.getKorpaVagon().getPozicijaKorpe3().setVrednost(resultDigitalMemory[229]);
 
         pogon.getAsfaltSilosi().getGrejanjeUstaSilosaAsfalta1().setVrednost(resultDigitalMemory[271]);
         pogon.getAsfaltSilosi().getGrejanjeUstaSilosaAsfalta2().setVrednost(resultDigitalMemory[272]);

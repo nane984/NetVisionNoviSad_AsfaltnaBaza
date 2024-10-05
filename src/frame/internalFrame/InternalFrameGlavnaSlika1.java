@@ -2439,17 +2439,17 @@ public class InternalFrameGlavnaSlika1 extends javax.swing.JInternalFrame {
         jPanel1.add(vagonPoz5);
         vagonPoz5.setBounds(1640, 580, 80, 70);
 
-        korpaVPoz1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/small/korpa.png"))); // NOI18N
+        korpaVPoz1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/small/korpaZaBeton.png"))); // NOI18N
         jPanel1.add(korpaVPoz1);
-        korpaVPoz1.setBounds(1120, 760, 80, 70);
+        korpaVPoz1.setBounds(1120, 740, 100, 90);
 
-        korpaVPoz2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/small/korpa.png"))); // NOI18N
+        korpaVPoz2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/small/korpaZaBeton.png"))); // NOI18N
         jPanel1.add(korpaVPoz2);
-        korpaVPoz2.setBounds(1290, 730, 80, 70);
+        korpaVPoz2.setBounds(1310, 670, 100, 90);
 
-        korpaVPoz3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/small/korpa.png"))); // NOI18N
+        korpaVPoz3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/small/korpaZaBeton.png"))); // NOI18N
         jPanel1.add(korpaVPoz3);
-        korpaVPoz3.setBounds(1400, 630, 80, 70);
+        korpaVPoz3.setBounds(1410, 590, 100, 90);
 
         vagonPoz6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/small/korpa.png"))); // NOI18N
         jPanel1.add(vagonPoz6);
@@ -4167,11 +4167,15 @@ public class InternalFrameGlavnaSlika1 extends javax.swing.JInternalFrame {
     private void refreshPozicijaKorpe() {
         vagonPoz1.setVisible(pogon.getKorpaVagon().getPozicijaVagona1().isVrednost());
         vagonPoz2.setVisible(pogon.getKorpaVagon().getPozicijaVagona2().isVrednost() && !pogon.getKorpaVagon().getPozicijaVagona3().isVrednost());
-        vagonPoz3.setVisible(pogon.getKorpaVagon().getPozicijaVagona2().isVrednost() && pogon.getKorpaVagon().getPozicijaVagona3().isVrednost());
+        vagonPoz3.setVisible(pogon.getKorpaVagon().getPozicijaVagona2().isVrednost() && pogon.getKorpaVagon().getPozicijaVagona3().isVrednost());  
         vagonPoz4.setVisible(!pogon.getKorpaVagon().getPozicijaVagona2().isVrednost() && pogon.getKorpaVagon().getPozicijaVagona3().isVrednost());
         vagonPoz5.setVisible(pogon.getKorpaVagon().getPozicijaVagona4().isVrednost());
         vagonPoz6.setVisible(pogon.getKorpaVagon().getPozicijaVagona5().isVrednost());
         vagonPoz7.setVisible(pogon.getKorpaVagon().getPozicijaVagona6().isVrednost());
+        
+        korpaVPoz1.setVisible(pogon.getKorpaVagon().getPozicijaKorpe1().isVrednost());
+        korpaVPoz2.setVisible(!pogon.getKorpaVagon().getPozicijaKorpe2().isVrednost());
+        korpaVPoz3.setVisible(!pogon.getKorpaVagon().getPozicijaKorpe3().isVrednost());
     }
 
     private void pumpaZaNaftuTermopaka() {
