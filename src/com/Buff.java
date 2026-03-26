@@ -281,6 +281,11 @@ public class Buff implements Runnable{
         
         pogon.getMesalica().getStrujaMesalice().getVrednost().setVrednost(resMerenja3[42]);
         
+        pogon.getPritisakVazduha().setVrednost(resMerenja3[43]);
+        pogon.getUkupnoUradjenoAsfaltaNizi().setVrednost(resMerenja3[44]);
+        pogon.getUkupnoUradjenoAsfaltaVisi().setVrednost(resMerenja3[45]);
+        
+        pogon.getMesalica().getTrenutnoVremeMesanja().setVrednost(resMerenja3[46]);
     }
      
     private synchronized void getDigitalniMemory(){
@@ -291,7 +296,6 @@ public class Buff implements Runnable{
         pogon.getGrupakomandi().getTransport().getKomanda().setVrednost(resultDigitalMemory[3]);
         pogon.getGrupakomandi().getSusara().getKomanda().setVrednost(resultDigitalMemory[343]);
         pogon.getGrupakomandi().getVelikiGorionik().getKomanda().setVrednost(resultDigitalMemory[358]);
-        pogon.getGrupakomandi().getGorionikNaKanalu().getKomanda().setVrednost(resultDigitalMemory[363]);
         pogon.getGrupakomandi().getPredozator().getKomanda().setVrednost(resultDigitalMemory[4]);
         pogon.getGrupakomandi().getMesalica().getKomanda().setVrednost(resultDigitalMemory[14]);
         pogon.getGrupakomandi().getProizvodnjaAsfalta().getKomanda().setVrednost(resultDigitalMemory[12]);
@@ -388,7 +392,7 @@ public class Buff implements Runnable{
         pogon.getSusara().getPumpaGorionikaSusare().getPotvrdaRada().setVrednost(resultDigitalMemory[318]);
         pogon.getSusara().getPumpaGorionikaSusare().getGreska().setVrednost(resultDigitalMemory[319]);
         
-        pogon.getSusara().getGorionikSusare().getKomanda().setVrednost(resultDigitalMemory[358]);
+        pogon.getSusara().getGorionikSusare().getKomanda().setVrednost(resultDigitalMemory[333]);
         pogon.getSusara().getGreskaGorionik().setVrednost(resultDigitalMemory[325]);
         
         pogon.getPumpaZaNaftuTermopak().getKomanda().setVrednost(resultDigitalMemory[357]);
@@ -561,6 +565,8 @@ public class Buff implements Runnable{
         pogon.getKorpaVagon().getPozicijaKorpe1().setVrednost(resultDigitalMemory[233]);
         pogon.getKorpaVagon().getPozicijaKorpe2().setVrednost(resultDigitalMemory[231]);
         pogon.getKorpaVagon().getPozicijaKorpe3().setVrednost(resultDigitalMemory[229]);
+        
+        pogon.getKorpaVagon().getKorpaMozeStop().getKomanda().setVrednost(resultDigitalMemory[282]);
 
         pogon.getAsfaltSilosi().getGrejanjeUstaSilosaAsfalta1().setVrednost(resultDigitalMemory[271]);
         pogon.getAsfaltSilosi().getGrejanjeUstaSilosaAsfalta2().setVrednost(resultDigitalMemory[272]);
@@ -576,6 +582,7 @@ public class Buff implements Runnable{
         
         
         pogon.getWriteSarzeInDb().setVrednost(resultDigitalMemory[528]);
+        pogon.getResetCiklusa().setVrednost(resultDigitalMemory[531]);
     }
     
     private void getInputRegistri() {

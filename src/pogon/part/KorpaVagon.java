@@ -7,6 +7,7 @@ package pogon.part;
 
 import pogon.osnova.Analogna;
 import pogon.osnova.Digitalac;
+import pogon.osnova2.TasterSaDvaOpisa;
 import utils.MutantToDec;
 
 /**
@@ -43,6 +44,8 @@ public class KorpaVagon {
     private final Digitalac pozicijaVagona5;
     private final Digitalac pozicijaVagona6;
     
+    private final TasterSaDvaOpisa korpaMozeStop;
+    
     public KorpaVagon(){
         this.StartCiklusaKorpe = new Digitalac(MutantToDec.getValue("175"));
         this.StartCiklusaVagona  = new Digitalac(MutantToDec.getValue("179"));
@@ -72,6 +75,8 @@ public class KorpaVagon {
         this.pozicijaVagona4 = new Digitalac(MutantToDec.getValue("14E"));
         this.pozicijaVagona5 = new Digitalac(MutantToDec.getValue("14D"));
         this.pozicijaVagona6 = new Digitalac(MutantToDec.getValue("14C"));
+        
+        this.korpaMozeStop = new TasterSaDvaOpisa(MutantToDec.getValue("17A"), "Korpa MOZE", "Korpa STOP");
     }
 
     public Digitalac getStartCiklusaKorpe() {
@@ -164,6 +169,10 @@ public class KorpaVagon {
 
     public Digitalac getPozicijaKorpe3() {
         return pozicijaKorpe3;
+    }
+
+    public TasterSaDvaOpisa getKorpaMozeStop() {
+        return korpaMozeStop;
     }
     
     

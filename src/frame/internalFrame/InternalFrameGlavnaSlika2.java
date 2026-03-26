@@ -97,7 +97,6 @@ public class InternalFrameGlavnaSlika2 extends javax.swing.JInternalFrame {
         ButtonOtprasivanje = new javax.swing.JToggleButton();
         ButtonSusara = new javax.swing.JToggleButton();
         ButtonVelikiGorionik = new javax.swing.JToggleButton();
-        ButtonGorionikNaKanalu = new javax.swing.JToggleButton();
         ButtonPreddozator = new javax.swing.JToggleButton();
         ButtonMesalica = new javax.swing.JToggleButton();
         ButtonProizvodnjaAsfalta = new javax.swing.JToggleButton();
@@ -143,6 +142,7 @@ public class InternalFrameGlavnaSlika2 extends javax.swing.JInternalFrame {
         headerIzdatoBrSarzi = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         opisHeaderRA2 = new javax.swing.JLabel();
+        jLabelukupnoUradjenihSarzi = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         jComboBoxRecepturaKomponente = new javax.swing.JComboBox<>();
         jLabel33 = new javax.swing.JLabel();
@@ -166,6 +166,11 @@ public class InternalFrameGlavnaSlika2 extends javax.swing.JInternalFrame {
         jButtonSkretnicaVagon2 = new javax.swing.JButton();
         jButtonSkretnicaIber2 = new javax.swing.JButton();
         jButtonSkretnica = new javax.swing.JButton();
+        jPanel10 = new javax.swing.JPanel();
+        jLabelPritisakVazduha = new javax.swing.JLabel();
+        jProgressBarPritisakVazduha = new javax.swing.JProgressBar();
+        jLabelPritisakVazduha1 = new javax.swing.JLabel();
+        jButtonResetCiklusa = new javax.swing.JButton();
 
         jPanel1.setLayout(null);
 
@@ -300,7 +305,7 @@ public class InternalFrameGlavnaSlika2 extends javax.swing.JInternalFrame {
         );
 
         jPanel1.add(jPanel7);
-        jPanel7.setBounds(0, 710, 430, 270);
+        jPanel7.setBounds(0, 700, 430, 280);
 
         jPanel6.setBorder(javax.swing.BorderFactory.createTitledBorder("Automatski rad korpe i vagona"));
         jPanel6.setOpaque(false);
@@ -341,7 +346,7 @@ public class InternalFrameGlavnaSlika2 extends javax.swing.JInternalFrame {
         );
 
         jPanel1.add(jPanel6);
-        jPanel6.setBounds(0, 630, 430, 80);
+        jPanel6.setBounds(0, 610, 430, 90);
 
         jPanel2.setBackground(new java.awt.Color(198, 211, 237));
         jPanel2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -375,14 +380,6 @@ public class InternalFrameGlavnaSlika2 extends javax.swing.JInternalFrame {
         ButtonVelikiGorionik.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 ButtonVelikiGorionikMousePressed(evt);
-            }
-        });
-
-        ButtonGorionikNaKanalu.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
-        ButtonGorionikNaKanalu.setText("6");
-        ButtonGorionikNaKanalu.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                ButtonGorionikNaKanaluMousePressed(evt);
             }
         });
 
@@ -429,7 +426,6 @@ public class InternalFrameGlavnaSlika2 extends javax.swing.JInternalFrame {
             .addComponent(ButtonOtprasivanje, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(ButtonSusara, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(ButtonVelikiGorionik, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(ButtonGorionikNaKanalu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(ButtonPreddozator, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(ButtonMesalica, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(ButtonProizvodnjaAsfalta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -448,9 +444,7 @@ public class InternalFrameGlavnaSlika2 extends javax.swing.JInternalFrame {
                 .addComponent(ButtonSusara, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(ButtonVelikiGorionik, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(ButtonGorionikNaKanalu, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(ButtonPreddozator, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(ButtonMesalica, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -460,7 +454,7 @@ public class InternalFrameGlavnaSlika2 extends javax.swing.JInternalFrame {
         );
 
         jPanel1.add(jPanel2);
-        jPanel2.setBounds(0, 100, 430, 525);
+        jPanel2.setBounds(0, 100, 430, 473);
 
         jPanel3.setBackground(new java.awt.Color(204, 255, 255));
         jPanel3.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, null, java.awt.Color.lightGray, null, null));
@@ -480,19 +474,19 @@ public class InternalFrameGlavnaSlika2 extends javax.swing.JInternalFrame {
 
         opisHeader0_2.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
         opisHeader0_2.setForeground(new java.awt.Color(102, 102, 102));
-        opisHeader0_2.setText("0-32 mm");
+        opisHeader0_2.setText("Bajpas");
         jPanel3.add(opisHeader0_2);
         opisHeader0_2.setBounds(260, 0, 60, 19);
 
         opisHeader2_4.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
         opisHeader2_4.setForeground(new java.awt.Color(102, 102, 102));
-        opisHeader2_4.setText("0-4 mm");
+        opisHeader2_4.setText("0-2 mm");
         jPanel3.add(opisHeader2_4);
         opisHeader2_4.setBounds(340, 0, 60, 19);
 
         opisHeader4_8.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
         opisHeader4_8.setForeground(new java.awt.Color(102, 102, 102));
-        opisHeader4_8.setText("4-8 mm");
+        opisHeader4_8.setText("2-4 mm");
         jPanel3.add(opisHeader4_8);
         opisHeader4_8.setBounds(420, 0, 60, 19);
 
@@ -613,7 +607,7 @@ public class InternalFrameGlavnaSlika2 extends javax.swing.JInternalFrame {
 
         opisHeader8_16.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
         opisHeader8_16.setForeground(new java.awt.Color(102, 102, 102));
-        opisHeader8_16.setText("8-11 mm");
+        opisHeader8_16.setText("4-8 mm");
         jPanel3.add(opisHeader8_16);
         opisHeader8_16.setBounds(490, 0, 60, 19);
 
@@ -636,7 +630,7 @@ public class InternalFrameGlavnaSlika2 extends javax.swing.JInternalFrame {
 
         opisHeader16_24.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
         opisHeader16_24.setForeground(new java.awt.Color(102, 102, 102));
-        opisHeader16_24.setText("11-16 mm");
+        opisHeader16_24.setText("8-11 mm");
         jPanel3.add(opisHeader16_24);
         opisHeader16_24.setBounds(570, 0, 79, 19);
 
@@ -659,7 +653,7 @@ public class InternalFrameGlavnaSlika2 extends javax.swing.JInternalFrame {
 
         opisHeader24_32.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
         opisHeader24_32.setForeground(new java.awt.Color(102, 102, 102));
-        opisHeader24_32.setText("16-22 mm");
+        opisHeader24_32.setText("11-16 mm");
         jPanel3.add(opisHeader24_32);
         opisHeader24_32.setBounds(670, 0, 79, 19);
 
@@ -682,7 +676,7 @@ public class InternalFrameGlavnaSlika2 extends javax.swing.JInternalFrame {
 
         opisHeaderF7.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
         opisHeaderF7.setForeground(new java.awt.Color(102, 102, 102));
-        opisHeaderF7.setText("16-32 mm");
+        opisHeaderF7.setText("16-22 mm");
         jPanel3.add(opisHeaderF7);
         opisHeaderF7.setBounds(770, 0, 70, 19);
 
@@ -728,9 +722,9 @@ public class InternalFrameGlavnaSlika2 extends javax.swing.JInternalFrame {
 
         opisHeaderRA1.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
         opisHeaderRA1.setForeground(new java.awt.Color(102, 102, 102));
-        opisHeaderRA1.setText("Reset");
+        opisHeaderRA1.setText("Ukupno uradjeno");
         jPanel3.add(opisHeaderRA1);
-        opisHeaderRA1.setBounds(1130, 0, 60, 20);
+        opisHeaderRA1.setBounds(1130, 0, 140, 20);
 
         headerZadatoBrSarzi.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
         headerZadatoBrSarzi.setForeground(new java.awt.Color(102, 102, 102));
@@ -744,20 +738,25 @@ public class InternalFrameGlavnaSlika2 extends javax.swing.JInternalFrame {
         jPanel3.add(headerIzdatoBrSarzi);
         headerIzdatoBrSarzi.setBounds(1020, 60, 60, 19);
 
-        jButton1.setText("Urađenih sarzi");
+        jButton1.setText("Reset");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
         jPanel3.add(jButton1);
-        jButton1.setBounds(1100, 58, 120, 30);
+        jButton1.setBounds(1130, 60, 120, 30);
 
         opisHeaderRA2.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
         opisHeaderRA2.setForeground(new java.awt.Color(102, 102, 102));
         opisHeaderRA2.setText("Br Sarzi");
         jPanel3.add(opisHeaderRA2);
         opisHeaderRA2.setBounds(1020, 0, 60, 19);
+
+        jLabelukupnoUradjenihSarzi.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
+        jLabelukupnoUradjenihSarzi.setText("0");
+        jPanel3.add(jLabelukupnoUradjenihSarzi);
+        jLabelukupnoUradjenihSarzi.setBounds(1130, 30, 120, 20);
 
         jPanel1.add(jPanel3);
         jPanel3.setBounds(0, 0, 1920, 100);
@@ -848,8 +847,11 @@ public class InternalFrameGlavnaSlika2 extends javax.swing.JInternalFrame {
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jButtonRecepturaPrihvati1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jComboBoxRecepturaFrekfrentni, 0, 332, Short.MAX_VALUE)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButtonRecepturaPrihvati1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jComboBoxRecepturaFrekfrentni, 0, 319, Short.MAX_VALUE))
+                .addGap(13, 13, 13))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -857,11 +859,11 @@ public class InternalFrameGlavnaSlika2 extends javax.swing.JInternalFrame {
                 .addComponent(jComboBoxRecepturaFrekfrentni, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButtonRecepturaPrihvati1, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(7, Short.MAX_VALUE))
+                .addContainerGap(37, Short.MAX_VALUE))
         );
 
         jPanel1.add(jPanel5);
-        jPanel5.setBounds(790, 100, 360, 140);
+        jPanel5.setBounds(790, 100, 360, 170);
 
         jPanel8.setBorder(javax.swing.BorderFactory.createTitledBorder("Izbor silosa"));
 
@@ -957,12 +959,12 @@ public class InternalFrameGlavnaSlika2 extends javax.swing.JInternalFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jToggleIberVagon, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(8, 8, 8)
-                .addComponent(jButtonGrejanjeVagona, javax.swing.GroupLayout.DEFAULT_SIZE, 46, Short.MAX_VALUE)
+                .addComponent(jButtonGrejanjeVagona, javax.swing.GroupLayout.DEFAULT_SIZE, 66, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
         jPanel1.add(jPanel8);
-        jPanel8.setBounds(440, 630, 490, 200);
+        jPanel8.setBounds(440, 610, 490, 220);
 
         jPanel9.setBorder(javax.swing.BorderFactory.createTitledBorder("Upravljanje skretnicom"));
 
@@ -1025,6 +1027,53 @@ public class InternalFrameGlavnaSlika2 extends javax.swing.JInternalFrame {
         jPanel1.add(jPanel9);
         jPanel9.setBounds(440, 830, 490, 150);
 
+        jPanel10.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createTitledBorder("Pritisak vazduha")));
+
+        jLabelPritisakVazduha.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
+        jLabelPritisakVazduha.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabelPritisakVazduha.setText("0.0");
+        jLabelPritisakVazduha.setToolTipText("");
+
+        jLabelPritisakVazduha1.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
+        jLabelPritisakVazduha1.setText("bar.");
+        jLabelPritisakVazduha1.setToolTipText("");
+
+        javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
+        jPanel10.setLayout(jPanel10Layout);
+        jPanel10Layout.setHorizontalGroup(
+            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel10Layout.createSequentialGroup()
+                .addComponent(jProgressBarPritisakVazduha, javax.swing.GroupLayout.DEFAULT_SIZE, 197, Short.MAX_VALUE)
+                .addGap(29, 29, 29)
+                .addComponent(jLabelPritisakVazduha, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabelPritisakVazduha1, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+        jPanel10Layout.setVerticalGroup(
+            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel10Layout.createSequentialGroup()
+                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jProgressBarPritisakVazduha, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabelPritisakVazduha, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabelPritisakVazduha1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        jPanel1.add(jPanel10);
+        jPanel10.setBounds(430, 270, 360, 70);
+
+        jButtonResetCiklusa.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
+        jButtonResetCiklusa.setText("RESET CIKLUSA");
+        jButtonResetCiklusa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonResetCiklusaActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButtonResetCiklusa);
+        jButtonResetCiklusa.setBounds(460, 520, 150, 40);
+
         jScrollPane1.setViewportView(jPanel1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -1064,10 +1113,6 @@ public class InternalFrameGlavnaSlika2 extends javax.swing.JInternalFrame {
     private void ButtonVelikiGorionikMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonVelikiGorionikMousePressed
         taster(!pogon.getGrupakomandi().getVelikiGorionik().getKomanda().isVrednost(), pogon.getGrupakomandi().getVelikiGorionik().getKomanda().getAdresaVrednosti());
     }//GEN-LAST:event_ButtonVelikiGorionikMousePressed
-
-    private void ButtonGorionikNaKanaluMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonGorionikNaKanaluMousePressed
-        taster(!pogon.getGrupakomandi().getGorionikNaKanalu().getKomanda().isVrednost(), pogon.getGrupakomandi().getGorionikNaKanalu().getKomanda().getAdresaVrednosti());
-    }//GEN-LAST:event_ButtonGorionikNaKanaluMousePressed
 
     private void ButtonPreddozatorMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonPreddozatorMousePressed
         taster(!pogon.getGrupakomandi().getPredozator().getKomanda().isVrednost(), pogon.getGrupakomandi().getPredozator().getKomanda().getAdresaVrednosti());
@@ -1198,7 +1243,9 @@ public class InternalFrameGlavnaSlika2 extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jButtonGrejanjeVagonaActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        NetVision.mb.writeMW(0, pogon.getIzdatoBrSarzi().getAdresaVrednosti());
+        //NetVision.mb.writeMW(0, pogon.getIzdatoBrSarzi().getAdresaVrednosti());
+        int[] resetUkupnoUradjenogAsfalta = {0,0};
+        NetVision.mb.writeMWs(resetUkupnoUradjenogAsfalta, pogon.getUkupnoUradjenoAsfaltaNizi().getAdresaVrednosti());
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButtonTransportMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonTransportMousePressed
@@ -1254,6 +1301,14 @@ public class InternalFrameGlavnaSlika2 extends javax.swing.JInternalFrame {
         NetVision.mb.writeMX(!pogon.getSkretnica().getSkretnicaUpravljanje().isVrednost(), pogon.getSkretnica().getSkretnicaUpravljanje().getAdresaVrednosti());
     }//GEN-LAST:event_jButtonSkretnicaActionPerformed
 
+    private void jButtonResetCiklusaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonResetCiklusaActionPerformed
+        if (JOptionPane.showConfirmDialog(this, "Da li želite da resetujete ciklus proizvodnje asfalta?", "Upozorenje",
+                JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
+            
+            NetVision.mb.writeMX(true, pogon.getResetCiklusa().getAdresaVrednosti());
+        }
+    }//GEN-LAST:event_jButtonResetCiklusaActionPerformed
+
     private void getReceptureZaComboBoxKomponente() {
         recepture = recepturaDb.getReceptiOrderId();
         DefaultComboBoxModel model = (DefaultComboBoxModel) jComboBoxRecepturaKomponente.getModel();
@@ -1291,10 +1346,23 @@ public class InternalFrameGlavnaSlika2 extends javax.swing.JInternalFrame {
                 selectSilos();
                 hold3sec();
                 refreshSkretnica();
+                refreshPritisakVazduha();
             }
         });
     }
 
+    private void refreshPritisakVazduha(){
+        jLabelPritisakVazduha.setText(Convert.shiftPointCutMinus(pogon.getPritisakVazduha().getVrednost(), pogon.getPritisakVazduha().getBrojDecimala()));
+        jProgressBarPritisakVazduha.setValue(pogon.getPritisakVazduha().getVrednost());
+        
+        if(pogon.getPritisakVazduha().getVrednost()<30){
+            jLabelPritisakVazduha.setOpaque(true);
+            jLabelPritisakVazduha.setBackground(Color.red);
+        }else{
+            jLabelPritisakVazduha.setOpaque(false);
+            jLabelPritisakVazduha.setBackground(Color.GRAY);
+        }
+    }
     
     private void refreshSkretnica(){
         LabelText.getColor(jButtonSkretnica, pogon.getSkretnica().getSkretnicaUpravljanje());
@@ -1310,7 +1378,6 @@ public class InternalFrameGlavnaSlika2 extends javax.swing.JInternalFrame {
         LabelText.getText(jButtonTransport, pogon.getGrupakomandi().getTextTransport().getVrednost()); 
         LabelText.getText(ButtonSusara, pogon.getGrupakomandi().getSusara());
         LabelText.getText(ButtonVelikiGorionik, pogon.getGrupakomandi().getVelikiGorionik());
-        LabelText.getText(ButtonGorionikNaKanalu, pogon.getGrupakomandi().getGorionikNaKanalu());
         LabelText.getText(ButtonPreddozator, pogon.getGrupakomandi().getPredozator());
         LabelText.getText(ButtonMesalica, pogon.getGrupakomandi().getMesalica());
         LabelText.getText(ButtonProizvodnjaAsfalta, pogon.getGrupakomandi().getProizvodnjaAsfalta());
@@ -1423,6 +1490,9 @@ public class InternalFrameGlavnaSlika2 extends javax.swing.JInternalFrame {
         headerIzdatoFKup.setText(Convert.shiftPointUnsign(pogon.getFiler().getKupovni().getIzdozirana().getVrednost(), pogon.getFiler().getKupovni().getBrDec()));
         headerIzdatoSop.setText(Convert.shiftPointUnsign(pogon.getFiler().getSopstveni().getIzdozirana().getVrednost(), pogon.getFiler().getSopstveni().getBrDec()));
         headerIzdatoBit.setText(Convert.shiftPointUnsign(pogon.getBitumen().getKolicine().getIzdozirana().getVrednost(), pogon.getBitumen().getKolicine().getBrDec()));
+        
+        jLabelukupnoUradjenihSarzi.setText(Integer.toString(Convert.getTwoRegisterIntShiftPointToInt(pogon.getUkupnoUradjenoAsfaltaVisi().getVrednost(), pogon.getUkupnoUradjenoAsfaltaNizi().getVrednost())));
+        
     }
     
     private void enableButton(){
@@ -1652,7 +1722,6 @@ public class InternalFrameGlavnaSlika2 extends javax.swing.JInternalFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JToggleButton ButtonGorionikNaKanalu;
     private javax.swing.JToggleButton ButtonMesalica;
     private javax.swing.JToggleButton ButtonOtprasivanje;
     private javax.swing.JToggleButton ButtonPreddozator;
@@ -1693,6 +1762,7 @@ public class InternalFrameGlavnaSlika2 extends javax.swing.JInternalFrame {
     private javax.swing.JButton jButtonPromenaSmeraKorpe;
     private javax.swing.JButton jButtonRecepturaPrihvati;
     private javax.swing.JButton jButtonRecepturaPrihvati1;
+    private javax.swing.JButton jButtonResetCiklusa;
     private javax.swing.JButton jButtonSkretnica;
     private javax.swing.JButton jButtonSkretnicaIber1;
     private javax.swing.JButton jButtonSkretnicaIber2;
@@ -1711,7 +1781,11 @@ public class InternalFrameGlavnaSlika2 extends javax.swing.JInternalFrame {
     private javax.swing.JComboBox<String> jComboBoxRecepturaKomponente;
     private javax.swing.JLabel jLabel33;
     private javax.swing.JLabel jLabel34;
+    private javax.swing.JLabel jLabelPritisakVazduha;
+    private javax.swing.JLabel jLabelPritisakVazduha1;
+    private javax.swing.JLabel jLabelukupnoUradjenihSarzi;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
@@ -1720,6 +1794,7 @@ public class InternalFrameGlavnaSlika2 extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
+    private javax.swing.JProgressBar jProgressBarPritisakVazduha;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JToggleButton jToggleButtonSilos1;
     private javax.swing.JToggleButton jToggleButtonSilos2;

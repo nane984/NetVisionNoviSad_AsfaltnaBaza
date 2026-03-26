@@ -118,6 +118,7 @@ public class InternalFrameGlavnaSlika1 extends javax.swing.JInternalFrame {
         Frequency1 = new eu.hansolo.steelseries.gauges.DisplayRectangular();
         Frequency2 = new eu.hansolo.steelseries.gauges.DisplayRectangular();
         Frequency3 = new eu.hansolo.steelseries.gauges.DisplayRectangular();
+        VremeMesanja = new eu.hansolo.steelseries.gauges.DisplayRectangular();
         TemperaturaAsfalta = new eu.hansolo.steelseries.gauges.DisplayRectangular();
         FrequencyVentilatorOtprasivanja = new eu.hansolo.steelseries.gauges.DisplayRectangular();
         Frequency4 = new eu.hansolo.steelseries.gauges.DisplayRectangular();
@@ -355,6 +356,9 @@ public class InternalFrameGlavnaSlika1 extends javax.swing.JInternalFrame {
         prazanPreddozator5 = new javax.swing.JLabel();
         prazanPreddozator6 = new javax.swing.JLabel();
         prazanPreddozator7 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
         prazanPreddozator8 = new javax.swing.JLabel();
         prazanPreddozator9 = new javax.swing.JLabel();
         prazanPreddozator10 = new javax.swing.JLabel();
@@ -365,6 +369,7 @@ public class InternalFrameGlavnaSlika1 extends javax.swing.JInternalFrame {
         vibroSilosFilerKupovni = new javax.swing.JLabel();
         vibroSilosFilerSopstveni = new javax.swing.JLabel();
         vibroSilosFilerKupovniOtprasivanje = new javax.swing.JLabel();
+        KorpaMozeStop = new javax.swing.JToggleButton();
         background = new javax.swing.JLabel();
 
         jPanel1.setLayout(null);
@@ -632,6 +637,16 @@ public class InternalFrameGlavnaSlika1 extends javax.swing.JInternalFrame {
         jPanel1.add(Frequency3);
         Frequency3.setBounds(370, 40, 30, 30);
 
+        VremeMesanja.setFrameVisible(false);
+        VremeMesanja.setLcdDecimals(1);
+        VremeMesanja.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                VremeMesanjaMousePressed(evt);
+            }
+        });
+        jPanel1.add(VremeMesanja);
+        VremeMesanja.setBounds(1030, 710, 90, 30);
+
         TemperaturaAsfalta.setFrameVisible(false);
         TemperaturaAsfalta.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
@@ -639,7 +654,7 @@ public class InternalFrameGlavnaSlika1 extends javax.swing.JInternalFrame {
             }
         });
         jPanel1.add(TemperaturaAsfalta);
-        TemperaturaAsfalta.setBounds(1200, 690, 40, 30);
+        TemperaturaAsfalta.setBounds(1260, 710, 40, 30);
 
         FrequencyVentilatorOtprasivanja.setFrameVisible(false);
         FrequencyVentilatorOtprasivanja.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -1864,7 +1879,7 @@ public class InternalFrameGlavnaSlika1 extends javax.swing.JInternalFrame {
 
         Opis13.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
         Opis13.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Opis13.setText("16 - 32 mm");
+        Opis13.setText("16 - 22 mm");
         frakcijaSilos7.add(Opis13);
         Opis13.setBounds(0, 0, 90, 16);
 
@@ -1894,7 +1909,7 @@ public class InternalFrameGlavnaSlika1 extends javax.swing.JInternalFrame {
 
         Opis4.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
         Opis4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Opis4.setText("16 - 22 mm");
+        Opis4.setText("11 - 16 mm");
         frakcijaSilos6.add(Opis4);
         Opis4.setBounds(0, 0, 90, 16);
 
@@ -1924,7 +1939,7 @@ public class InternalFrameGlavnaSlika1 extends javax.swing.JInternalFrame {
 
         Opis5.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
         Opis5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Opis5.setText("11 - 16 mm");
+        Opis5.setText("8 - 11 mm");
         frakcijaSilos5.add(Opis5);
         Opis5.setBounds(0, 0, 100, 16);
 
@@ -1954,7 +1969,7 @@ public class InternalFrameGlavnaSlika1 extends javax.swing.JInternalFrame {
 
         Opis6.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
         Opis6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Opis6.setText("8 -11 mm");
+        Opis6.setText("4 - 8 mm");
         frakcijaSilos4.add(Opis6);
         Opis6.setBounds(0, 0, 100, 16);
 
@@ -1984,7 +1999,7 @@ public class InternalFrameGlavnaSlika1 extends javax.swing.JInternalFrame {
 
         Opis7.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
         Opis7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Opis7.setText("4 - 8 mm");
+        Opis7.setText("2 - 4 mm");
         frakcijaSilos3.add(Opis7);
         Opis7.setBounds(0, 0, 100, 16);
 
@@ -2014,7 +2029,7 @@ public class InternalFrameGlavnaSlika1 extends javax.swing.JInternalFrame {
 
         Opis8.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
         Opis8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Opis8.setText("0 - 4 mm");
+        Opis8.setText("0 - 2 mm");
         frakcijaSilos2.add(Opis8);
         Opis8.setBounds(0, 0, 100, 16);
 
@@ -2076,7 +2091,7 @@ public class InternalFrameGlavnaSlika1 extends javax.swing.JInternalFrame {
 
         Opis20.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
         Opis20.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Opis20.setText("0 - 32 mm");
+        Opis20.setText("Bajpas");
         frakcijaSilos1.add(Opis20);
         Opis20.setBounds(10, 0, 90, 16);
 
@@ -2200,6 +2215,9 @@ public class InternalFrameGlavnaSlika1 extends javax.swing.JInternalFrame {
 
         jButtonGorionilSusareIncrease.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/small/add.png"))); // NOI18N
         jButtonGorionilSusareIncrease.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jButtonGorionilSusareIncreaseMouseExited(evt);
+            }
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 jButtonGorionilSusareIncreaseMousePressed(evt);
             }
@@ -2212,6 +2230,9 @@ public class InternalFrameGlavnaSlika1 extends javax.swing.JInternalFrame {
 
         jButtonGorionikSusareReduce.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/small/reduce.png"))); // NOI18N
         jButtonGorionikSusareReduce.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jButtonGorionikSusareReduceMouseExited(evt);
+            }
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 jButtonGorionikSusareReduceMousePressed(evt);
             }
@@ -2839,6 +2860,18 @@ public class InternalFrameGlavnaSlika1 extends javax.swing.JInternalFrame {
         jPanel1.add(prazanPreddozator7);
         prazanPreddozator7.setBounds(0, 280, 100, 40);
 
+        jLabel6.setText("mesanja");
+        jPanel1.add(jLabel6);
+        jLabel6.setBounds(970, 730, 60, 16);
+
+        jLabel5.setText("vreme");
+        jPanel1.add(jLabel5);
+        jLabel5.setBounds(970, 710, 60, 16);
+
+        jLabel4.setText("Temp asf.");
+        jPanel1.add(jLabel4);
+        jLabel4.setBounds(1191, 710, 60, 16);
+
         prazanPreddozator8.setBackground(new java.awt.Color(255, 51, 0));
         prazanPreddozator8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         prazanPreddozator8.setText("Prazan");
@@ -2929,6 +2962,16 @@ public class InternalFrameGlavnaSlika1 extends javax.swing.JInternalFrame {
         });
         jPanel1.add(vibroSilosFilerKupovniOtprasivanje);
         vibroSilosFilerKupovniOtprasivanje.setBounds(450, 150, 30, 30);
+
+        KorpaMozeStop.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
+        KorpaMozeStop.setText("Korpa");
+        KorpaMozeStop.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                KorpaMozeStopMousePressed(evt);
+            }
+        });
+        jPanel1.add(KorpaMozeStop);
+        KorpaMozeStop.setBounds(1240, 780, 140, 40);
 
         background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/DisplayNew1.png"))); // NOI18N
         jPanel1.add(background);
@@ -4069,6 +4112,22 @@ public class InternalFrameGlavnaSlika1 extends javax.swing.JInternalFrame {
         taster(!pogon.getFiler().getVibroSilosKupovniFilerOtprasivanje().getKomanda().isVrednost(), pogon.getFiler().getVibroSilosKupovniFilerOtprasivanje().getKomanda().getAdresaVrednosti());
     }//GEN-LAST:event_vibroSilosFilerKupovniOtprasivanjeMousePressed
 
+    private void jButtonGorionilSusareIncreaseMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonGorionilSusareIncreaseMouseExited
+        gorionikBezbednostIskljuciNaPlus = true;
+    }//GEN-LAST:event_jButtonGorionilSusareIncreaseMouseExited
+
+    private void jButtonGorionikSusareReduceMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonGorionikSusareReduceMouseExited
+         gorionikBezbednostIskljuciNaMinus = true;
+    }//GEN-LAST:event_jButtonGorionikSusareReduceMouseExited
+
+    private void KorpaMozeStopMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_KorpaMozeStopMousePressed
+        taster(!pogon.getKorpaVagon().getKorpaMozeStop().getKomanda().isVrednost(), pogon.getKorpaVagon().getKorpaMozeStop().getKomanda().getAdresaVrednosti());        // TODO add your handling code here:
+    }//GEN-LAST:event_KorpaMozeStopMousePressed
+
+    private void VremeMesanjaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_VremeMesanjaMousePressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_VremeMesanjaMousePressed
+
     private void seLineartFrequency() {
         int f0 = 0;
         int fh = 50;
@@ -4108,8 +4167,27 @@ public class InternalFrameGlavnaSlika1 extends javax.swing.JInternalFrame {
                 pumpaZaNaftuTermopaka();
                 refreshPozicijaKorpe();
                 refresSilosaAsfalta();
+                bezbednostZaUpravljanjeGorionikom();
             }
         });
+    }
+    
+    private void bezbednostZaUpravljanjeGorionikom(){
+        if(pogon.getSusara().getGorionikSusareSnagaPlus().getKomanda().isVrednost()  && 
+                gorionikBezbednostIskljuciNaPlus){
+            
+            NetVision.mb.writeMX(false,
+                pogon.getSusara().getGorionikSusareSnagaPlus().getKomanda().getAdresaVrednosti());
+            gorionikBezbednostIskljuciNaPlus = false;
+        }
+        
+        if(pogon.getSusara().getGorionikSusareSnagaMinus().getKomanda().isVrednost()  && 
+                gorionikBezbednostIskljuciNaMinus){
+            
+            NetVision.mb.writeMX(false,
+                pogon.getSusara().getGorionikSusareSnagaMinus().getKomanda().getAdresaVrednosti());
+            gorionikBezbednostIskljuciNaMinus = false;
+        }
     }
 
     private void refresSilosaAsfalta() {
@@ -4176,6 +4254,8 @@ public class InternalFrameGlavnaSlika1 extends javax.swing.JInternalFrame {
         korpaVPoz1.setVisible(pogon.getKorpaVagon().getPozicijaKorpe1().isVrednost());
         korpaVPoz2.setVisible(!pogon.getKorpaVagon().getPozicijaKorpe2().isVrednost());
         korpaVPoz3.setVisible(!pogon.getKorpaVagon().getPozicijaKorpe3().isVrednost());
+        
+         LabelText.getText(KorpaMozeStop, pogon.getKorpaVagon().getKorpaMozeStop());
     }
 
     private void pumpaZaNaftuTermopaka() {
@@ -4470,6 +4550,9 @@ public class InternalFrameGlavnaSlika1 extends javax.swing.JInternalFrame {
         MWStrujaMesalice.setValue(struja);
         linearBargraphStrujaMesalice.setValue(struja);
         
+        VremeMesanja.setValue(Convert.shiftPointDoubleSign(pogon.getMesalica().getTrenutnoVremeMesanja().getVrednost(), pogon.getMesalica().getTrenutnoVremeMesanja().getBrojDecimala()));
+        
+        
         LabelText.getColor(jButtonGrejacMesalice, pogon.getMesalica().getGrejacMesalice());
         if(pogon.getMesalica().isRucnoAutomatskiGrejac()){
             jButtonGrejacRucnoAutomatski.setBackground(Color.GREEN);
@@ -4751,6 +4834,7 @@ public class InternalFrameGlavnaSlika1 extends javax.swing.JInternalFrame {
     private javax.swing.JLabel Klapna2;
     private javax.swing.JLabel Klapna3;
     private javax.swing.JLabel Komunikacija;
+    private javax.swing.JToggleButton KorpaMozeStop;
     private javax.swing.JLabel KvarGorionikaSusare;
     private eu.hansolo.steelseries.extras.Led LedVentilPraznjenjeCB1Otvoren;
     private eu.hansolo.steelseries.extras.Led LedVentilPraznjenjeCB1Zatvoren;
@@ -4849,6 +4933,7 @@ public class InternalFrameGlavnaSlika1 extends javax.swing.JInternalFrame {
     private javax.swing.JLabel TotalStopDoz7;
     private javax.swing.JLabel TotalStopDoz8;
     private javax.swing.JLabel TotalStopDoz9;
+    private eu.hansolo.steelseries.gauges.DisplayRectangular VremeMesanja;
     private eu.hansolo.steelseries.gauges.Linear asfaltSilos1;
     private eu.hansolo.steelseries.gauges.Linear asfaltSilos2;
     private eu.hansolo.steelseries.gauges.Linear asfaltSilos3;
@@ -4907,6 +4992,9 @@ public class InternalFrameGlavnaSlika1 extends javax.swing.JInternalFrame {
     private javax.swing.JButton jButtonKlapnaSVZatvaranje;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabelVreme;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
@@ -5054,5 +5142,7 @@ public class InternalFrameGlavnaSlika1 extends javax.swing.JInternalFrame {
 
     private int izborSilosaAsfalta = 1;
     
-    private Calendar c = Calendar.getInstance(); 
+    private Calendar c = Calendar.getInstance();
+    private boolean gorionikBezbednostIskljuciNaPlus = false;
+    private boolean gorionikBezbednostIskljuciNaMinus = false;
 }

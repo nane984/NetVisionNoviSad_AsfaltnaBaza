@@ -23,6 +23,7 @@ public class Mesalica {
     private final AnalognaMinMaxOpis strujaMesalice;
     private final Digitalac grejacMesalice;
     private boolean rucnoAutomatskiGrejac = false;
+    private final Analogna trenutnoVremeMesanja;
     
     private final Image image;
     
@@ -44,6 +45,8 @@ public class Mesalica {
         this.strujaMesalice = new AnalognaMinMaxOpis(342, 0, 0, 100, "Struja mesalice");
         
         this.grejacMesalice = new Digitalac(MutantToDec.getValue("324"));
+        
+        this.trenutnoVremeMesanja = new Analogna(346, 1);
     }
 
     public Taster getMesalica() {
@@ -76,6 +79,10 @@ public class Mesalica {
 
     public void setRucnoAutomatskiGrejac(boolean rucnoAutomatskiGrejac) {
         this.rucnoAutomatskiGrejac = rucnoAutomatskiGrejac;
+    }
+
+    public Analogna getTrenutnoVremeMesanja() {
+        return trenutnoVremeMesanja;
     }
     
     

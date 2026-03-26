@@ -5,7 +5,6 @@
  */
 package dbService;
 
-
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -19,25 +18,21 @@ import javax.persistence.Query;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
-
-
 /**
  *
  * @author branko.scekic
  */
-public class OtpremaService{
+public class OtpremaService {
 
     private final EntityManagerFactory emf;
-
 
     public OtpremaService(EntityManagerFactory emf) {
         this.emf = emf;
     }
 
-
     public void addOprema(String receptura, String vozac, String vozilo, String gradiliste, String kupac, int zadataKolicina) {
         try {
-            
+
             db.Otprema otprema = new db.Otprema();
             Date localDate = new Date();
 
@@ -64,9 +59,9 @@ public class OtpremaService{
         }
 
     }
-    
+
     public db.Otprema getOtprema(long brOtp) {
-        
+
         try {
             EntityManager em = emf.createEntityManager();
             Query q = em.createQuery("SELECT o FROM Otprema o WHERE o.id = :brOtp");
@@ -75,41 +70,41 @@ public class OtpremaService{
             em.close();
 
             return result;
-                
+
         } catch (Exception ex) {
             db.Otprema a = new db.Otprema();
             return a;
         }
     }
-    
+
     public db.Otprema getLastOtprema() {
-        
+
         try {
             EntityManager em = emf.createEntityManager();
             Query q = em.createQuery("SELECT o FROM Otprema o ORDER BY o.id DESC");
-           
+
             List<db.Otprema> result = q.getResultList();
             em.close();
 
             return result.get(0);
-                
+
         } catch (Exception ex) {
             db.Otprema a = new db.Otprema();
             return a;
         }
     }
-    
+
     public List<db.Otprema> getOtpreme() {
-        
+
         try {
             EntityManager em = emf.createEntityManager();
             Query q = em.createQuery("SELECT o FROM Otprema o ORDER BY o.id");
-           
+
             List<db.Otprema> result = q.getResultList();
             em.close();
 
             return result;
-                
+
         } catch (Exception ex) {
             db.Otprema a = new db.Otprema();
             List<db.Otprema> b = new ArrayList<>();
@@ -117,7 +112,7 @@ public class OtpremaService{
             return b;
         }
     }
-    
+
     public List<String> getMarkeAsfalta() {
         EntityManager em = emf.createEntityManager();
         Query q = em.createQuery("SELECT DISTINCT o.receptura FROM Otprema o ORDER BY o.receptura");
@@ -127,8 +122,8 @@ public class OtpremaService{
 
         return result;
     }
-    
-     public List<String> getKupci() {
+
+    public List<String> getKupci() {
 
         EntityManager em = emf.createEntityManager();
         Query q = em.createQuery("SELECT DISTINCT o.kupac FROM Otprema o ORDER BY o.kupac");
@@ -138,7 +133,7 @@ public class OtpremaService{
 
         return result;
     }
-     
+
     public List<String> getGradilista() {
 
         EntityManager em = emf.createEntityManager();
@@ -149,73 +144,38 @@ public class OtpremaService{
 
         return result;
     }
-    
+
     public List<db.Otprema> getFilteredData(
-            String filterOtprema, 
+            String filterOtprema,
             String filterKupac, String filterGradiliste, String filterMarkaAsfalta,
-            String filterDatumOd, String filterDatumDo) {
+            Date filterDatumOd, Date filterDatumDo) {
         List<db.Otprema> result;
-        try {
-            EntityManager em = emf.createEntityManager();
-            Query q;
 
-            DateFormat formatMyComp = new SimpleDateFormat("dd MMM yyyy", Locale.ROOT);
-////////////////////VAZNOOO KADA SE SPUSTA U VALJEVU PROMENITI FORMAT ///////////////////////////////////////////////////////////////////////////////////////////////////////////            
-            //SimpleDateFormat sdf = new SimpleDateFormat("MMM dd, yyyy");//ovo funkcionise kod njih za format month/day/year
-            SimpleDateFormat sdf = new SimpleDateFormat("dd MMM yyyy");//ovo je na mom pc
-            
-            
-            Date dateOd;
-            Date dateDo;
+        EntityManager em = emf.createEntityManager();
+        Query q;
 
-            if (!filterDatumOd.isEmpty()) {
-                dateOd = sdf.parse(filterDatumOd);
+        if (!filterOtprema.isEmpty()) {
+            q = em.createQuery("SELECT o FROM Otprema o WHERE o.id = :id");
+            q.setParameter("id", Integer.parseInt(filterOtprema));
 
-            } else {
-                dateOd = formatMyComp.parse("01 jan 2000  00:01:00");
-            }
+        } else {
 
-            if (!filterDatumDo.isEmpty()) {
-                dateDo = sdf.parse(filterDatumDo);
+            //kupac i gradiliste su null pa zato imam problem. Kad oni budu imali neki rezultat ukljucicemo ih.
+            q = em.createQuery("SELECT o FROM Otprema o WHERE o.receptura LIKE :markaasfalta "
+                    + "AND o.datum >= :datumOd AND o.datum <= :datumDo ORDER BY o.datum DESC");
 
-            } else {
-                dateDo = formatMyComp.parse("01 jan 2040  23:59:00");
-            }
+            //q.setParameter("kupac", "%" + filterKupac + "%");
+            //q.setParameter("gradiliste", "%" + filterGradiliste + "%");
+            q.setParameter("markaasfalta", "%" + filterMarkaAsfalta + "%");
+            q.setParameter("datumOd", filterDatumOd);
+            q.setParameter("datumDo", filterDatumDo);
 
-            if (!filterOtprema.isEmpty()) {
-                q = em.createQuery("SELECT o FROM Otprema o WHERE o.id = :id");
-                q.setParameter("id", Integer.parseInt(filterOtprema));
-
-            } else {
-                
-                //kupac i gradiliste su null pa zato imam problem. Kad oni budu imali neki rezultat ukljucicemo ih.
-
-                    //q = em.createQuery("SELECT o FROM Otprema o WHERE o.kupac LIKE :kupac AND o.gradiliste LIKE :gradiliste AND o.receptura LIKE :markaasfalta "
-                        //    + "AND o.datum >= :datumOd AND o.datum <= :datumDo ORDER BY o.datum DESC");
-        
-                    q = em.createQuery("SELECT o FROM Otprema o WHERE o.receptura LIKE :markaasfalta "
-                            + "AND o.datum >= :datumOd AND o.datum <= :datumDo ORDER BY o.datum DESC");
-                        
-                    //q.setParameter("kupac", "%" + filterKupac + "%");
-                    //q.setParameter("gradiliste", "%" + filterGradiliste + "%");
-                    q.setParameter("markaasfalta", "%" + filterMarkaAsfalta + "%");
-                    q.setParameter("datumOd", dateOd);
-                    q.setParameter("datumDo", dateDo);
-                
-            }
-
-            //System.out.println(filterKupac+" "+filterGradiliste+" "+filterMarkaAsfalta);
-            
-            result = q.getResultList();
-            em.close();
-
-            return result;
-
-        } catch (ParseException ex) {
-            JOptionPane.showMessageDialog(new JFrame(), ex);
-            result = new ArrayList<>();
         }
-        return result;
 
+        //System.out.println(filterKupac+" "+filterGradiliste+" "+filterMarkaAsfalta);
+        result = q.getResultList();
+        em.close();
+
+        return result;
     }
 }

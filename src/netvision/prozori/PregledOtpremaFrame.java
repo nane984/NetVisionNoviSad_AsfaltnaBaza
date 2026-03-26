@@ -9,6 +9,11 @@ import dbService.OtpremaService;
 import dbService.RecepturaService;
 import dbService.SarzaService;
 import java.net.URL;
+import java.time.LocalDate;
+import java.time.ZoneId;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.List;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.ImageIcon;
@@ -21,6 +26,7 @@ import utils.Convert;
  * @author branko.scekic
  */
 public class PregledOtpremaFrame extends javax.swing.JFrame {
+
     /**
      * Creates new form PregledRadnihNalogaFrame
      *
@@ -333,28 +339,37 @@ public class PregledOtpremaFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonPregledRNOdustaniActionPerformed
 
     private void jButtonFilterIzlistajRadneNalogeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonFilterIzlistajRadneNalogeActionPerformed
+        
+        LocalDate od = filterDatumOd.getDate();
+        LocalDate dO = filterDatumDo.getDate();
+
+        if (od == null) {
+            od = LocalDate.now();
+        }
+
+        if (dO == null) {
+            dO = LocalDate.now();
+        }
+
+        Date dateOd = Date.from(
+                od.atStartOfDay(ZoneId.systemDefault()).toInstant()
+        );
+
+        Date dateDo = Date.from(
+                dO.atTime(23, 59, 59)
+                  .atZone(ZoneId.systemDefault())
+                  .toInstant()
+        );
+       
         fillTable(otpremaDb.getFilteredData(filterOtprema.getSelectedItem().toString(),
                 filterKupac.getSelectedItem().toString(), filterGradiliste.getSelectedItem().toString(),
-                filterMarkaAsfalta.getSelectedItem().toString(), filterDatumOd.getText(), filterDatumDo.getText()));
+                filterMarkaAsfalta.getSelectedItem().toString(), dateOd, dateDo));
+        
     }//GEN-LAST:event_jButtonFilterIzlistajRadneNalogeActionPerformed
 
     private void pregledRNDetaljiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pregledRNDetaljiActionPerformed
         if (jTableOtprema.getSelectedRow() != -1) {
-            //this.setVisible(false);
-/*
-            if (pregledSarziZaOtpremuFrame != null) {
-                pregledSarziZaOtpremuFrame.dispose();
-            }
-            pregledSarziZaOtpremuFrame = new PregledSarziZaOtpremuFrame(sarzaDb, 
-                    otpremaDb.getOtprema(Long.parseLong(jTableOtprema.getValueAt(jTableOtprema.getSelectedRow(), 1).toString())));
-            
-            pregledSarziZaOtpremuFrame.setVisible(true);
-
-            pregledSarziZaOtpremuFrame.fillData(Long.parseLong(brojRadnogNalogaOtprema.getText()),
-                    otpremaDb.getOtprema(Long.parseLong(jTableOtprema.getValueAt(jTableOtprema.getSelectedRow(), 8).toString())),
-                    jTableOtprema.getValueAt(jTableOtprema.getSelectedRow(), 1).toString(),
-                    jTableOtprema.getValueAt(jTableOtprema.getSelectedRow(), 2).toString());
-*/
+            pregledSarzaZaOtpremu();
         } else {
             JOptionPane.showMessageDialog(this, "Niste selektovali radni nalog", "Obavestenje", 0);
         }
@@ -368,21 +383,21 @@ public class PregledOtpremaFrame extends javax.swing.JFrame {
         pregledSarzaZaOtpremu();
     }//GEN-LAST:event_jMenuItemPotrosnjaMaterijalaActionPerformed
 
-    private void pregledSarzaZaOtpremu(){
+    private void pregledSarzaZaOtpremu() {
         if (jTableOtprema.getSelectedRow() != -1) {
             if (pregledSarziZaOtpremuFrame != null) {
                 pregledSarziZaOtpremuFrame.dispose();
             }
-            pregledSarziZaOtpremuFrame = new PregledSarziZaOtpremuFrame(sarzaDb, 
+            pregledSarziZaOtpremuFrame = new PregledSarziZaOtpremuFrame(sarzaDb,
                     otpremaDb.getOtprema(Long.parseLong(jTableOtprema.getValueAt(jTableOtprema.getSelectedRow(), 0).toString())));
-            
+
             pregledSarziZaOtpremuFrame.setVisible(true);
 
         } else {
             JOptionPane.showMessageDialog(this, "Niste selektovali radni nalog", "Obavestenje", 0);
         }
     }
-    
+
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
 
         //    izvestajPoKupcuFrame.fillTable(jTableRadniNalozi);
@@ -571,9 +586,9 @@ public class PregledOtpremaFrame extends javax.swing.JFrame {
     private javax.swing.JTable jTableOtprema;
     private javax.swing.JButton pregledRNDetalji;
     // End of variables declaration//GEN-END:variables
-    
+
     private final SarzaService sarzaDb;
     private final OtpremaService otpremaDb;
-    
+
     private PregledSarziZaOtpremuFrame pregledSarziZaOtpremuFrame;
 }

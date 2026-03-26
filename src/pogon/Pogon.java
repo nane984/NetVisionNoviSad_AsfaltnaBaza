@@ -52,8 +52,11 @@ public class Pogon {
     private boolean sacuvajFrekfrencije;
     private final Analogna zadatoBrSarzi;
     private final Analogna izdatoBrSarzi;
+    private final Analogna pritisakVazduha;
     private final Digitalac writeSarzeInDb; 
-   
+    private final Digitalac resetCiklusa;
+    private final Analogna ukupnoUradjenoAsfaltaNizi;
+    private final Analogna ukupnoUradjenoAsfaltaVisi;
 
     public Pogon(){
        this.Preddozatori = new Preddozatori();
@@ -79,8 +82,13 @@ public class Pogon {
        this.skretnica = new Skretnica();
        this.zadatoBrSarzi = new Analogna(271,0);
        this.izdatoBrSarzi = new Analogna(272,0);
+       this.pritisakVazduha = new Analogna(343, 1);
        this.writeSarzeInDb = new Digitalac(MutantToDec.getValue("330"));
-    }
+       this.resetCiklusa = new Digitalac(MutantToDec.getValue("333"));
+       
+       this.ukupnoUradjenoAsfaltaNizi = new Analogna(344, 0);
+       this.ukupnoUradjenoAsfaltaVisi = new Analogna(345, 0);
+     }
 
     public Preddozatori getPreddozatori() {
         return Preddozatori;
@@ -161,8 +169,24 @@ public class Pogon {
         return izdatoBrSarzi;
     }
 
+    public Analogna getPritisakVazduha() {
+           return pritisakVazduha;
+    }
+    
     public Digitalac getWriteSarzeInDb() {
         return writeSarzeInDb;
+    }
+
+    public Digitalac getResetCiklusa() {
+        return resetCiklusa;
+    }
+
+    public Analogna getUkupnoUradjenoAsfaltaNizi() {
+        return ukupnoUradjenoAsfaltaNizi;
+    }
+
+    public Analogna getUkupnoUradjenoAsfaltaVisi() {
+        return ukupnoUradjenoAsfaltaVisi;
     }
     
     

@@ -49,7 +49,7 @@ public class Susara {
                "Pumpa gorionika susare",
                image.getPumpe());
         this.GorionikSusare = new Taster(
-               MutantToDec.getValue("226"),
+               MutantToDec.getValue("20D"), //226
                "Gorionik susare",
                image.getGorionik()
         );

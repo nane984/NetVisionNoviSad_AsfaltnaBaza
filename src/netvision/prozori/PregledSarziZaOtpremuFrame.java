@@ -78,7 +78,7 @@ public class PregledSarziZaOtpremuFrame extends javax.swing.JFrame {
                 {null, null, null, null, null, null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "br", "Fil k izd", "Fil s izd", "0_32 izd", "0_4 izd", "4_8 izd", "8_11 izd", "11_16 izd", "16_22 izd", "16_32 izd", "bitumen", "datum", "vreme"
+                "br", "Fil k izd", "Fil s izd", "bajpas izd", "0_2 izd", "2_4 izd", "4_8 izd", "8_11 izd", "11_16 izd", "16_22 izd", "bitumen", "datum", "vreme"
             }
         ));
         jTableSarza.setFocusable(false);
@@ -270,7 +270,7 @@ public class PregledSarziZaOtpremuFrame extends javax.swing.JFrame {
         }
 
         DefaultTableModel model = new DefaultTableModel(obj, 
-                new Object[]{"r.b", "Filer k", "Filer s","0_32 izd", "0_4 izd", "4_8 izd", "8_11 izd", "11_16 izd","16_22 izd", "16_32 izd", "bitumen","datum" , "vreme"});
+                new Object[]{"r.b", "Filer k", "Filer s","bajpas izd", "0_2 izd", "2_4 izd", "4_8 izd", "8_11 izd","11_16 izd", "16_22 izd", "bitumen","datum" , "vreme"});
         jTableSarza.setModel(model);
         jTableSarza.setRowMargin(4);
         jTableSarza.setRowHeight(40);

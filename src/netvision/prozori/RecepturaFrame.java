@@ -511,7 +511,7 @@ public class RecepturaFrame extends javax.swing.JFrame {
         nazivIzabranogRecepta.setBounds(510, 20, 200, 31);
 
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabel1.setText("2. Frakcija 0_4 mm");
+        jLabel1.setText("2. Frakcija 0_2 mm");
         jPanel15.add(jLabel1);
         jLabel1.setBounds(740, 80, 120, 20);
 
@@ -533,32 +533,32 @@ public class RecepturaFrame extends javax.swing.JFrame {
         jLabel37.setBounds(740, 10, 230, 20);
 
         jLabel38.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabel38.setText("3. Frakcija 4_8 mm");
+        jLabel38.setText("3. Frakcija 2_4 mm");
         jPanel15.add(jLabel38);
         jLabel38.setBounds(740, 120, 120, 20);
 
         jLabel47.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabel47.setText("4. Frakcija 8_11 mm");
+        jLabel47.setText("4. Frakcija 4_8 mm");
         jPanel15.add(jLabel47);
         jLabel47.setBounds(740, 160, 120, 20);
 
         jLabel48.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabel48.setText("1. Frakcija 0_32 mm");
+        jLabel48.setText("1. Frakcija bajpas");
         jPanel15.add(jLabel48);
         jLabel48.setBounds(740, 40, 120, 20);
 
         jLabel49.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabel49.setText("5. Frakcija 11_16 mm");
+        jLabel49.setText("5. Frakcija 8_11 mm");
         jPanel15.add(jLabel49);
         jLabel49.setBounds(740, 200, 120, 20);
 
         jLabel50.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabel50.setText("6. Frakcija 16_22 mm");
+        jLabel50.setText("6. Frakcija 11_16 mm");
         jPanel15.add(jLabel50);
         jLabel50.setBounds(740, 240, 120, 20);
 
         jLabel51.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabel51.setText("7. Frakcija 16_32 mm");
+        jLabel51.setText("7. Frakcija 16_22 mm");
         jPanel15.add(jLabel51);
         jLabel51.setBounds(740, 280, 120, 20);
 

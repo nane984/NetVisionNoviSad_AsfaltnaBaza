@@ -160,13 +160,13 @@
                     <Column editable="true" title="br" type="java.lang.Object"/>
                     <Column editable="true" title="Fil k izd" type="java.lang.Object"/>
                     <Column editable="true" title="Fil s izd" type="java.lang.Object"/>
-                    <Column editable="true" title="0_32 izd" type="java.lang.Object"/>
-                    <Column editable="true" title="0_4 izd" type="java.lang.Object"/>
+                    <Column editable="true" title="bajpas izd" type="java.lang.Object"/>
+                    <Column editable="true" title="0_2 izd" type="java.lang.Object"/>
+                    <Column editable="true" title="2_4 izd" type="java.lang.Object"/>
                     <Column editable="true" title="4_8 izd" type="java.lang.Object"/>
                     <Column editable="true" title="8_11 izd" type="java.lang.Object"/>
                     <Column editable="true" title="11_16 izd" type="java.lang.Object"/>
                     <Column editable="true" title="16_22 izd" type="java.lang.Object"/>
-                    <Column editable="true" title="16_32 izd" type="java.lang.Object"/>
                     <Column editable="true" title="bitumen" type="java.lang.Object"/>
                     <Column editable="true" title="datum" type="java.lang.Object"/>
                     <Column editable="true" title="vreme" type="java.lang.Object"/>

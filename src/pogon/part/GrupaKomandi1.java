@@ -19,7 +19,6 @@ public class GrupaKomandi1 {
      private final TasterSaDvaOpisa Transport;
      private final TasterSaDvaOpisa Susara;
      private final TasterSaDvaOpisa VelikiGorionik;
-     private final TasterSaDvaOpisa GorionikNaKanalu;
      private final TasterSaDvaOpisa Predozator;
      private final TasterSaDvaOpisa Mesalica;
      private final TasterSaDvaOpisa ProizvodnjaAsfalta;
@@ -32,7 +31,6 @@ public class GrupaKomandi1 {
          this.Transport = new TasterSaDvaOpisa(MutantToDec.getValue("3"), "Transport STOP", "Transport U TOKU");
          this.Susara = new TasterSaDvaOpisa(MutantToDec.getValue("217"), "Susara STOP", "Susara U RADU");
          this.VelikiGorionik = new TasterSaDvaOpisa(MutantToDec.getValue("226"), "Veliki gorionik STOP", "Veliki gorionik U RADU");
-         this.GorionikNaKanalu = new TasterSaDvaOpisa(MutantToDec.getValue("22B"), "Gorionik na kanalu STOP", "Gorionik na kanalu U RADU");
          this.Predozator = new TasterSaDvaOpisa(MutantToDec.getValue("4"), "Predozator STOP", "Predozator U RADU");
          this.Mesalica = new TasterSaDvaOpisa(MutantToDec.getValue("E"), "Mesalica STOP", "Mesalica U RADU");
          this.ProizvodnjaAsfalta = new TasterSaDvaOpisa(MutantToDec.getValue("C"), "Proizvodnja asfalta STOP", "Proizvodnja asfalta U TOKU");
@@ -55,9 +53,6 @@ public class GrupaKomandi1 {
         return VelikiGorionik;
     }
 
-    public TasterSaDvaOpisa getGorionikNaKanalu() {
-        return GorionikNaKanalu;
-    }
 
     public TasterSaDvaOpisa getPredozator() {
         return Predozator;
