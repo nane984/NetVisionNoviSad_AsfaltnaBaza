@@ -18,7 +18,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.net.URL;
 import java.util.Calendar;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.Timer;
@@ -61,6 +63,8 @@ public class InternalFrameGlavnaSlika1 extends javax.swing.JInternalFrame {
         this.pogon = pogon;
         this.recepturaDb = recepturaDb;
         //this.recepturaDb = recepturaDb;
+        this.potrosnjaDnevna = new HashMap<>();
+        
         initMinMax();
         initTimer();
     }
@@ -370,6 +374,7 @@ public class InternalFrameGlavnaSlika1 extends javax.swing.JInternalFrame {
         vibroSilosFilerSopstveni = new javax.swing.JLabel();
         vibroSilosFilerKupovniOtprasivanje = new javax.swing.JLabel();
         KorpaMozeStop = new javax.swing.JToggleButton();
+        jLabelMesalicaWarning = new javax.swing.JLabel();
         background = new javax.swing.JLabel();
 
         jPanel1.setLayout(null);
@@ -377,12 +382,12 @@ public class InternalFrameGlavnaSlika1 extends javax.swing.JInternalFrame {
         Opis1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Opis1.setText("Bitum. 2");
         jPanel1.add(Opis1);
-        Opis1.setBounds(1630, 80, 60, 16);
+        Opis1.setBounds(1630, 80, 60, 14);
 
         Opis2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Opis2.setText("Filer sop.");
         jPanel1.add(Opis2);
-        Opis2.setBounds(570, 140, 70, 16);
+        Opis2.setBounds(570, 140, 70, 14);
 
         DOPuzFilerKupovni.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         DOPuzFilerKupovni.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/small/puzniGif.gif"))); // NOI18N
@@ -600,7 +605,7 @@ public class InternalFrameGlavnaSlika1 extends javax.swing.JInternalFrame {
         Opis3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Opis3.setText("Filer kup.");
         jPanel1.add(Opis3);
-        Opis3.setBounds(490, 140, 60, 16);
+        Opis3.setBounds(490, 140, 60, 14);
 
         Opis10.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
         Opis10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -611,7 +616,7 @@ public class InternalFrameGlavnaSlika1 extends javax.swing.JInternalFrame {
         Opis11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Opis11.setText("Bitum. 3");
         jPanel1.add(Opis11);
-        Opis11.setBounds(1700, 80, 70, 16);
+        Opis11.setBounds(1700, 80, 70, 14);
 
         TezinaBitumen1.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
         TezinaBitumen1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -1513,7 +1518,7 @@ public class InternalFrameGlavnaSlika1 extends javax.swing.JInternalFrame {
             }
         });
         jPanel1.add(jButtonKlapnaSVZatvaranje);
-        jButtonKlapnaSVZatvaranje.setBounds(420, 580, 37, 30);
+        jButtonKlapnaSVZatvaranje.setBounds(420, 580, 41, 30);
 
         linearBargraphVagaBitumen.setBackgroundColor(eu.hansolo.steelseries.tools.BackgroundColor.WHITE);
         linearBargraphVagaBitumen.setBackgroundVisible(false);
@@ -2387,7 +2392,7 @@ public class InternalFrameGlavnaSlika1 extends javax.swing.JInternalFrame {
         Opis27.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Opis27.setText("Bitum. 1");
         jPanel1.add(Opis27);
-        Opis27.setBounds(1560, 80, 70, 16);
+        Opis27.setBounds(1560, 80, 70, 14);
 
         TezinaBitumen2.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
         TezinaBitumen2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -2862,15 +2867,15 @@ public class InternalFrameGlavnaSlika1 extends javax.swing.JInternalFrame {
 
         jLabel6.setText("mesanja");
         jPanel1.add(jLabel6);
-        jLabel6.setBounds(970, 730, 60, 16);
+        jLabel6.setBounds(970, 730, 60, 14);
 
         jLabel5.setText("vreme");
         jPanel1.add(jLabel5);
-        jLabel5.setBounds(970, 710, 60, 16);
+        jLabel5.setBounds(970, 710, 60, 14);
 
         jLabel4.setText("Temp asf.");
         jPanel1.add(jLabel4);
-        jLabel4.setBounds(1191, 710, 60, 16);
+        jLabel4.setBounds(1191, 710, 60, 14);
 
         prazanPreddozator8.setBackground(new java.awt.Color(255, 51, 0));
         prazanPreddozator8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -2972,6 +2977,12 @@ public class InternalFrameGlavnaSlika1 extends javax.swing.JInternalFrame {
         });
         jPanel1.add(KorpaMozeStop);
         KorpaMozeStop.setBounds(1240, 780, 140, 40);
+
+        jLabelMesalicaWarning.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabelMesalicaWarning.setForeground(new java.awt.Color(255, 0, 0));
+        jLabelMesalicaWarning.setText("Mesalica STOP!!!");
+        jPanel1.add(jLabelMesalicaWarning);
+        jLabelMesalicaWarning.setBounds(1150, 540, 220, 30);
 
         background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/DisplayNew1.png"))); // NOI18N
         jPanel1.add(background);
@@ -4550,6 +4561,12 @@ public class InternalFrameGlavnaSlika1 extends javax.swing.JInternalFrame {
         MWStrujaMesalice.setValue(struja);
         linearBargraphStrujaMesalice.setValue(struja);
         
+        if(struja < 5 && pogon.getMesalica().getMesalica().getKomanda().isVrednost()){
+            jLabelMesalicaWarning.setText("Mesalica STOP!!!");
+        }else{
+            jLabelMesalicaWarning.setText("");
+        }
+        
         VremeMesanja.setValue(Convert.shiftPointDoubleSign(pogon.getMesalica().getTrenutnoVremeMesanja().getVrednost(), pogon.getMesalica().getTrenutnoVremeMesanja().getBrojDecimala()));
         
         
@@ -4995,6 +5012,7 @@ public class InternalFrameGlavnaSlika1 extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabelMesalicaWarning;
     private javax.swing.JLabel jLabelVreme;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
@@ -5145,4 +5163,6 @@ public class InternalFrameGlavnaSlika1 extends javax.swing.JInternalFrame {
     private Calendar c = Calendar.getInstance();
     private boolean gorionikBezbednostIskljuciNaPlus = false;
     private boolean gorionikBezbednostIskljuciNaMinus = false;
+    
+    private Map<String, Integer> potrosnjaDnevna;
 }

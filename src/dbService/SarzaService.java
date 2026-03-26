@@ -15,25 +15,23 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
-
 /**
  *
  * @author branko.scekic
  */
-public class SarzaService{
+public class SarzaService {
 
     private final EntityManagerFactory emf;
-
 
     public SarzaService(EntityManagerFactory emf) {
         this.emf = emf;
     }
-    
-     public void addSarza(db.Otprema otprema, 
-            int zadato0_32,   int izdato0_32,
-            int zadato0_4,   int izdato0_4,
-            int zadato4_8,   int izdato4_8, 
-            int zadato8_11,  int izdato8_11, 
+
+    public void addSarza(db.Otprema otprema,
+            int zadato0_32, int izdato0_32,
+            int zadato0_4, int izdato0_4,
+            int zadato4_8, int izdato4_8,
+            int zadato8_11, int izdato8_11,
             int zadato11_16, int izdato11_16,
             int zadato16_22, int izdato16_22,
             int zadato16_32, int izdato16_32,
@@ -85,9 +83,8 @@ public class SarzaService{
 
     }
 
-     
     public List<db.Sarza> getSarzeZaOtpremu(long otprema) {
-       try {
+        try {
             EntityManager em = emf.createEntityManager();
             Query q = em.createQuery("SELECT s FROM Sarza s WHERE s.otprema.id = :otprema");
             q.setParameter("otprema", otprema);
@@ -100,6 +97,31 @@ public class SarzaService{
             result.add(a);
             System.out.println(ex);
             return result;
+        }
+    }
+
+    public List<db.Sarza> getSarzeZaOtpreme(List<Long> otpremeIds) {
+
+        if (otpremeIds == null || otpremeIds.isEmpty()) {
+            return new ArrayList<>();
+        }
+
+        try {
+            EntityManager em = emf.createEntityManager();
+
+            Query q = em.createQuery(
+                    "SELECT s FROM Sarza s WHERE s.otprema.id IN :ids ORDER BY s.date ASC"
+            );
+
+            q.setParameter("ids", otpremeIds);
+
+            List<db.Sarza> result = q.getResultList();
+            em.close();
+
+            return result;
+        } catch (Exception ex) {
+            System.out.println(ex);
+            return new ArrayList<>();
         }
     }
     /*
@@ -157,5 +179,5 @@ public class SarzaService{
             return result;
         }
     }
-   */
+     */
 }

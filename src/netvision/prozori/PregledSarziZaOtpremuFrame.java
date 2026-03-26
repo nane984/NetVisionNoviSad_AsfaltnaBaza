@@ -262,7 +262,7 @@ public class PregledSarziZaOtpremuFrame extends javax.swing.JFrame {
             obj[i][7] = auto.getAgregatizdato1116();
             obj[i][8] = auto.getAgregatizdato1622();
             obj[i][9] = auto.getAgregatizdato1632();
-            obj[i][10] = auto.getBitumenzadato();
+            obj[i][10] = auto.getBitumenizdato();
             
             obj[i][11] = Convert.convertDateToStringDate(auto.getDate());
             obj[i][12] = Convert.convertDateToStringTime(auto.getDate());

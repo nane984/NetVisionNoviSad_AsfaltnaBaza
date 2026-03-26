@@ -454,7 +454,7 @@ public class InternalFrameGlavnaSlika2 extends javax.swing.JInternalFrame {
         );
 
         jPanel1.add(jPanel2);
-        jPanel2.setBounds(0, 100, 430, 473);
+        jPanel2.setBounds(0, 100, 430, 482);
 
         jPanel3.setBackground(new java.awt.Color(204, 255, 255));
         jPanel3.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, null, java.awt.Color.lightGray, null, null));

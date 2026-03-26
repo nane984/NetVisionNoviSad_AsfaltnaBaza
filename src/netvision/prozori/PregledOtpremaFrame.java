@@ -11,6 +11,7 @@ import dbService.SarzaService;
 import java.net.URL;
 import java.time.LocalDate;
 import java.time.ZoneId;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
@@ -18,6 +19,7 @@ import java.util.List;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import utils.Convert;
 
@@ -76,8 +78,6 @@ public class PregledOtpremaFrame extends javax.swing.JFrame {
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItemPotrosnjaMaterijala = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
-        jMenuItem1 = new javax.swing.JMenuItem();
         jMenuItem5 = new javax.swing.JMenuItem();
         jMenuItem3 = new javax.swing.JMenuItem();
         jMenuItem4 = new javax.swing.JMenuItem();
@@ -263,22 +263,6 @@ public class PregledOtpremaFrame extends javax.swing.JFrame {
         });
         jMenu1.add(jMenuItemPotrosnjaMaterijala);
 
-        jMenuItem2.setText("Potrosnja komponenti");
-        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem2ActionPerformed(evt);
-            }
-        });
-        jMenu1.add(jMenuItem2);
-
-        jMenuItem1.setText("Potrosnja po otpremi");
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
-            }
-        });
-        jMenu1.add(jMenuItem1);
-
         jMenuItem5.setText("Potrosnja po recepturi");
         jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -339,7 +323,7 @@ public class PregledOtpremaFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonPregledRNOdustaniActionPerformed
 
     private void jButtonFilterIzlistajRadneNalogeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonFilterIzlistajRadneNalogeActionPerformed
-        
+
         LocalDate od = filterDatumOd.getDate();
         LocalDate dO = filterDatumDo.getDate();
 
@@ -357,14 +341,14 @@ public class PregledOtpremaFrame extends javax.swing.JFrame {
 
         Date dateDo = Date.from(
                 dO.atTime(23, 59, 59)
-                  .atZone(ZoneId.systemDefault())
-                  .toInstant()
+                        .atZone(ZoneId.systemDefault())
+                        .toInstant()
         );
-       
+
         fillTable(otpremaDb.getFilteredData(filterOtprema.getSelectedItem().toString(),
                 filterKupac.getSelectedItem().toString(), filterGradiliste.getSelectedItem().toString(),
                 filterMarkaAsfalta.getSelectedItem().toString(), dateOd, dateDo));
-        
+
     }//GEN-LAST:event_jButtonFilterIzlistajRadneNalogeActionPerformed
 
     private void pregledRNDetaljiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pregledRNDetaljiActionPerformed
@@ -380,7 +364,24 @@ public class PregledOtpremaFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_jTableOtpremaMouseClicked
 
     private void jMenuItemPotrosnjaMaterijalaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemPotrosnjaMaterijalaActionPerformed
-        pregledSarzaZaOtpremu();
+        List<db.Otprema> listaOtprema = new ArrayList<>();
+
+        DefaultTableModel model = (DefaultTableModel) jTableOtprema.getModel();
+        int rowCount = model.getRowCount();
+
+        for (int i = 0; i < rowCount; i++) {
+            db.Otprema o = (db.Otprema) model.getValueAt(i, 0); // kolona 0 je objekat Otprema
+            listaOtprema.add(o);
+        }
+
+        if (pregledPotrosnjeZaOtpremeFrame != null) {
+            pregledPotrosnjeZaOtpremeFrame.dispose();
+        }
+        pregledPotrosnjeZaOtpremeFrame = new PregledPotrosnjeZaOtpremeFrame(
+                sarzaDb, listaOtprema, filterDatumOd.getText(), filterDatumDo.getText(), filterMarkaAsfalta.getItemAt(filterMarkaAsfalta.getSelectedIndex()));
+
+        pregledPotrosnjeZaOtpremeFrame.setVisible(true);
+
     }//GEN-LAST:event_jMenuItemPotrosnjaMaterijalaActionPerformed
 
     private void pregledSarzaZaOtpremu() {
@@ -388,8 +389,11 @@ public class PregledOtpremaFrame extends javax.swing.JFrame {
             if (pregledSarziZaOtpremuFrame != null) {
                 pregledSarziZaOtpremuFrame.dispose();
             }
-            pregledSarziZaOtpremuFrame = new PregledSarziZaOtpremuFrame(sarzaDb,
-                    otpremaDb.getOtprema(Long.parseLong(jTableOtprema.getValueAt(jTableOtprema.getSelectedRow(), 0).toString())));
+            
+             // Direktno uzimamo ceo Otprema objekat iz kolone 0
+            db.Otprema otpr = (db.Otprema) jTableOtprema.getValueAt(jTableOtprema.getSelectedRow(), 0);
+            
+            pregledSarziZaOtpremuFrame = new PregledSarziZaOtpremuFrame(sarzaDb, otpr);
 
             pregledSarziZaOtpremuFrame.setVisible(true);
 
@@ -397,20 +401,6 @@ public class PregledOtpremaFrame extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Niste selektovali radni nalog", "Obavestenje", 0);
         }
     }
-
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-
-        //    izvestajPoKupcuFrame.fillTable(jTableRadniNalozi);
-        //    izvestajPoKupcuFrame.setFilter(filterDatumOd.getDateStringOrEmptyString(), filterDatumDo.getDateStringOrEmptyString(), getFilter());
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
-
-    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-        if (jTableOtprema.getRowCount() >= 1) {
-
-        } else {
-            JOptionPane.showMessageDialog(this, "Popunite filtere za zeljeni izvestaj", "Obavestenje", 0);
-        }
-    }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
 
@@ -475,7 +465,7 @@ public class PregledOtpremaFrame extends javax.swing.JFrame {
         int i = 0;
         Object[][] obj = new Object[result.size()][7];
         for (db.Otprema otprema : result) {
-            obj[i][0] = otprema.getId();
+            obj[i][0] = otprema;
             obj[i][1] = otprema.getReceptura();
             obj[i][2] = otprema.getKupac();
             obj[i][3] = otprema.getGradiliste();
@@ -486,13 +476,34 @@ public class PregledOtpremaFrame extends javax.swing.JFrame {
         }
 
         jTableOtprema.removeAll();
-        DefaultTableModel model = new DefaultTableModel(obj, new Object[]{"r.b.", "Marka asfalta", "Kupac", "Gradiliste", "Ugovoreno", "Isporuceno", "Datum"});
+        DefaultTableModel model = new DefaultTableModel(obj, new Object[]{"r.b.", "Marka asfalta", "Kupac", "Gradiliste", "Ugovoreno", "Isporuceno", "Datum"}) {
+            @Override
+            public Class<?> getColumnClass(int columnIndex) {
+                if (columnIndex == 0) {
+                    return db.Otprema.class; // da tabela zna tip objekta
+                }
+                return Object.class;
+            }
+        };
         jTableOtprema.setModel(model);
         jTableOtprema.setRowMargin(4);
         jTableOtprema.setRowHeight(40);
         jTableOtprema.setShowGrid(true);
         jTableOtprema.getColumnModel().getColumn(0).setMaxWidth(45);
         jTableOtprema.setDefaultEditor(Object.class, null);
+
+        // Opcionalno: kontrola kako se objekat prikazuje
+        jTableOtprema.getColumnModel().getColumn(0).setCellRenderer(new DefaultTableCellRenderer() {
+            @Override
+            public void setValue(Object value) {
+                if (value instanceof db.Otprema) {
+                    db.Otprema o = (db.Otprema) value;
+                    setText(String.valueOf(o.getId())); // prikazuje ID, a objekat je tu
+                } else {
+                    super.setValue(value);
+                }
+            }
+        });
 
     }
 
@@ -573,8 +584,6 @@ public class PregledOtpremaFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel72;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
@@ -591,4 +600,5 @@ public class PregledOtpremaFrame extends javax.swing.JFrame {
     private final OtpremaService otpremaDb;
 
     private PregledSarziZaOtpremuFrame pregledSarziZaOtpremuFrame;
+    private PregledPotrosnjeZaOtpremeFrame pregledPotrosnjeZaOtpremeFrame;
 }
