@@ -7,7 +7,7 @@ import javax.persistence.metamodel.CollectionAttribute;
 import javax.persistence.metamodel.SingularAttribute;
 import javax.persistence.metamodel.StaticMetamodel;
 
-@Generated(value="EclipseLink-2.5.2.v20140319-rNA", date="2026-03-26T12:18:19")
+@Generated(value="EclipseLink-2.5.2.v20140319-rNA", date="2026-04-05T20:56:07")
 @StaticMetamodel(Otprema.class)
 public class Otprema_ { 
 

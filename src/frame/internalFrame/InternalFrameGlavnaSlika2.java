@@ -10,12 +10,17 @@ import constatnt.Image;
 import constatnt.LabelText;
 import dbService.OtpremaService;
 import dbService.RecepturaService;
+import dbService.SarzaService;
 import java.awt.Color;
 import java.awt.Point;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.net.URL;
+import java.time.LocalDate;
+import java.time.ZoneId;
+import java.util.Date;
 import java.util.List;
+import java.util.stream.Collectors;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
@@ -50,7 +55,7 @@ public class InternalFrameGlavnaSlika2 extends javax.swing.JInternalFrame {
      * @param img
      */
     public InternalFrameGlavnaSlika2(Pogon pogon, RecepturaService recepturaDb,
-            OtpremaService otpremaDb, ProracunBrSarzi proracunKomponenti,  Image img) {
+            OtpremaService otpremaDb, SarzaService sarzaDb, ProracunBrSarzi proracunKomponenti,  Image img) {
         initComponents();
         URL iconURL = getClass().getResource("/img/logo.png");
         ImageIcon icon = new ImageIcon(iconURL);
@@ -58,6 +63,7 @@ public class InternalFrameGlavnaSlika2 extends javax.swing.JInternalFrame {
         this.pogon = pogon;
         this.recepturaDb = recepturaDb;
         this.otpremaDb = otpremaDb;
+        this.sarzaDb = sarzaDb;
         this.proracunKomponenti = proracunKomponenti;
         initMinMax();
         initTimer();
@@ -171,6 +177,42 @@ public class InternalFrameGlavnaSlika2 extends javax.swing.JInternalFrame {
         jProgressBarPritisakVazduha = new javax.swing.JProgressBar();
         jLabelPritisakVazduha1 = new javax.swing.JLabel();
         jButtonResetCiklusa = new javax.swing.JButton();
+        jPanel11 = new javax.swing.JPanel();
+        zadatoFk1 = new javax.swing.JLabel();
+        zadatoFk = new javax.swing.JLabel();
+        zadatoFk2 = new javax.swing.JLabel();
+        zadatoFS1 = new javax.swing.JLabel();
+        zadatoFS = new javax.swing.JLabel();
+        zadatoFk3 = new javax.swing.JLabel();
+        zadato0_5 = new javax.swing.JLabel();
+        zadato0_4 = new javax.swing.JLabel();
+        zadatoFk4 = new javax.swing.JLabel();
+        zadato4_9 = new javax.swing.JLabel();
+        zadato4_8 = new javax.swing.JLabel();
+        zadatoFk5 = new javax.swing.JLabel();
+        zadato8_12 = new javax.swing.JLabel();
+        zadato8_11 = new javax.swing.JLabel();
+        zadatoFk6 = new javax.swing.JLabel();
+        zadato11_17 = new javax.swing.JLabel();
+        zadato11_16 = new javax.swing.JLabel();
+        zadatoFk7 = new javax.swing.JLabel();
+        zadato16_23 = new javax.swing.JLabel();
+        zadato16_22 = new javax.swing.JLabel();
+        zadatoFk8 = new javax.swing.JLabel();
+        zadato16_33 = new javax.swing.JLabel();
+        zadato16_32 = new javax.swing.JLabel();
+        zadatoFk9 = new javax.swing.JLabel();
+        zadato33 = new javax.swing.JLabel();
+        zadato032 = new javax.swing.JLabel();
+        zadatoFk10 = new javax.swing.JLabel();
+        zadatoBitumen1 = new javax.swing.JLabel();
+        zadatoBitumen = new javax.swing.JLabel();
+        zadatoFk11 = new javax.swing.JLabel();
+        zadatoBitumen2 = new javax.swing.JLabel();
+        JlabelUkupnoAsfalta = new javax.swing.JLabel();
+        zadatoFk12 = new javax.swing.JLabel();
+        jSeparator1 = new javax.swing.JSeparator();
+        jButton2 = new javax.swing.JButton();
 
         jPanel1.setLayout(null);
 
@@ -276,10 +318,14 @@ public class InternalFrameGlavnaSlika2 extends javax.swing.JInternalFrame {
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jButtonPromenaBrzineKorpe, javax.swing.GroupLayout.DEFAULT_SIZE, 191, Short.MAX_VALUE)
                     .addComponent(jButtonStartDizniKorpe, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(18, 18, Short.MAX_VALUE)
-                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButtonStartDizni, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButtonPraznjenjeVagona, javax.swing.GroupLayout.DEFAULT_SIZE, 193, Short.MAX_VALUE)))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addGap(0, 16, Short.MAX_VALUE)
+                        .addComponent(jButtonStartDizni, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addComponent(jButtonPraznjenjeVagona, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1074,6 +1120,267 @@ public class InternalFrameGlavnaSlika2 extends javax.swing.JInternalFrame {
         jPanel1.add(jButtonResetCiklusa);
         jButtonResetCiklusa.setBounds(460, 520, 150, 40);
 
+        jPanel11.setBorder(javax.swing.BorderFactory.createTitledBorder("Potrosnja za danasnji dan"));
+
+        zadatoFk1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        zadatoFk1.setText("Filer kupovni:");
+
+        zadatoFk.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        zadatoFk.setText("0");
+
+        zadatoFk2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        zadatoFk2.setText("kg");
+
+        zadatoFS1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        zadatoFS1.setText("Filer Sopstveni:");
+
+        zadatoFS.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        zadatoFS.setText("0");
+
+        zadatoFk3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        zadatoFk3.setText("kg");
+
+        zadato0_5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        zadato0_5.setText("Frakcija 0_2:");
+
+        zadato0_4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        zadato0_4.setText("0");
+
+        zadatoFk4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        zadatoFk4.setText("kg");
+
+        zadato4_9.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        zadato4_9.setText("Frakcija 2_4:");
+
+        zadato4_8.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        zadato4_8.setText("0");
+
+        zadatoFk5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        zadatoFk5.setText("kg");
+
+        zadato8_12.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        zadato8_12.setText("Frakcija 4_8:");
+
+        zadato8_11.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        zadato8_11.setText("0");
+
+        zadatoFk6.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        zadatoFk6.setText("kg");
+
+        zadato11_17.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        zadato11_17.setText("Frakcija 8_11:");
+
+        zadato11_16.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        zadato11_16.setText("0");
+
+        zadatoFk7.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        zadatoFk7.setText("kg");
+
+        zadato16_23.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        zadato16_23.setText("Frakcija 11_16:");
+
+        zadato16_22.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        zadato16_22.setText("0");
+
+        zadatoFk8.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        zadatoFk8.setText("kg");
+
+        zadato16_33.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        zadato16_33.setText("Frakcija 16_22:");
+
+        zadato16_32.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        zadato16_32.setText("0");
+
+        zadatoFk9.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        zadatoFk9.setText("kg");
+
+        zadato33.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        zadato33.setText("Bajpas: ");
+
+        zadato032.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        zadato032.setText("0");
+
+        zadatoFk10.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        zadatoFk10.setText("kg");
+
+        zadatoBitumen1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        zadatoBitumen1.setText("Bitumen:");
+
+        zadatoBitumen.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        zadatoBitumen.setText("0");
+
+        zadatoFk11.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        zadatoFk11.setText("kg");
+
+        zadatoBitumen2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        zadatoBitumen2.setText("Ukupno asfalta:");
+
+        JlabelUkupnoAsfalta.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        JlabelUkupnoAsfalta.setText("0");
+
+        zadatoFk12.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        zadatoFk12.setText("t");
+
+        jButton2.setText("Prikazi rezultate");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel11Layout = new javax.swing.GroupLayout(jPanel11);
+        jPanel11.setLayout(jPanel11Layout);
+        jPanel11Layout.setHorizontalGroup(
+            jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel11Layout.createSequentialGroup()
+                .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel11Layout.createSequentialGroup()
+                        .addGap(28, 28, 28)
+                        .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(zadatoFk1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(zadatoFS1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(zadato0_5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(zadato4_9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(zadato8_12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(zadato11_17, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(zadato16_23, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(zadato16_33, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(zadato33, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(zadatoBitumen1, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(39, 39, 39)
+                        .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(jPanel11Layout.createSequentialGroup()
+                                .addComponent(zadato16_32, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(zadatoFk9, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel11Layout.createSequentialGroup()
+                                .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(zadatoFS, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE)
+                                    .addComponent(zadatoFk, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(18, 18, 18)
+                                .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(zadatoFk2, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(zadatoFk3, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(jPanel11Layout.createSequentialGroup()
+                                .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(zadato0_4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(zadato4_8, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(18, 18, 18)
+                                .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(zadatoFk4, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(zadatoFk5, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(jPanel11Layout.createSequentialGroup()
+                                .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(zadato16_22, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE)
+                                    .addComponent(zadato8_11, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(zadato11_16, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(18, 18, 18)
+                                .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(zadatoFk6, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(zadatoFk7, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(zadatoFk8, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(jPanel11Layout.createSequentialGroup()
+                                .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(zadatoBitumen, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(zadato032, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(18, 18, 18)
+                                .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(zadatoFk11, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(zadatoFk10, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                    .addGroup(jPanel11Layout.createSequentialGroup()
+                        .addGap(34, 34, 34)
+                        .addComponent(zadatoBitumen2, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(JlabelUkupnoAsfalta, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(zadatoFk12, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel11Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 316, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(12, Short.MAX_VALUE))
+            .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        jPanel11Layout.setVerticalGroup(
+            jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel11Layout.createSequentialGroup()
+                .addGap(28, 28, 28)
+                .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel11Layout.createSequentialGroup()
+                        .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(zadatoFk)
+                            .addComponent(zadatoFk2))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(zadatoFS)
+                            .addComponent(zadatoFk3))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(zadato0_4)
+                            .addComponent(zadatoFk4))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(zadato4_8)
+                            .addComponent(zadatoFk5))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(zadato8_11)
+                            .addComponent(zadatoFk6))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(zadato11_16)
+                            .addComponent(zadatoFk7))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(zadato16_22)
+                            .addComponent(zadatoFk8))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(zadato16_32)
+                            .addComponent(zadatoFk9))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(zadato032)
+                            .addComponent(zadatoFk10))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(zadatoBitumen)
+                            .addComponent(zadatoFk11)))
+                    .addGroup(jPanel11Layout.createSequentialGroup()
+                        .addComponent(zadatoFk1)
+                        .addGap(18, 18, 18)
+                        .addComponent(zadatoFS1)
+                        .addGap(18, 18, 18)
+                        .addComponent(zadato0_5)
+                        .addGap(18, 18, 18)
+                        .addComponent(zadato4_9)
+                        .addGap(18, 18, 18)
+                        .addComponent(zadato8_12)
+                        .addGap(18, 18, 18)
+                        .addComponent(zadato11_17)
+                        .addGap(18, 18, 18)
+                        .addComponent(zadato16_23)
+                        .addGap(18, 18, 18)
+                        .addComponent(zadato16_33)
+                        .addGap(18, 18, 18)
+                        .addComponent(zadato33)
+                        .addGap(18, 18, 18)
+                        .addComponent(zadatoBitumen1)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(JlabelUkupnoAsfalta)
+                        .addComponent(zadatoFk12))
+                    .addComponent(zadatoBitumen2))
+                .addGap(55, 55, 55)
+                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(180, 180, 180))
+        );
+
+        jPanel1.add(jPanel11);
+        jPanel11.setBounds(1160, 100, 350, 540);
+
         jScrollPane1.setViewportView(jPanel1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -1309,6 +1616,80 @@ public class InternalFrameGlavnaSlika2 extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_jButtonResetCiklusaActionPerformed
 
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        prikaziRezultatePotrosnjeNaDnevnomNivou();
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    public void prikaziRezultatePotrosnjeNaDnevnomNivou(){
+        double filerK = 0;
+        double filerS = 0;
+        double bajpas = 0;
+        double agregat02 = 0;
+        double agregat24 = 0;
+        double agregat48 = 0;
+        double agregat811 = 0;
+        double agregat1116 = 0;
+        double agregat1622 = 0;
+        double bitumen = 0;
+        
+        double ukupnoAsfalta = 0;
+        
+        LocalDate od = LocalDate.now();
+        LocalDate dO = LocalDate.now();
+
+        Date dateOd = Date.from(
+                od.atStartOfDay(ZoneId.systemDefault()).toInstant()
+        );
+
+        Date dateDo = Date.from(
+                dO.atTime(23, 59, 59)
+                        .atZone(ZoneId.systemDefault())
+                        .toInstant()
+        );
+
+        List<db.Otprema> otprema = otpremaDb.getFilteredData("", "", "", jComboBoxRecepturaKomponente.getSelectedItem().toString(), dateOd, dateDo);
+
+        List<Long> ids = otprema.stream().map(o -> o.getId()).collect(Collectors.toList());
+
+        List<db.Sarza> sarze = sarzaDb.getSarzeZaOtpreme(ids);
+
+        for (db.Sarza sarza : sarze) {
+            filerK += sarza.getFilerkupovniizdato();
+            filerS += sarza.getFilersopstveniizdato();
+            agregat02 += sarza.getAgregaizdato04();
+            agregat24 += sarza.getAgregatizdato48();
+            agregat48 += sarza.getAgregatizdato811();
+            agregat811 += sarza.getAgregatizdato1116();
+            agregat1116 += sarza.getAgregatizdato1622();
+            agregat1622 += sarza.getAgregatizdato1632();
+            bajpas += sarza.getAgregatizdato032();
+            bitumen += sarza.getBitumenizdato();
+        }
+        
+        ukupnoAsfalta =  filerK + filerS + agregat02 + agregat24 +
+            agregat48 + agregat811 + agregat1116 + agregat1622 +
+            bajpas + bitumen;
+        
+        ukupnoAsfalta = ukupnoAsfalta / 1000;
+        
+        JlabelUkupnoAsfalta.setText(String.format("%.2f", ukupnoAsfalta));
+        
+
+        zadatoFk.setText(String.format("%.2f", filerK));
+        zadatoFS.setText(String.format("%.2f", filerS));
+
+        zadato0_4.setText(String.format("%.2f", agregat02));
+        zadato4_8.setText(String.format("%.2f", agregat24));
+        zadato8_11.setText(String.format("%.2f", agregat48));
+        zadato11_16.setText(String.format("%.2f", agregat811));
+        zadato16_22.setText(String.format("%.2f", agregat1116));
+        zadato16_32.setText(String.format("%.2f", agregat1622));
+        zadato032.setText(String.format("%.2f", bajpas));
+
+        zadatoBitumen.setText(String.format("%.2f", bitumen));
+
+    }
+    
     private void getReceptureZaComboBoxKomponente() {
         recepture = recepturaDb.getReceptiOrderId();
         DefaultComboBoxModel model = (DefaultComboBoxModel) jComboBoxRecepturaKomponente.getModel();
@@ -1729,6 +2110,7 @@ public class InternalFrameGlavnaSlika2 extends javax.swing.JInternalFrame {
     private javax.swing.JToggleButton ButtonRad;
     private javax.swing.JToggleButton ButtonSusara;
     private javax.swing.JToggleButton ButtonVelikiGorionik;
+    private javax.swing.JLabel JlabelUkupnoAsfalta;
     private javax.swing.JLabel MWheaderIzdatoRA;
     private javax.swing.JLabel MWheaderZadatoRA;
     private javax.swing.ButtonGroup buttonGroupIzborSilosa;
@@ -1755,6 +2137,7 @@ public class InternalFrameGlavnaSlika2 extends javax.swing.JInternalFrame {
     private javax.swing.JLabel headerZadatoFKup;
     private javax.swing.JLabel headerZadatoFSop;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButtonExit;
     private javax.swing.JButton jButtonGrejanjeVagona;
     private javax.swing.JButton jButtonPraznjenjeVagona;
@@ -1786,6 +2169,7 @@ public class InternalFrameGlavnaSlika2 extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabelukupnoUradjenihSarzi;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
+    private javax.swing.JPanel jPanel11;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
@@ -1796,6 +2180,7 @@ public class InternalFrameGlavnaSlika2 extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel9;
     private javax.swing.JProgressBar jProgressBarPritisakVazduha;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JSeparator jSeparator1;
     private javax.swing.JToggleButton jToggleButtonSilos1;
     private javax.swing.JToggleButton jToggleButtonSilos2;
     private javax.swing.JToggleButton jToggleButtonSilos3;
@@ -1818,6 +2203,38 @@ public class InternalFrameGlavnaSlika2 extends javax.swing.JInternalFrame {
     private javax.swing.JLabel opisIzdato;
     private javax.swing.JLabel opisZadato;
     private javax.swing.JSpinner zadataKolicina;
+    private javax.swing.JLabel zadato032;
+    private javax.swing.JLabel zadato0_4;
+    private javax.swing.JLabel zadato0_5;
+    private javax.swing.JLabel zadato11_16;
+    private javax.swing.JLabel zadato11_17;
+    private javax.swing.JLabel zadato16_22;
+    private javax.swing.JLabel zadato16_23;
+    private javax.swing.JLabel zadato16_32;
+    private javax.swing.JLabel zadato16_33;
+    private javax.swing.JLabel zadato33;
+    private javax.swing.JLabel zadato4_8;
+    private javax.swing.JLabel zadato4_9;
+    private javax.swing.JLabel zadato8_11;
+    private javax.swing.JLabel zadato8_12;
+    private javax.swing.JLabel zadatoBitumen;
+    private javax.swing.JLabel zadatoBitumen1;
+    private javax.swing.JLabel zadatoBitumen2;
+    private javax.swing.JLabel zadatoFS;
+    private javax.swing.JLabel zadatoFS1;
+    private javax.swing.JLabel zadatoFk;
+    private javax.swing.JLabel zadatoFk1;
+    private javax.swing.JLabel zadatoFk10;
+    private javax.swing.JLabel zadatoFk11;
+    private javax.swing.JLabel zadatoFk12;
+    private javax.swing.JLabel zadatoFk2;
+    private javax.swing.JLabel zadatoFk3;
+    private javax.swing.JLabel zadatoFk4;
+    private javax.swing.JLabel zadatoFk5;
+    private javax.swing.JLabel zadatoFk6;
+    private javax.swing.JLabel zadatoFk7;
+    private javax.swing.JLabel zadatoFk8;
+    private javax.swing.JLabel zadatoFk9;
     // End of variables declaration//GEN-END:variables
     private Timer timer;
     private final Image img;
@@ -1826,6 +2243,7 @@ public class InternalFrameGlavnaSlika2 extends javax.swing.JInternalFrame {
     private final Pogon pogon;
     private final RecepturaService recepturaDb;
     private final OtpremaService otpremaDb;
+    private final SarzaService sarzaDb;
     private List<db.Receptura> recepture;
     private final ProracunBrSarzi proracunKomponenti;
     

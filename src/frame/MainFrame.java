@@ -224,7 +224,7 @@ public class MainFrame extends javax.swing.JFrame {
        if (glavnaSlike2Frame != null) {
             glavnaSlike2Frame.dispose();   
         }
-        glavnaSlike2Frame = new InternalFrameGlavnaSlika2(pogon, RecepturaDb, otpremaDb, proracunKomponenti, new Image());
+        glavnaSlike2Frame = new InternalFrameGlavnaSlika2(pogon, RecepturaDb, otpremaDb, sarzaDb, proracunKomponenti, new Image());
         jDesktopPane1.add(glavnaSlike2Frame);
         glavnaSlike2Frame.show();
         glavnaSlike2Frame.setLocation(xOsa, yOsa);
@@ -242,6 +242,10 @@ public class MainFrame extends javax.swing.JFrame {
         } else {
             throw new RuntimeException("No Screens Found");
         }
+    }
+     
+    public void dnevniPrikaz(){
+        glavnaSlike2Frame.prikaziRezultatePotrosnjeNaDnevnomNivou();
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -223,7 +223,7 @@
                               <Component id="zadatoFS" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="zadatoFk3" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="zadato0_4" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="zadatoFk4" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -268,7 +268,7 @@
                           <Component id="zadatoFk1" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="zadatoFS1" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
                           <Component id="zadato0_5" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="zadato4_9" min="-2" max="-2" attributes="0"/>
@@ -348,7 +348,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Tahoma" size="14" style="0"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Frakcija 0_32:"/>
+            <Property name="text" type="java.lang.String" value="Bajpas"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="zadato0_4">
@@ -428,7 +428,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Tahoma" size="14" style="0"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Frakcija 0_4:"/>
+            <Property name="text" type="java.lang.String" value="Frakcija 0_2:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="zadato4_9">
@@ -436,7 +436,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Tahoma" size="14" style="0"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Frakcija 4_8:"/>
+            <Property name="text" type="java.lang.String" value="Frakcija 2_4:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="zadato8_12">
@@ -444,7 +444,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Tahoma" size="14" style="0"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Frakcija 8_11:"/>
+            <Property name="text" type="java.lang.String" value="Frakcija 4_8:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="zadato11_17">
@@ -452,7 +452,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Tahoma" size="14" style="0"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Frakcija 11_16:"/>
+            <Property name="text" type="java.lang.String" value="Frakcija 8_11:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="zadato16_23">
@@ -460,7 +460,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Tahoma" size="14" style="0"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Frakcija 16_22:"/>
+            <Property name="text" type="java.lang.String" value="Frakcija 11_16:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="zadato16_33">
@@ -468,7 +468,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Tahoma" size="14" style="0"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Frakcija 16_32:"/>
+            <Property name="text" type="java.lang.String" value="Frakcija 16_22:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="zadato33">
@@ -476,7 +476,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Tahoma" size="14" style="0"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Frakcija 0_32:"/>
+            <Property name="text" type="java.lang.String" value="Bajpas: "/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="zadatoBitumen1">

@@ -216,6 +216,7 @@ public class NetVision {
                     public void actionPerformed(ActionEvent e) {
                         nv.resetCom();
                         nv.writeInDbSarze();
+                        main2.dnevniPrikaz();
                     }
                 });
                 nv.timer.start();

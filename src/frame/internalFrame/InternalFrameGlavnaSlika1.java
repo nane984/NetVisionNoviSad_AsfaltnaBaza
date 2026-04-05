@@ -63,8 +63,7 @@ public class InternalFrameGlavnaSlika1 extends javax.swing.JInternalFrame {
         this.pogon = pogon;
         this.recepturaDb = recepturaDb;
         //this.recepturaDb = recepturaDb;
-        this.potrosnjaDnevna = new HashMap<>();
-        
+
         initMinMax();
         initTimer();
     }
@@ -3798,21 +3797,27 @@ public class InternalFrameGlavnaSlika1 extends javax.swing.JInternalFrame {
     private void jButtonGorionilSusareIncreaseMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonGorionilSusareIncreaseMousePressed
         NetVision.mb.writeMX(true,
                 pogon.getSusara().getGorionikSusareSnagaPlus().getKomanda().getAdresaVrednosti());
+        buttonPressedPowerIncrease = true;
+        lastSignalTimePowerIncrease = System.currentTimeMillis();
     }//GEN-LAST:event_jButtonGorionilSusareIncreaseMousePressed
 
     private void jButtonGorionilSusareIncreaseMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonGorionilSusareIncreaseMouseReleased
         NetVision.mb.writeMX(false,
                 pogon.getSusara().getGorionikSusareSnagaPlus().getKomanda().getAdresaVrednosti());
+        buttonPressedPowerIncrease = false;
     }//GEN-LAST:event_jButtonGorionilSusareIncreaseMouseReleased
 
     private void jButtonGorionikSusareReduceMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonGorionikSusareReduceMousePressed
         NetVision.mb.writeMX(true,
                 pogon.getSusara().getGorionikSusareSnagaMinus().getKomanda().getAdresaVrednosti());
+        buttonPressedPowerDecrease = true;
+        lastSignalTimePowerDecrease = System.currentTimeMillis();
     }//GEN-LAST:event_jButtonGorionikSusareReduceMousePressed
 
     private void jButtonGorionikSusareReduceMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonGorionikSusareReduceMouseReleased
         NetVision.mb.writeMX(false,
                 pogon.getSusara().getGorionikSusareSnagaMinus().getKomanda().getAdresaVrednosti());
+        buttonPressedPowerDecrease = false;
     }//GEN-LAST:event_jButtonGorionikSusareReduceMouseReleased
 
     private void Klapna1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Klapna1MousePressed
@@ -3961,7 +3966,7 @@ public class InternalFrameGlavnaSlika1 extends javax.swing.JInternalFrame {
                 case 5:
                     int[] r5 = LocalUsfull.getStanjeZalihaMinusKolicina(pogon.getAsfaltSilosi().getSilos5().getVrednostVisa(), pogon.getAsfaltSilosi().getSilos5().getVrednostNiza(), a);
                     NetVision.mb.writeMWs(r5, pogon.getAsfaltSilosi().getSilos5().getAdresaVrednostiNiza());
-                    break;                
+                    break;
             }
         }
 
@@ -3992,7 +3997,7 @@ public class InternalFrameGlavnaSlika1 extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jButtonGrejanjeUstaSilosa1ActionPerformed
 
     private void jButtonGrejanjeUstaSilosa2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGrejanjeUstaSilosa2ActionPerformed
-         NetVision.mb.writeMX(!pogon.getAsfaltSilosi().getGrejanjeUstaSilosaAsfalta2().isVrednost(), pogon.getAsfaltSilosi().getGrejanjeUstaSilosaAsfalta2().getAdresaVrednosti());
+        NetVision.mb.writeMX(!pogon.getAsfaltSilosi().getGrejanjeUstaSilosaAsfalta2().isVrednost(), pogon.getAsfaltSilosi().getGrejanjeUstaSilosaAsfalta2().getAdresaVrednosti());
     }//GEN-LAST:event_jButtonGrejanjeUstaSilosa2ActionPerformed
 
     private void jButtonGrejanjeUstaSilosa3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGrejanjeUstaSilosa3ActionPerformed
@@ -4026,25 +4031,25 @@ public class InternalFrameGlavnaSlika1 extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_vibroSitoPreddozator7MousePressed
 
     private void linearBargraphVagaFrakcijaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_linearBargraphVagaFrakcijaMousePressed
-            showScreen(screenTarirajVagaFrakcije,
+        showScreen(screenTarirajVagaFrakcije,
                 pogon.getAgregat().getVagaFrakcije().getOpis(),
                 pogon.getAgregat().getVagaFrakcijeTariraj()
-               );
+        );
     }//GEN-LAST:event_linearBargraphVagaFrakcijaMousePressed
 
     private void linearBargraphVagaFilerMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_linearBargraphVagaFilerMousePressed
         showScreen(screenTarirajVagaFiler,
                 pogon.getFiler().getVagaFilera().getOpis(),
                 pogon.getFiler().getVagaFileraTariraj()
-               );
+        );
     }//GEN-LAST:event_linearBargraphVagaFilerMousePressed
 
     private void linearBargraphVagaBitumenMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_linearBargraphVagaBitumenMousePressed
-        
+
         showScreen(screenTarirajVagaBitumen,
                 pogon.getBitumen().getVagaBitumen().getOpis(),
                 pogon.getBitumen().getVagaBitumenTariraj()
-               );
+        );
     }//GEN-LAST:event_linearBargraphVagaBitumenMousePressed
 
     private void TotalStopDoz1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TotalStopDoz1MouseClicked
@@ -4124,11 +4129,16 @@ public class InternalFrameGlavnaSlika1 extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_vibroSilosFilerKupovniOtprasivanjeMousePressed
 
     private void jButtonGorionilSusareIncreaseMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonGorionilSusareIncreaseMouseExited
-        gorionikBezbednostIskljuciNaPlus = true;
+        NetVision.mb.writeMX(false,
+                pogon.getSusara().getGorionikSusareSnagaPlus().getKomanda().getAdresaVrednosti());
+        buttonPressedPowerIncrease = false;
+
     }//GEN-LAST:event_jButtonGorionilSusareIncreaseMouseExited
 
     private void jButtonGorionikSusareReduceMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonGorionikSusareReduceMouseExited
-         gorionikBezbednostIskljuciNaMinus = true;
+        NetVision.mb.writeMX(false,
+                pogon.getSusara().getGorionikSusareSnagaMinus().getKomanda().getAdresaVrednosti());
+        buttonPressedPowerDecrease = false;
     }//GEN-LAST:event_jButtonGorionikSusareReduceMouseExited
 
     private void KorpaMozeStopMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_KorpaMozeStopMousePressed
@@ -4182,22 +4192,30 @@ public class InternalFrameGlavnaSlika1 extends javax.swing.JInternalFrame {
             }
         });
     }
-    
-    private void bezbednostZaUpravljanjeGorionikom(){
-        if(pogon.getSusara().getGorionikSusareSnagaPlus().getKomanda().isVrednost()  && 
-                gorionikBezbednostIskljuciNaPlus){
-            
-            NetVision.mb.writeMX(false,
-                pogon.getSusara().getGorionikSusareSnagaPlus().getKomanda().getAdresaVrednosti());
-            gorionikBezbednostIskljuciNaPlus = false;
+
+    private void bezbednostZaUpravljanjeGorionikom() {
+
+        long now = System.currentTimeMillis();
+
+        if (buttonPressedPowerIncrease) {
+            lastSignalTimePowerIncrease = now;
         }
-        
-        if(pogon.getSusara().getGorionikSusareSnagaMinus().getKomanda().isVrednost()  && 
-                gorionikBezbednostIskljuciNaMinus){
-            
+
+        // WATCHDOG 
+        if (now - lastSignalTimePowerIncrease > 400) {
+           NetVision.mb.writeMX(false,
+                    pogon.getSusara().getGorionikSusareSnagaPlus().getKomanda().getAdresaVrednosti());
+        }
+
+               
+        if (buttonPressedPowerDecrease) {
+            lastSignalTimePowerDecrease = now;
+        }
+
+        // WATCHDOG (ako nešto krene po zlu)
+        if (now - lastSignalTimePowerDecrease > 400) {
             NetVision.mb.writeMX(false,
-                pogon.getSusara().getGorionikSusareSnagaMinus().getKomanda().getAdresaVrednosti());
-            gorionikBezbednostIskljuciNaMinus = false;
+                    pogon.getSusara().getGorionikSusareSnagaMinus().getKomanda().getAdresaVrednosti());
         }
     }
 
@@ -4246,7 +4264,7 @@ public class InternalFrameGlavnaSlika1 extends javax.swing.JInternalFrame {
                 asfaltSilos5.setBackgroundColor(BackgroundColor.TRANSPARENT);
                 break;
         }
-        
+
         LabelText.getColor(jButtonGrejanjeUstaSilosa1, pogon.getAsfaltSilosi().getGrejanjeUstaSilosaAsfalta1());
         LabelText.getColor(jButtonGrejanjeUstaSilosa2, pogon.getAsfaltSilosi().getGrejanjeUstaSilosaAsfalta2());
         LabelText.getColor(jButtonGrejanjeUstaSilosa3, pogon.getAsfaltSilosi().getGrejanjeUstaSilosaAsfalta3());
@@ -4256,17 +4274,17 @@ public class InternalFrameGlavnaSlika1 extends javax.swing.JInternalFrame {
     private void refreshPozicijaKorpe() {
         vagonPoz1.setVisible(pogon.getKorpaVagon().getPozicijaVagona1().isVrednost());
         vagonPoz2.setVisible(pogon.getKorpaVagon().getPozicijaVagona2().isVrednost() && !pogon.getKorpaVagon().getPozicijaVagona3().isVrednost());
-        vagonPoz3.setVisible(pogon.getKorpaVagon().getPozicijaVagona2().isVrednost() && pogon.getKorpaVagon().getPozicijaVagona3().isVrednost());  
+        vagonPoz3.setVisible(pogon.getKorpaVagon().getPozicijaVagona2().isVrednost() && pogon.getKorpaVagon().getPozicijaVagona3().isVrednost());
         vagonPoz4.setVisible(!pogon.getKorpaVagon().getPozicijaVagona2().isVrednost() && pogon.getKorpaVagon().getPozicijaVagona3().isVrednost());
         vagonPoz5.setVisible(pogon.getKorpaVagon().getPozicijaVagona4().isVrednost());
         vagonPoz6.setVisible(pogon.getKorpaVagon().getPozicijaVagona5().isVrednost());
         vagonPoz7.setVisible(pogon.getKorpaVagon().getPozicijaVagona6().isVrednost());
-        
+
         korpaVPoz1.setVisible(pogon.getKorpaVagon().getPozicijaKorpe1().isVrednost());
         korpaVPoz2.setVisible(!pogon.getKorpaVagon().getPozicijaKorpe2().isVrednost());
         korpaVPoz3.setVisible(!pogon.getKorpaVagon().getPozicijaKorpe3().isVrednost());
-        
-         LabelText.getText(KorpaMozeStop, pogon.getKorpaVagon().getKorpaMozeStop());
+
+        LabelText.getText(KorpaMozeStop, pogon.getKorpaVagon().getKorpaMozeStop());
     }
 
     private void pumpaZaNaftuTermopaka() {
@@ -4343,22 +4361,22 @@ public class InternalFrameGlavnaSlika1 extends javax.swing.JInternalFrame {
                 pogon.getPreddozatori().getPreddozator10().getGreska().isVrednost(), img.getFrekfrentni());
         img.setImg(DOFrekfrentniDozitanje11, pogon.getPreddozatori().getPreddozator11().getPotvrdaRada().isVrednost(),
                 pogon.getPreddozatori().getPreddozator11().getGreska().isVrednost(), img.getFrekfrentni());
-        
-        prazanPreddozator1.setVisible( pogon.getPreddozatori().getPreddozator1().getPrazanPredozator().isVrednost());
-        prazanPreddozator2.setVisible( pogon.getPreddozatori().getPreddozator2().getPrazanPredozator().isVrednost());
-        prazanPreddozator3.setVisible( pogon.getPreddozatori().getPreddozator3().getPrazanPredozator().isVrednost());
-        prazanPreddozator4.setVisible( pogon.getPreddozatori().getPreddozator4().getPrazanPredozator().isVrednost());
-        prazanPreddozator5.setVisible( pogon.getPreddozatori().getPreddozator5().getPrazanPredozator().isVrednost());
-        prazanPreddozator6.setVisible( pogon.getPreddozatori().getPreddozator6().getPrazanPredozator().isVrednost());
-        prazanPreddozator7.setVisible( pogon.getPreddozatori().getPreddozator7().getPrazanPredozator().isVrednost());
-        prazanPreddozator8.setVisible( pogon.getPreddozatori().getPreddozator8().getPrazanPredozator().isVrednost());
-        prazanPreddozator9.setVisible( pogon.getPreddozatori().getPreddozator9().getPrazanPredozator().isVrednost());
-        prazanPreddozator10.setVisible( pogon.getPreddozatori().getPreddozator10().getPrazanPredozator().isVrednost());
-        prazanPreddozator11.setVisible( pogon.getPreddozatori().getPreddozator11().getPrazanPredozator().isVrednost());
-        
+
+        prazanPreddozator1.setVisible(pogon.getPreddozatori().getPreddozator1().getPrazanPredozator().isVrednost());
+        prazanPreddozator2.setVisible(pogon.getPreddozatori().getPreddozator2().getPrazanPredozator().isVrednost());
+        prazanPreddozator3.setVisible(pogon.getPreddozatori().getPreddozator3().getPrazanPredozator().isVrednost());
+        prazanPreddozator4.setVisible(pogon.getPreddozatori().getPreddozator4().getPrazanPredozator().isVrednost());
+        prazanPreddozator5.setVisible(pogon.getPreddozatori().getPreddozator5().getPrazanPredozator().isVrednost());
+        prazanPreddozator6.setVisible(pogon.getPreddozatori().getPreddozator6().getPrazanPredozator().isVrednost());
+        prazanPreddozator7.setVisible(pogon.getPreddozatori().getPreddozator7().getPrazanPredozator().isVrednost());
+        prazanPreddozator8.setVisible(pogon.getPreddozatori().getPreddozator8().getPrazanPredozator().isVrednost());
+        prazanPreddozator9.setVisible(pogon.getPreddozatori().getPreddozator9().getPrazanPredozator().isVrednost());
+        prazanPreddozator10.setVisible(pogon.getPreddozatori().getPreddozator10().getPrazanPredozator().isVrednost());
+        prazanPreddozator11.setVisible(pogon.getPreddozatori().getPreddozator11().getPrazanPredozator().isVrednost());
+
         img.setImg(vibroSitoPreddozator5, pogon.getPreddozatori().getPreddozator5Vibrator().isVrednost(), false, pogon.getOtprasivanje().getVibroSito().getTipSlike());
         img.setImg(vibroSitoPreddozator7, pogon.getPreddozatori().getPreddozator7Vibrator().isVrednost(), false, pogon.getOtprasivanje().getVibroSito().getTipSlike());
-        
+
         img.setImg(TotalStopDoz1, pogon.getPreddozatori().getPreddozator1().getTotalStop().isVrednost(), false, pogon.getPreddozatori().getPreddozator1().getTipSlikeTotalStop());
         img.setImg(TotalStopDoz2, pogon.getPreddozatori().getPreddozator2().getTotalStop().isVrednost(), false, pogon.getPreddozatori().getPreddozator2().getTipSlikeTotalStop());
         img.setImg(TotalStopDoz3, pogon.getPreddozatori().getPreddozator3().getTotalStop().isVrednost(), false, pogon.getPreddozatori().getPreddozator3().getTipSlikeTotalStop());
@@ -4468,7 +4486,7 @@ public class InternalFrameGlavnaSlika1 extends javax.swing.JInternalFrame {
         img.setImg(vibroSilosFilerKupovni, pogon.getFiler().getVibroSilosKupovniFiler().getKomanda().isVrednost(), false, pogon.getFiler().getVibroSilosKupovniFiler().getTipSlike());
         img.setImg(vibroSilosFilerSopstveni, pogon.getFiler().getVibroSilosSopstveniFiler().getKomanda().isVrednost(), false, pogon.getFiler().getVibroSilosSopstveniFiler().getTipSlike());
         img.setImg(vibroSilosFilerKupovniOtprasivanje, pogon.getFiler().getVibroSilosKupovniFilerOtprasivanje().getKomanda().isVrednost(), false, pogon.getFiler().getVibroSilosKupovniFilerOtprasivanje().getTipSlike());
-        
+
         kupovniFilerSilos.setValue(pogon.getFiler().getNivoUKupovnomFileru().getVrednost().getVrednost());
         sopstveniFilerSilos.setValue(pogon.getFiler().getNivoUSopstvenomFileru().getVrednost().getVrednost());
 
@@ -4547,7 +4565,7 @@ public class InternalFrameGlavnaSlika1 extends javax.swing.JInternalFrame {
         TezinaBitumen1.setText(Integer.toString(Convert.getTwoRegisterIntShiftPointToInt(pogon.getBitumen().getSilosBitumen1().getVrednostVisa(), pogon.getBitumen().getSilosBitumen1().getVrednostNiza())));
         TezinaBitumen2.setText(Integer.toString(Convert.getTwoRegisterIntShiftPointToInt(pogon.getBitumen().getSilosBitumen2().getVrednostVisa(), pogon.getBitumen().getSilosBitumen2().getVrednostNiza())));
         TezinaBitumen3.setText(Integer.toString(Convert.getTwoRegisterIntShiftPointToInt(pogon.getBitumen().getSilosBitumen3().getVrednostVisa(), pogon.getBitumen().getSilosBitumen3().getVrednostNiza())));
-    
+
         BitumenSilos1.setValue(pogon.getBitumen().getNivoSilosBitumen1().getVrednost().getVrednost());
         BitumenSilos2.setValue(pogon.getBitumen().getNivoSilosBitumen2().getVrednost().getVrednost());
         BitumenSilos3.setValue(pogon.getBitumen().getNivoSilosBitumen3().getVrednost().getVrednost());
@@ -4556,29 +4574,28 @@ public class InternalFrameGlavnaSlika1 extends javax.swing.JInternalFrame {
     private void refreshMesalica() {
         img.setImg(DOMesalicaMixer, pogon.getMesalica().getMesalica().getKomanda().isVrednost(), false, pogon.getMesalica().getMesalica().getTipSlike());
         img.setImg(DOKlapnaMesalice, pogon.getMesalica().getKlapnaMesalice().getKomanda().isVrednost(), false, pogon.getMesalica().getKlapnaMesalice().getTipSlike());
-        
+
         int struja = pogon.getMesalica().getStrujaMesalice().getVrednost().getVrednost();
         MWStrujaMesalice.setValue(struja);
         linearBargraphStrujaMesalice.setValue(struja);
-        
-        if(struja < 5 && pogon.getMesalica().getMesalica().getKomanda().isVrednost()){
+
+        if (struja < 5 && pogon.getMesalica().getMesalica().getKomanda().isVrednost()) {
             jLabelMesalicaWarning.setText("Mesalica STOP!!!");
-        }else{
+        } else {
             jLabelMesalicaWarning.setText("");
         }
-        
+
         VremeMesanja.setValue(Convert.shiftPointDoubleSign(pogon.getMesalica().getTrenutnoVremeMesanja().getVrednost(), pogon.getMesalica().getTrenutnoVremeMesanja().getBrojDecimala()));
-        
-        
+
         LabelText.getColor(jButtonGrejacMesalice, pogon.getMesalica().getGrejacMesalice());
-        if(pogon.getMesalica().isRucnoAutomatskiGrejac()){
+        if (pogon.getMesalica().isRucnoAutomatskiGrejac()) {
             jButtonGrejacRucnoAutomatski.setBackground(Color.GREEN);
             jButtonGrejacRucnoAutomatski.setText("Automatski");
             vremeUkljHH.setEnabled(true);
             vremeUkljMM.setEnabled(true);
             vremeIskljHH.setEnabled(true);
             vremeIskljMM.setEnabled(true);
-        }else{
+        } else {
             jButtonGrejacRucnoAutomatski.setBackground(Color.LIGHT_GRAY);
             jButtonGrejacRucnoAutomatski.setText("Rucno");
             vremeUkljHH.setEnabled(false);
@@ -4586,27 +4603,27 @@ public class InternalFrameGlavnaSlika1 extends javax.swing.JInternalFrame {
             vremeIskljHH.setEnabled(false);
             vremeIskljMM.setEnabled(false);
         }
-        
+
         c = Calendar.getInstance();
-        jLabelVreme.setText(c.get(Calendar.HOUR_OF_DAY)+" : "+c.get(Calendar.MINUTE)+" ");
-        
+        jLabelVreme.setText(c.get(Calendar.HOUR_OF_DAY) + " : " + c.get(Calendar.MINUTE) + " ");
+
         checkGrejacTurnOnOfAutomatski();
     }
-    
-    private void checkGrejacTurnOnOfAutomatski(){
-        if(pogon.getMesalica().isRucnoAutomatskiGrejac()){
-            if(vremeUkljHH.getSelectedIndex() == c.get(Calendar.HOUR_OF_DAY) && 
-                    vremeUkljMM.getSelectedIndex()==c.get(Calendar.MINUTE) &&
-                    pogon.getMesalica().getGrejacMesalice().isVrednost() == false){
-                
+
+    private void checkGrejacTurnOnOfAutomatski() {
+        if (pogon.getMesalica().isRucnoAutomatskiGrejac()) {
+            if (vremeUkljHH.getSelectedIndex() == c.get(Calendar.HOUR_OF_DAY)
+                    && vremeUkljMM.getSelectedIndex() == c.get(Calendar.MINUTE)
+                    && pogon.getMesalica().getGrejacMesalice().isVrednost() == false) {
+
                 NetVision.mb.writeMX(true, pogon.getMesalica().getGrejacMesalice().getAdresaVrednosti());
                 //pogon.getMesalica().getGrejacMesalice().setVrednost(true);
-                 
+
             }
-            if(vremeIskljHH.getSelectedIndex() == c.get(Calendar.HOUR_OF_DAY) && 
-                    vremeIskljMM.getSelectedIndex()==c.get(Calendar.MINUTE) &&
-                    pogon.getMesalica().getGrejacMesalice().isVrednost() == true){
-                
+            if (vremeIskljHH.getSelectedIndex() == c.get(Calendar.HOUR_OF_DAY)
+                    && vremeIskljMM.getSelectedIndex() == c.get(Calendar.MINUTE)
+                    && pogon.getMesalica().getGrejacMesalice().isVrednost() == true) {
+
                 NetVision.mb.writeMX(false, pogon.getMesalica().getGrejacMesalice().getAdresaVrednosti());
                 //pogon.getMesalica().getGrejacMesalice().setVrednost(false);
             }
@@ -4661,7 +4678,7 @@ public class InternalFrameGlavnaSlika1 extends javax.swing.JInternalFrame {
         kupovniFilerSilos.setMaxValue(pogon.getFiler().getNivoUKupovnomFileru().getMax());
         sopstveniFilerSilos.setMinValue(pogon.getFiler().getNivoUSopstvenomFileru().getMin());
         sopstveniFilerSilos.setMaxValue(pogon.getFiler().getNivoUSopstvenomFileru().getMax());
-        
+
         linearBargraphStrujaMesalice.setMinValue(pogon.getMesalica().getStrujaMesalice().getMin());
         linearBargraphStrujaMesalice.setMaxValue(pogon.getMesalica().getStrujaMesalice().getMax());
     }
@@ -4708,9 +4725,9 @@ public class InternalFrameGlavnaSlika1 extends javax.swing.JInternalFrame {
 
         return screen;
     }
-    
-     private KomandniProzorTariraj showScreen(KomandniProzorTariraj screen, String opis, 
-             Digitalac komanda) {
+
+    private KomandniProzorTariraj showScreen(KomandniProzorTariraj screen, String opis,
+            Digitalac komanda) {
         p = MousePoint.getMousePoint();
         if (screen == null) {
             screen = new KomandniProzorTariraj(p.x, p.y, opis, komanda);
@@ -4719,7 +4736,6 @@ public class InternalFrameGlavnaSlika1 extends javax.swing.JInternalFrame {
 
         return screen;
     }
-     
 
     private KomandniProzorPrekidac showScreen(KomandniProzorPrekidac screen,
             int tipSlike, String opis, Digitalac komandaUkljuci, Digitalac komandaIskljuci,
@@ -4768,7 +4784,7 @@ public class InternalFrameGlavnaSlika1 extends javax.swing.JInternalFrame {
     }
 
     private void taster(boolean ukljIsklj, int offset) {
-        NetVision.mb.writeMX(ukljIsklj, offset);  
+        NetVision.mb.writeMX(ukljIsklj, offset);
     }
 
 
@@ -5147,11 +5163,11 @@ public class InternalFrameGlavnaSlika1 extends javax.swing.JInternalFrame {
 
     private KomandniProzorTaster screenMesalica = null;
     private KomandniProzorTaster screenKlapnaMesalice = null;
-    
+
     private KomandniProzorTariraj screenTarirajVagaFrakcije = null;
     private KomandniProzorTariraj screenTarirajVagaFiler = null;
     private KomandniProzorTariraj screenTarirajVagaBitumen = null;
-    
+
     private KomandniProzorZaliheTezine screenTezineBitumen1 = null;
     private KomandniProzorZaliheTezine screenTezineBitumen2 = null;
     private KomandniProzorZaliheTezine screenTezineBitumen3 = null;
@@ -5159,10 +5175,12 @@ public class InternalFrameGlavnaSlika1 extends javax.swing.JInternalFrame {
     private KomandniProzorZaliheTezine screenTezineFilerKupovni = null;
 
     private int izborSilosaAsfalta = 1;
-    
+
     private Calendar c = Calendar.getInstance();
-    private boolean gorionikBezbednostIskljuciNaPlus = false;
-    private boolean gorionikBezbednostIskljuciNaMinus = false;
+
+    private volatile boolean buttonPressedPowerIncrease = false;
+    private long lastSignalTimePowerIncrease = 0;
     
-    private Map<String, Integer> potrosnjaDnevna;
+    private volatile boolean buttonPressedPowerDecrease = false;
+    private long lastSignalTimePowerDecrease = 0;
 }

@@ -29,8 +29,10 @@ public class PregledPotrosnjeZaOtpremeFrame extends javax.swing.JFrame {
      * Creates new form pregledSarziZaOtpremuFrame
      *
      * @param sarzaDb
-     * @param otprema
-     * @param otpremaDb
+     * @param otpreme
+     * @param datumOd
+     * @param datumDo
+     * @param markaAsfalta
      */
     public PregledPotrosnjeZaOtpremeFrame(SarzaService sarzaDb, List<db.Otprema> otpreme, String datumOd, String datumDo, String markaAsfalta) {
         initComponents();
@@ -126,7 +128,7 @@ public class PregledPotrosnjeZaOtpremeFrame extends javax.swing.JFrame {
         zadatoFS.setText("Filer Sopstveni:");
 
         zadato032.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        zadato032.setText("Frakcija 0_32:");
+        zadato032.setText("Bajpas");
 
         zadato0_4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         zadato0_4.setText("Frakcija 0_4:");
@@ -156,25 +158,25 @@ public class PregledPotrosnjeZaOtpremeFrame extends javax.swing.JFrame {
         zadatoFS1.setText("Filer Sopstveni:");
 
         zadato0_5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        zadato0_5.setText("Frakcija 0_4:");
+        zadato0_5.setText("Frakcija 0_2:");
 
         zadato4_9.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        zadato4_9.setText("Frakcija 4_8:");
+        zadato4_9.setText("Frakcija 2_4:");
 
         zadato8_12.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        zadato8_12.setText("Frakcija 8_11:");
+        zadato8_12.setText("Frakcija 4_8:");
 
         zadato11_17.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        zadato11_17.setText("Frakcija 11_16:");
+        zadato11_17.setText("Frakcija 8_11:");
 
         zadato16_23.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        zadato16_23.setText("Frakcija 16_22:");
+        zadato16_23.setText("Frakcija 11_16:");
 
         zadato16_33.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        zadato16_33.setText("Frakcija 16_32:");
+        zadato16_33.setText("Frakcija 16_22:");
 
         zadato33.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        zadato33.setText("Frakcija 0_32:");
+        zadato33.setText("Bajpas: ");
 
         zadatoBitumen1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         zadatoBitumen1.setText("Bitumen:");
@@ -481,13 +483,13 @@ public class PregledPotrosnjeZaOtpremeFrame extends javax.swing.JFrame {
     public void fillData(List<db.Otprema> otprema) {
         double filerK = 0;
         double filerS = 0;
-        double agregat032 = 0;
-        double agregat04 = 0;
+        double bajpas = 0;
+        double agregat02 = 0;
+        double agregat24 = 0;
         double agregat48 = 0;
         double agregat811 = 0;
         double agregat1116 = 0;
         double agregat1622 = 0;
-        double agregat1632 = 0;
         double bitumen = 0;
         
         double ukupnoAsfalta = 0;
@@ -499,19 +501,19 @@ public class PregledPotrosnjeZaOtpremeFrame extends javax.swing.JFrame {
         for (db.Sarza sarza : sarze) {
             filerK += sarza.getFilerkupovniizdato();
             filerS += sarza.getFilersopstveniizdato();
-            agregat04 += sarza.getAgregaizdato04();
-            agregat48 += sarza.getAgregatizdato48();
-            agregat811 += sarza.getAgregatizdato811();
-            agregat1116 += sarza.getAgregatizdato1116();
-            agregat1622 += sarza.getAgregatizdato1622();
-            agregat1632 += sarza.getAgregatizdato1632();
-            agregat032 += sarza.getAgregatizdato032();
+            agregat02 += sarza.getAgregaizdato04();
+            agregat24 += sarza.getAgregatizdato48();
+            agregat48 += sarza.getAgregatizdato811();
+            agregat811 += sarza.getAgregatizdato1116();
+            agregat1116 += sarza.getAgregatizdato1622();
+            agregat1622 += sarza.getAgregatizdato1632();
+            bajpas += sarza.getAgregatizdato032();
             bitumen += sarza.getBitumenizdato();
         }
         
-        ukupnoAsfalta =  filerK + filerS + agregat04 + agregat48 +
-            agregat811 + agregat1116 + agregat1622 + agregat1632 +
-            agregat032 + bitumen;
+        ukupnoAsfalta =  filerK + filerS + agregat02 + agregat24 +
+            agregat48 + agregat811 + agregat1116 + agregat1622 +
+            bajpas + bitumen;
         
         ukupnoAsfalta = ukupnoAsfalta / 1000;
         
@@ -522,13 +524,13 @@ public class PregledPotrosnjeZaOtpremeFrame extends javax.swing.JFrame {
         zadatoFk.setText(String.format("%.2f", filerK));
         zadatoFS.setText(String.format("%.2f", filerS));
 
-        zadato0_4.setText(String.format("%.2f", agregat04));
-        zadato4_8.setText(String.format("%.2f", agregat48));
-        zadato8_11.setText(String.format("%.2f", agregat811));
-        zadato11_16.setText(String.format("%.2f", agregat1116));
-        zadato16_22.setText(String.format("%.2f", agregat1622));
-        zadato16_32.setText(String.format("%.2f", agregat1632));
-        zadato032.setText(String.format("%.2f", agregat032));
+        zadato0_4.setText(String.format("%.2f", agregat02));
+        zadato4_8.setText(String.format("%.2f", agregat24));
+        zadato8_11.setText(String.format("%.2f", agregat48));
+        zadato11_16.setText(String.format("%.2f", agregat811));
+        zadato16_22.setText(String.format("%.2f", agregat1116));
+        zadato16_32.setText(String.format("%.2f", agregat1622));
+        zadato032.setText(String.format("%.2f", bajpas));
 
         zadatoBitumen.setText(String.format("%.2f", bitumen));
         
