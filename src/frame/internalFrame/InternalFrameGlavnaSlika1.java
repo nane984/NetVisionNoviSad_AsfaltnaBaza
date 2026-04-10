@@ -3795,29 +3795,33 @@ public class InternalFrameGlavnaSlika1 extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_DOPumpaBitumenaMousePressed
 
     private void jButtonGorionilSusareIncreaseMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonGorionilSusareIncreaseMousePressed
-        NetVision.mb.writeMX(true,
-                pogon.getSusara().getGorionikSusareSnagaPlus().getKomanda().getAdresaVrednosti());
         buttonPressedPowerIncrease = true;
         lastSignalTimePowerIncrease = System.currentTimeMillis();
+
+        NetVision.mb.writeMX(true,
+                pogon.getSusara().getGorionikSusareSnagaPlus().getKomanda().getAdresaVrednosti());
     }//GEN-LAST:event_jButtonGorionilSusareIncreaseMousePressed
 
     private void jButtonGorionilSusareIncreaseMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonGorionilSusareIncreaseMouseReleased
+        buttonPressedPowerIncrease = false;
         NetVision.mb.writeMX(false,
                 pogon.getSusara().getGorionikSusareSnagaPlus().getKomanda().getAdresaVrednosti());
-        buttonPressedPowerIncrease = false;
+
     }//GEN-LAST:event_jButtonGorionilSusareIncreaseMouseReleased
 
     private void jButtonGorionikSusareReduceMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonGorionikSusareReduceMousePressed
-        NetVision.mb.writeMX(true,
-                pogon.getSusara().getGorionikSusareSnagaMinus().getKomanda().getAdresaVrednosti());
         buttonPressedPowerDecrease = true;
         lastSignalTimePowerDecrease = System.currentTimeMillis();
+        NetVision.mb.writeMX(true,
+                pogon.getSusara().getGorionikSusareSnagaMinus().getKomanda().getAdresaVrednosti());
+
     }//GEN-LAST:event_jButtonGorionikSusareReduceMousePressed
 
     private void jButtonGorionikSusareReduceMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonGorionikSusareReduceMouseReleased
+        buttonPressedPowerDecrease = false;
         NetVision.mb.writeMX(false,
                 pogon.getSusara().getGorionikSusareSnagaMinus().getKomanda().getAdresaVrednosti());
-        buttonPressedPowerDecrease = false;
+
     }//GEN-LAST:event_jButtonGorionikSusareReduceMouseReleased
 
     private void Klapna1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Klapna1MousePressed
@@ -4129,16 +4133,18 @@ public class InternalFrameGlavnaSlika1 extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_vibroSilosFilerKupovniOtprasivanjeMousePressed
 
     private void jButtonGorionilSusareIncreaseMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonGorionilSusareIncreaseMouseExited
+        buttonPressedPowerIncrease = false;
         NetVision.mb.writeMX(false,
                 pogon.getSusara().getGorionikSusareSnagaPlus().getKomanda().getAdresaVrednosti());
-        buttonPressedPowerIncrease = false;
+
 
     }//GEN-LAST:event_jButtonGorionilSusareIncreaseMouseExited
 
     private void jButtonGorionikSusareReduceMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonGorionikSusareReduceMouseExited
+        buttonPressedPowerDecrease = false;
         NetVision.mb.writeMX(false,
                 pogon.getSusara().getGorionikSusareSnagaMinus().getKomanda().getAdresaVrednosti());
-        buttonPressedPowerDecrease = false;
+
     }//GEN-LAST:event_jButtonGorionikSusareReduceMouseExited
 
     private void KorpaMozeStopMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_KorpaMozeStopMousePressed
@@ -4197,25 +4203,48 @@ public class InternalFrameGlavnaSlika1 extends javax.swing.JInternalFrame {
 
         long now = System.currentTimeMillis();
 
+        // 🔼 INCREASE
         if (buttonPressedPowerIncrease) {
+
+            // ako slučajno nije TRUE → pošalji opet
+            if (!pogon.getSusara().getGorionikSusareSnagaPlus().getKomanda().isVrednost()) {
+
+                NetVision.mb.writeMX(true,
+                        pogon.getSusara().getGorionikSusareSnagaPlus().getKomanda().getAdresaVrednosti());
+            }
+
             lastSignalTimePowerIncrease = now;
         }
 
-        // WATCHDOG 
-        if (now - lastSignalTimePowerIncrease > 400) {
-           NetVision.mb.writeMX(false,
+        // WATCHDOG (fallback)
+        if ((now - lastSignalTimePowerIncrease > 400)
+                && pogon.getSusara().getGorionikSusareSnagaPlus().getKomanda().isVrednost()) {
+
+            NetVision.mb.writeMX(false,
                     pogon.getSusara().getGorionikSusareSnagaPlus().getKomanda().getAdresaVrednosti());
+
+            buttonPressedPowerIncrease = false;
         }
 
-               
+        // 🔽 DECREASE (isto)
         if (buttonPressedPowerDecrease) {
+
+            if (!pogon.getSusara().getGorionikSusareSnagaMinus().getKomanda().isVrednost()) {
+
+                NetVision.mb.writeMX(true,
+                        pogon.getSusara().getGorionikSusareSnagaMinus().getKomanda().getAdresaVrednosti());
+            }
+
             lastSignalTimePowerDecrease = now;
         }
 
-        // WATCHDOG (ako nešto krene po zlu)
-        if (now - lastSignalTimePowerDecrease > 400) {
+        if ((now - lastSignalTimePowerDecrease > 400)
+                && pogon.getSusara().getGorionikSusareSnagaMinus().getKomanda().isVrednost()) {
+
             NetVision.mb.writeMX(false,
                     pogon.getSusara().getGorionikSusareSnagaMinus().getKomanda().getAdresaVrednosti());
+
+            buttonPressedPowerDecrease = false;
         }
     }
 
@@ -5180,7 +5209,7 @@ public class InternalFrameGlavnaSlika1 extends javax.swing.JInternalFrame {
 
     private volatile boolean buttonPressedPowerIncrease = false;
     private long lastSignalTimePowerIncrease = 0;
-    
+
     private volatile boolean buttonPressedPowerDecrease = false;
     private long lastSignalTimePowerDecrease = 0;
 }

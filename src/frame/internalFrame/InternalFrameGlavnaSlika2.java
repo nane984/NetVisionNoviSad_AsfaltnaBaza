@@ -1435,6 +1435,7 @@ public class InternalFrameGlavnaSlika2 extends javax.swing.JInternalFrame {
 
     private void jComboBoxRecepturaKomponentePopupMenuWillBecomeVisible(javax.swing.event.PopupMenuEvent evt) {//GEN-FIRST:event_jComboBoxRecepturaKomponentePopupMenuWillBecomeVisible
         getReceptureZaComboBoxKomponente();
+        prikaziRezultatePotrosnjeNaDnevnomNivou();
     }//GEN-LAST:event_jComboBoxRecepturaKomponentePopupMenuWillBecomeVisible
 
     private void jButtonRecepturaPrihvatiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRecepturaPrihvatiActionPerformed
